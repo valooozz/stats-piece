@@ -42,7 +42,7 @@ def afficher_scenes(scenes: List[Dict[str, str]]) -> None:
 def afficher_characters(characters: List[Dict[str, int]]) -> None:
     characters_sorted = sorted(characters, key=lambda x: x['Total Words'], reverse=True)
     for character in characters_sorted:
-        print(f"- {character['Character']}, Total lines: {character['Répliques']}, Total Words: {character['Mots']}")
+        print(f"- {character['Character']}, Répliques : {character['Total lines']}, Mots : {character['Total Words']}")
         
         
 # Fonction pour afficher les informations détaillées d'un personnage spécifique
@@ -59,10 +59,10 @@ def afficher_details_personnage(characters: List[Dict[str, int]], scenes: List[D
     # Rechercher les scènes où le personnage est présent
     scenes_personnage = [scene for scene in scenes if nom_personnage in scene['Characters'].split(':')]
     if not scenes_personnage:
-        print(f"Le personnage '{nom_personnage}' n'est présent dans aucune scène.")
+        print(f"Le personnage '{nom_personnage}' n'est présent·e dans aucune scène.")
         return
 
-    print(f"\nScènes où {nom_personnage} est présent:")
+    print(f"\nScènes où {nom_personnage} est présent·e :")
     acte_actuel = None
     for scene in scenes_personnage:
         acte, numero_scene = scene['Scene'].split(':')
