@@ -116,7 +116,7 @@ def create_directory(dir_name: str) -> bool:
         return False
 
 
-def write_info(dir_name: str, dico_scenes: Dict[str, List[Character]], dico_characters: Dict[str, Tuple[int, int]]):
+def write_info(dir_name: str, dico_scenes: Dict[str, List[Character]], dico_characters: Dict[str, Tuple[int, int]]) -> bool:
     """ Écris les statistiques collectées dans des fichiers csv
 
     Args:
@@ -201,7 +201,7 @@ def analyse_file(file_name: str) -> Tuple[Dict[str, List[Character]], Dict[Chara
         print(f"Une erreur s'est produite : {e}")
 
 
-def main():
+def main() -> None:
     if len(sys.argv) < 2:
         print("python3 stats_piece.py [fichier txt à analyser]")
     else:

@@ -1,0 +1,3 @@
+Ajouter une demande du dossier à analyser (en argument au script je pense)
+
+Revoir, renommer, commenter code de analyse.py
