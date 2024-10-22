@@ -1,0 +1,11 @@
+1.0 :
+- récupération de statistiques sur la pièce, à partir d'un fichier texte
+- écriture des statistiques dans un fichier csv 
+- quelques commandes textes pour obtenir les informations stockées dans les fichiers csv 
+
+1.1 :
+- possibilité de réaliser des opérations sur les informations stockées (fusion de personnages)
+- ajouts de commandes textes pour obtenir des informations sur la pièce
+
+1.2 :
+- visualisation graphique des données
