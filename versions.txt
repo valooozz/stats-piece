@@ -1,6 +1,6 @@
 1.0 :
-- récupération de statistiques sur la pièce, à partir d'un fichier texte
-- écriture des statistiques dans un fichier csv 
++ récupération de statistiques sur la pièce, à partir d'un fichier texte
++ écriture des statistiques dans des fichiers csv 
 - quelques commandes textes pour obtenir les informations stockées dans les fichiers csv 
 
 1.1 :

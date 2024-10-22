@@ -1,4 +1,6 @@
 import sys
+import os
+import csv
 from typing import Dict, List, Tuple
 
 Character = str
@@ -31,6 +33,7 @@ def change_scene(old_act: str, old_scene: str, line: str) -> Tuple[bool, Scene, 
 
     return (change, new_act, new_scene, last_scene_name)
 
+
 def get_stats_line(line: str) -> Tuple[str, int]:
     """ Récupère des informations sur la ligne lorsque c'est une réplique d'un personnage
 
@@ -51,6 +54,7 @@ def get_stats_line(line: str) -> Tuple[str, int]:
     
     return character, nb_words
 
+
 def add_character_in_scene(list_of_character: List[Character], new_character: Character) -> List[Character]:
     """ Ajoute un personnage à la liste des personnages d'une scène, si celui-ci n'y est pas déjà présent
 
@@ -67,6 +71,7 @@ def add_character_in_scene(list_of_character: List[Character], new_character: Ch
     
     return list_of_character
 
+
 def update_character_info(dico_characters: Dict[Character, Tuple[int, int]], character: Character, nb_words_in_new_line: int) -> Dict[Character, Tuple[int, int]]:
     """ Met à jour les informations sur un personnage
     
@@ -78,6 +83,7 @@ def update_character_info(dico_characters: Dict[Character, Tuple[int, int]], cha
     Returns:
         Dict[Character: Tuple[int, int]]: nouveau dictionnaire des informations sur les personnages
     """
+    
     try:
         nb_lines = dico_characters[character][0]
         nb_words = dico_characters[character][1]
@@ -92,11 +98,72 @@ def update_character_info(dico_characters: Dict[Character, Tuple[int, int]], cha
     
     return dico_characters
 
-def analyse_file(file_name: str):
+
+def create_directory(dir_name: str) -> bool:
+    """ Crée un dossier
+
+    Args:
+        dir_name (str): nom du dossier à créer
+
+    Returns:
+        bool: Retourne True si le dossier a bien été créé
+    """
+    try:
+        os.makedirs(dir_name, exist_ok=True)
+        return True
+    except OSError as e:
+        print(f"Erreur lors de la création du dossier '{dir_name}': {e}")
+        return False
+
+
+def write_info(dir_name: str, dico_scenes: Dict[str, List[Character]], dico_characters: Dict[str, Tuple[int, int]]):
+    """ Écris les statistiques collectées dans des fichiers csv
+
+    Args:
+        dir_name (str): nom du dossier dans lequel créer les fichiers
+        dico_scenes (Dict[str, List[Character]]): dictionnaire contenant des infos sur les scènes
+        dico_characters (Dict[str, Tuple[int, int]]): dictionnaire contenant des infos sur les personnages
+        
+    Returns:
+        bool: retourn True si les informations ont bien été écrites
+    """
+    
+    directory_created = create_directory(dir_name)
+    if not directory_created:
+        return False
+    
+    file_scenes = f"{dir_name}/scenes.csv"
+    file_characters = f"{dir_name}/characters.csv"
+    
+    with open(file_scenes, mode='w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+        writer.writerow(["Scene", "Characters"])
+        
+        for scene, list_characters in dico_scenes.items():
+            str_characters = ""
+            for character in list_characters:
+                str_characters += character
+                str_characters += ":"
+            writer.writerow([scene, str_characters])
+    
+    with open(file_characters, mode='w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+        writer.writerow(["Character", "Total lines", "Total Words"])
+        
+        for character, (total_lines, total_words) in dico_characters.items():
+            writer.writerow([character, total_lines, total_words])
+    
+    return True
+
+
+def analyse_file(file_name: str) -> Tuple[Dict[str, List[Character]], Dict[Character, Tuple[int, int]]]:
     """ Analyse un fichier texte contenant une pièce de théâtre
 
     Args:
         file_name (str): nom du fichier à analyser
+    
+    Returns:
+        Tuple[Dict[str, List[Character]], Dict[Character, Tuple[int, int]]]: dictionnaires des infos sur les scènes et les personnages
     """
     
     current_act: str = "0"
@@ -126,22 +193,25 @@ def analyse_file(file_name: str):
             
             dico_scenes[f"{current_act}:{current_scene}"] = list_of_characters_in_scene # pour la dernière scène
         
-        print(dico_scenes)
-        print()
-        print(dico_characters)
+        return dico_scenes, dico_characters
                 
     except FileNotFoundError:
         print(f"Le fichier {file_name} n'a pas été trouvé.")
     except Exception as e:
         print(f"Une erreur s'est produite : {e}")
 
+
 def main():
-    # Vérifie si le nombre d'arguments est supérieur à 1 (le premier argument est toujours le nom du script)
     if len(sys.argv) < 2:
         print("python3 stats_piece.py [fichier txt à analyser]")
     else:
-        # Affiche l'argument passé
-        analyse_file(sys.argv[1])
+        file_name = sys.argv[1]
+        dir_name = file_name[:-4]
+        dico_scenes, dico_characters = analyse_file(file_name)
+        written = write_info(dir_name, dico_scenes, dico_characters)
+        
+        if written:
+            print(f"Les statistiques ont bien été collectées et ont été enregistrées dans le dossier {dir_name}")
 
 if __name__ == "__main__":
     main()
