@@ -1,5 +1,3 @@
-- ch [perso1] [perso2] pour afficher les liens entre deux persos
-
 Collecter plus de données :
 - nombre de répliques d'une scène
 - nombre de mots d'une scène

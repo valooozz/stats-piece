@@ -4,14 +4,19 @@ v1.0 :
 + quelques commandes textes pour obtenir les informations stockées dans les fichiers csv 
 
 v1.1 :
-- ajouts de commandes textes pour obtenir des informations sur la pièce
++ ajouts de commandes textes pour obtenir des informations sur la pièce
 + gestion des dossiers de collecte
 
 v1.2 :
 - plus de données collectées (nombre de répliques et de mots d'une scène)
+- nouvelles commandes en rapport avec ces nouvelles données
 
 v1.3 :
 - visualisation graphique des données
 
-v1.4 :
+v2.0 :
 - possibilité de réaliser des opérations sur les informations stockées (fusion de personnages, ajout de personnages qui ne parlent pas)
+
+v2.1 :
+- éditeur de fusion
+- éditeur d'ajout

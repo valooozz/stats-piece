@@ -142,10 +142,7 @@ def write_info(dir_name: str, dico_scenes: Dict[str, List[Character]], dico_char
         writer.writerow(["Scene", "Characters"])
         
         for scene, list_characters in dico_scenes.items():
-            str_characters = ""
-            for character in list_characters:
-                str_characters += character
-                str_characters += ":"
+            str_characters = ":".join(list_characters)
             writer.writerow([scene, str_characters])
     
     with open(file_characters, mode='w', newline='', encoding='utf-8') as file:

@@ -2,8 +2,8 @@ import csv
 from typing import List, Dict
 
 
-def read_characters(file_name: str) -> List[Dict[str, int]]:
-    """ Lit les données des personnages depuis le fichier CSV
+def get_characters(file_name: str) -> List[Dict[str, int]]:
+    """ Récupère les données des personnages depuis le fichier CSV
 
     Args:
         file_name (str): nom du fichier à lire
@@ -24,8 +24,8 @@ def read_characters(file_name: str) -> List[Dict[str, int]]:
     return characters
 
 
-def read_scenes(file_name: str) -> List[Dict[str, str]]:
-    """ Lit les données des scènes depuis le fichier CSV
+def get_scenes(file_name: str) -> List[Dict[str, str]]:
+    """ Récupère les données des scènes depuis le fichier CSV
 
     Args:
         file_name (str): nom du fichier
@@ -51,12 +51,12 @@ def print_scenes(scenes: List[Dict[str, str]]) -> None:
     Args:
         scenes (List[Dict[str, str]]): _description_
     """
-    acte_actuel = None
+    current_act = None
     for scene in scenes:
-        acte, numero_scene = scene['Scene'].split(':')
-        if acte != acte_actuel:
-            acte_actuel = acte
-            print(f"=== Acte {acte} ===")
+        act, numero_scene = scene['Scene'].split(':')
+        if act != current_act:
+            current_act = act
+            print(f"=== Acte {act} ===")
         personnages = scene['Characters'].split(':')
         personnages_formates = ', '.join(sorted(personnage for personnage in personnages if personnage))
         print(f"Scène {numero_scene} : {personnages_formates}")
@@ -99,22 +99,46 @@ def print_character_detail(characters: List[Dict[str, int]], scenes: List[Dict[s
         return
 
     print(f"\nScènes où {nom_personnage} est présent·e :")
-    acte_actuel = None
+    current_act = None
     for scene in scenes_personnage:
-        acte, numero_scene = scene['Scene'].split(':')
-        if acte != acte_actuel:
-            acte_actuel = acte
-            print(f"=== Acte {acte} ===")
-        acte, numero_scene = scene['Scene'].split(':')
+        act, numero_scene = scene['Scene'].split(':')
+        if act != current_act:
+            current_act = act
+            print(f"=== Acte {act} ===")
+        act, numero_scene = scene['Scene'].split(':')
         personnages = scene['Characters'].split(':')
         personnages_formates = ', '.join(sorted(personnage for personnage in personnages if personnage and personnage != nom_personnage))
         print(f"Scène {numero_scene} avec : {personnages_formates}")
 
     # Recherche les autres personnages présents dans les scènes avec ce personnage
-    autres_personnages = set()
+    other_characters = set()
     for scene in scenes_personnage:
         personnages = scene['Characters'].split(':')
-        autres_personnages.update(personnage for personnage in personnages if personnage and personnage != nom_personnage)
+        other_characters.update(personnage for personnage in personnages if personnage and personnage != nom_personnage)
 
     print(f"\nPersonnages sur scène avec {nom_personnage}:")
-    print(', '.join(sorted(autres_personnages)))
+    print(', '.join(sorted(other_characters)))
+
+
+def print_characters_together(scenes: List[Dict[str, str]], list_characters: List[str]) -> None:
+    """ Affiche les scènes où les personnages entrés sont ensemble
+
+    Args:
+        scenes (List[Dict[str, str]]): liste des scènes avec les données collectées
+        list_characters (List[str]): liste des personnages à rechercher
+    """
+    
+    characters_set = set(list_characters)
+    
+    current_act = None
+    for scene in scenes:
+        act, numero_scene = scene['Scene'].split(':')
+        if act != current_act:
+            current_act = act
+            print(f"=== Acte {act} ===")
+        characters_scene = set(scene['Characters'].split(':'))
+
+        if characters_set.issubset(characters_scene):
+            other_characters = characters_scene - characters_set
+            other_characters_formated = ', '.join(sorted(other_characters))
+            print(f"Scène {numero_scene} avec : {other_characters_formated}")

@@ -20,7 +20,8 @@ def usage() -> None:
     print("\nsc - Afficher les scènes et les personnages présents")
     print("ch - Afficher les personnages avec leur nombre de répliques et de mots")
     print("ch <nom_personnage> - Afficher les informations détaillées d'un personnage spécifique")
-    print("pt <sc/ch> - Afficher le contenu du fichier csv pour les scènes (sc) ou les personnages (ch)")
+    print("tg <perso1:perso2:...> - Afficher les scènes en commun pour des personnages")
+    print("pt sc|ch - Afficher le contenu du fichier csv pour les scènes (sc) ou les personnages (ch)")
     
     print("\nq - Quitter")
 
@@ -90,8 +91,8 @@ def main() -> None:
         elif command.startswith("ld "):
             piece = command[3:]
             if data.piece_exists(piece):
-                characters = analyse.read_characters(f"{piece}/characters.csv")
-                scenes = analyse.read_scenes(f"{piece}/scenes.csv")
+                characters = analyse.get_characters(f"{piece}/characters.csv")
+                scenes = analyse.get_scenes(f"{piece}/scenes.csv")
                 print(f"Les données de '{piece}' ont été chargées avec succès")
             else:
                 print(f"Aucune donnée ne correspond à la pièce '{piece}'")
@@ -107,12 +108,16 @@ def main() -> None:
             elif command == "sc":
                 analyse.print_scenes(scenes)
                 
+            elif command == "ch":
+                analyse.print_characters(characters)
+            
             elif command.startswith("ch "):
                 nom_personnage = command[3:].strip()
                 analyse.print_character_detail(characters, scenes, nom_personnage)
-                
-            elif command == "ch":
-                analyse.print_characters(characters)
+            
+            elif command.startswith("tg "):
+                list_characters = command[3:].split(":")
+                analyse.print_characters_together(scenes, list_characters)
             
             elif command.startswith("pt "):
                 file_type = command[3:].strip()
