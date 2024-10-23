@@ -4,6 +4,7 @@ import csv
 from typing import Dict, List, Tuple
 
 import data
+import type
 
 CharacterName = str
 SceneName = Tuple[str, str]
@@ -49,7 +50,7 @@ def get_stats_line(line: str) -> Tuple[str, int]:
     parts = line.split(":", 1)
     
     if len(parts) != 2: # Didascalie
-        return None, None
+        return None, len(line)
     
     character = parts[0].strip()
     nb_words = len(parts[1].split())
@@ -139,15 +140,15 @@ def write_info(dir_name: str, dico_scenes: Dict[str, List[CharacterName]], dico_
     
     with open(file_scenes, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
-        writer.writerow(["Scene", "Total lines", "Total words", "Characters"])
+        writer.writerow(list(type.HEADER_SCENES.values()))
         
-        for scene, (total_lines, total_words, list_characters) in dico_scenes.items():
+        for scene, (lines, didascalies, words, list_characters) in dico_scenes.items():
             str_characters = ":".join(list_characters)
-            writer.writerow([scene, total_lines, total_words, str_characters])
+            writer.writerow([scene, lines, didascalies, words, str_characters])
     
     with open(file_characters, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
-        writer.writerow(["Character", "Total lines", "Total Words"])
+        writer.writerow(list(type.HEADER_CHARACTERS.values()))
         
         for character, (total_lines, total_words) in dico_characters.items():
             writer.writerow([character, total_lines, total_words])
@@ -170,12 +171,13 @@ def read_file(file_name: str) -> Tuple[Dict[str, List[CharacterName]], Dict[Char
     current_act: str = "0"
     current_scene: str = "0"
     
-    dico_scenes: Dict[str, Tuple[int, int, List[CharacterName]]] = {}
+    dico_scenes: Dict[str, Tuple[int, int, int, List[CharacterName]]] = {}
     dico_characters: Dict[CharacterName, Tuple[int, int]] = {}
     
     list_of_characters_in_scene: List[CharacterName] = []
     nb_lines_in_scene: int = 0
     nb_words_in_scene: int = 0
+    nb_didascalies_in_scene: int = 0
     
     try:
         with open(file_name, 'r', encoding="utf-8") as file:
@@ -185,7 +187,7 @@ def read_file(file_name: str) -> Tuple[Dict[str, List[CharacterName]], Dict[Char
                 scene_has_changed, current_act, current_scene, last_scene_name = change_scene(current_act, current_scene, line)
                 
                 if scene_has_changed and list_of_characters_in_scene:
-                    dico_scenes[last_scene_name] = (nb_lines_in_scene, nb_words_in_scene, list_of_characters_in_scene)
+                    dico_scenes[last_scene_name] = (nb_lines_in_scene, nb_words_in_scene, nb_didascalies_in_scene, list_of_characters_in_scene)
                     
                     list_of_characters_in_scene = []
                     nb_lines_in_scene = 0
@@ -193,15 +195,19 @@ def read_file(file_name: str) -> Tuple[Dict[str, List[CharacterName]], Dict[Char
                     continue
                 
                 character, nb_words_in_line = get_stats_line(line)
-                if character and nb_words_in_line:
+                if character: # réplique d'un personnage
                     list_of_characters_in_scene = add_character_in_scene(list_of_characters_in_scene, character)
                     dico_characters = update_character_info(dico_characters, character, nb_words_in_line)
                     nb_lines_in_scene += 1
                     nb_words_in_scene += nb_words_in_line
+                elif nb_words_in_line: # didascalie
+                    nb_didascalies_in_scene += 1
+                    nb_words_in_scene += nb_words_in_line
+                    
             
             # Pour la dernière scène
             last_scene_name = f"{current_act}:{current_scene}"
-            dico_scenes[last_scene_name] = (nb_lines_in_scene, nb_words_in_scene, list_of_characters_in_scene)
+            dico_scenes[last_scene_name] = (nb_lines_in_scene, nb_words_in_scene, nb_didascalies_in_scene, list_of_characters_in_scene)
             
         return dico_scenes, dico_characters
                 

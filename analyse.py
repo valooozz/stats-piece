@@ -18,9 +18,9 @@ def get_characters(file_name: str) -> List[type.Character]:
         reader = csv.DictReader(file)
         for row in reader:
             characters.append({
-                'Character': row['Character'],
-                'Total lines': int(row['Total lines']),
-                'Total Words': int(row['Total Words'])
+                'Character': row[type.HEADER_CHARACTERS["CharacterName"]],
+                'Total lines': int(row[type.HEADER_CHARACTERS["Lines"]]),
+                'Total Words': int(row[type.HEADER_CHARACTERS["Words"]])
             })
     return characters
 
@@ -40,10 +40,11 @@ def get_scenes(file_name: str) -> List[type.Scene]:
         reader = csv.DictReader(file)
         for row in reader:
             scenes.append({
-                'Scene': row['Scene'],
-                'Total lines': row['Total lines'],
-                'Total words': row['Total words'],
-                'Characters': row['Characters']
+                'Scene': row[type.HEADER_SCENES["SceneName"]],
+                'Total lines': row[type.HEADER_SCENES["Lines"]],
+                "Didascalies": row[type.HEADER_SCENES["Didascalies"]],
+                'Total words': row[type.HEADER_SCENES["Words"]],
+                'Characters': row[type.HEADER_SCENES["Characters"]]
             })
     return scenes
 
