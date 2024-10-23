@@ -7,6 +7,7 @@ def usage() -> None:
     print("\nh - Afficher cette aide")
     
     print("\nrd [fichier] - Lire un fichier texte pour collecter des données et les stockers dans des fichiers csv")
+    print("ls - Afficher la liste des pièces disponibles, dont on peut analyser les données")
     print("ld [dossier] - Charger les données présentes dans un dossier")
     
     print("\nsc - Afficher les scènes et les personnages présents")
@@ -36,6 +37,15 @@ def main() -> None:
         elif command.startswith("rd "):
             file_name = command[3:]
             read.read(file_name)
+        
+        elif command == "ls":
+            try:
+                with open(read.DATA_FILE, "r", encoding="utf-8") as file:
+                    print("\nListe des pièces disponibles :")
+                    for line in file:
+                        print(f"- {line}")
+            except:
+                print("\nAucune pièce n'a encore été lue par le système")
             
         elif command.startswith("ld "):
             dir_name = command[3:]

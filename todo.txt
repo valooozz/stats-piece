@@ -1,5 +1,4 @@
-Ajouter un fichier qui contient tous les dossiers analysés
-Permettre de supprimer un dossier.
+Permettre de supprimer un dossier
 
 Commandes :
 - pt [sc/ch] pour afficher les fichiers csv en dur 

@@ -6,6 +6,8 @@ from typing import Dict, List, Tuple
 Character = str
 Scene = Tuple[str, str]
 
+DATA_FILE = "data.txt"
+
 def change_scene(old_act: str, old_scene: str, line: str) -> Tuple[bool, Scene, str]:
     """ Change le numéro de l'acte ou de la scène si la ligne est le titre d'acte ou de scène
 
@@ -153,10 +155,13 @@ def write_info(dir_name: str, dico_scenes: Dict[str, List[Character]], dico_char
         for character, (total_lines, total_words) in dico_characters.items():
             writer.writerow([character, total_lines, total_words])
     
+    with open(DATA_FILE, mode='a', encoding='utf-8') as file:
+            file.write(dir_name + '\n')
+    
     return True
 
 
-def analyse_file(file_name: str) -> Tuple[Dict[str, List[Character]], Dict[Character, Tuple[int, int]]]:
+def read_file(file_name: str) -> Tuple[Dict[str, List[Character]], Dict[Character, Tuple[int, int]]]:
     """ Analyse un fichier texte contenant une pièce de théâtre
 
     Args:
@@ -209,7 +214,7 @@ def read(file_name: str) -> None:
     """
     
     dir_name = file_name[:-4]
-    dico_scenes, dico_characters = analyse_file(file_name)
+    dico_scenes, dico_characters = read_file(file_name)
     written = write_info(dir_name, dico_scenes, dico_characters)
     
     if written:
