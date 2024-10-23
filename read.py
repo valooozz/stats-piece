@@ -3,10 +3,10 @@ import os
 import csv
 from typing import Dict, List, Tuple
 
+import data
+
 Character = str
 Scene = Tuple[str, str]
-
-DATA_FILE = "data.txt"
 
 def change_scene(old_act: str, old_scene: str, line: str) -> Tuple[bool, Scene, str]:
     """ Change le numéro de l'acte ou de la scène si la ligne est le titre d'acte ou de scène
@@ -155,8 +155,7 @@ def write_info(dir_name: str, dico_scenes: Dict[str, List[Character]], dico_char
         for character, (total_lines, total_words) in dico_characters.items():
             writer.writerow([character, total_lines, total_words])
     
-    with open(DATA_FILE, mode='a', encoding='utf-8') as file:
-            file.write(dir_name + '\n')
+    data.add_piece(dir_name)
     
     return True
 
@@ -204,6 +203,8 @@ def read_file(file_name: str) -> Tuple[Dict[str, List[Character]], Dict[Characte
         print(f"Le fichier {file_name} n'a pas été trouvé.")
     except Exception as e:
         print(f"Une erreur s'est produite : {e}")
+    
+    return None, None
 
 
 def read(file_name: str) -> None:
@@ -215,10 +216,12 @@ def read(file_name: str) -> None:
     
     dir_name = file_name[:-4]
     dico_scenes, dico_characters = read_file(file_name)
-    written = write_info(dir_name, dico_scenes, dico_characters)
     
-    if written:
-        print(f"Les statistiques ont bien été collectées et ont été enregistrées dans le dossier '{dir_name}'")
+    if dico_scenes and dico_characters:
+        written = write_info(dir_name, dico_scenes, dico_characters)
+    
+        if written:
+            print(f"Les statistiques ont bien été collectées et ont été enregistrées dans le dossier '{dir_name}'")
 
 
 if __name__ == "__main__":

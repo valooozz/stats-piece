@@ -1,5 +1,3 @@
-Permettre de supprimer un dossier
-
 Commandes :
 - pt [sc/ch] pour afficher les fichiers csv en dur 
 - mg [perso1] [perso2] pour fusionner le perso1 dans le perso2 
