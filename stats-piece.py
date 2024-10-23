@@ -28,28 +28,37 @@ def main() -> None:
 
         if command == "h":
             usage()
+            
         elif command == "q":
             print("\nAu revoir !")
             break
+        
         elif command.startswith("rd "):
             file_name = command[3:]
             read.read(file_name)
+            
         elif command.startswith("ld "):
             dir_name = command[3:]
-            characters = analyse.lire_characters(f"{dir_name}/characters.csv")
-            scenes = analyse.lire_scenes(f"{dir_name}/scenes.csv")
+            characters = analyse.read_characters(f"{dir_name}/characters.csv")
+            scenes = analyse.read_scenes(f"{dir_name}/scenes.csv")
+            
         else:
             if not characters or not scenes:
                 print("Vous devez d'abord charger les données d'une pièce.")
+                
             elif command == "sc":
-                analyse.afficher_scenes(scenes)
+                analyse.print_scenes(scenes)
+                
             elif command.startswith("ch "):
                 nom_personnage = command[3:].strip()
-                analyse.afficher_details_personnage(characters, scenes, nom_personnage)
+                analyse.print_character_detail(characters, scenes, nom_personnage)
+                
             elif command == "ch":
-                analyse.afficher_characters(characters)
+                analyse.print_characters(characters)
+                
             else:
                 print("\nCommande inconnue. Veuillez réessayer.")
+
 
 if __name__ == "__main__":
     main()

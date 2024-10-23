@@ -1,5 +1,3 @@
-Revoir, renommer, commenter code de analyse.py
-
 Ajouter un fichier qui contient tous les dossiers analysés
 Permettre de supprimer un dossier.
 

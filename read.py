@@ -215,6 +215,7 @@ def read(file_name: str) -> None:
     if written:
         print(f"Les statistiques ont bien été collectées et ont été enregistrées dans le dossier '{dir_name}'")
 
+
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("python3 stats_piece.py [fichier txt à analyser]")
