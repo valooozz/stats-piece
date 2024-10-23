@@ -50,7 +50,7 @@ def get_stats_line(line: str) -> Tuple[str, int]:
     parts = line.split(":", 1)
     
     if len(parts) != 2: # Didascalie
-        return None, len(line)
+        return None, len(line.split())
     
     character = parts[0].strip()
     nb_words = len(parts[1].split())
@@ -196,6 +196,7 @@ def read_file(file_name: str) -> Tuple[Dict[str, List[CharacterName]], Dict[Char
                     continue
                 
                 character, nb_words_in_line = get_stats_line(line)
+                    
                 if character: # réplique d'un personnage
                     list_of_characters_in_scene = add_character_in_scene(list_of_characters_in_scene, character)
                     dico_characters = update_character_info(dico_characters, character, nb_words_in_line)

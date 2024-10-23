@@ -8,8 +8,8 @@ v1.1 :
 + gestion des dossiers de collecte
 
 v1.2 :
-- plus de données collectées (nombre de répliques et de mots d'une scène)
-- nouvelles commandes en rapport avec ces nouvelles données
++ plus de données collectées (nombre de répliques, de didascalies, et de mots d'une scène)
++ nouvel affichage avec ces données
 
 v1.3 :
 - visualisation graphique des données
