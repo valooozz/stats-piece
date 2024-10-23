@@ -10,24 +10,24 @@ import modify
 def usage() -> None:
     """ Affiche les commandes possibles
     """
-    print("\nh - Afficher cette aide")
+    print("\n  h - Afficher cette aide")
     
-    print("\nrd <fichier> - Lire un fichier texte pour collecter des données et les stockers dans des fichiers csv")
+    print("\n  rd <fichier> - Lire un fichier texte pour collecter des données et les stockers dans des fichiers csv")
     
-    print("\nls - Afficher la liste des pièces disponibles, dont on peut analyser les données")
-    print("ld <dossier> - Charger les données présentes dans un dossier")
-    print("dl <dossier> - Supprimer les données présentes dans un dossier")
+    print("\n  ls - Afficher la liste des pièces disponibles, dont on peut analyser les données")
+    print("  ld <dossier> - Charger les données présentes dans un dossier")
+    print("  rm <dossier> - Supprimer les données présentes dans un dossier")
     
-    print("\nsc - Afficher les scènes et les personnages présents")
-    print("ch [gr] - Afficher les personnages avec leur nombre de répliques et de mots (gr pour afficher un graphique)")
-    print("dt [gr] <nom_personnage> - Afficher les informations détaillées d'un personnage spécifique (gr pour afficher un graphique)")
-    print("tg <perso1> <perso2> <...> - Afficher les scènes en commun pour des personnages")
-    print("pt sc|ch - Afficher le contenu du fichier csv pour les scènes (sc) ou les personnages (ch)")
+    print("\n  sc - Afficher les scènes et les personnages présents")
+    print("  ch [gr] - Afficher les personnages avec leur nombre de répliques et de mots (gr pour afficher un graphique)")
+    print("  dt [gr] <nom_personnage> - Afficher les informations détaillées d'un personnage spécifique (gr pour afficher un graphique)")
+    print("  tg <perso1> <perso2> <...> - Afficher les scènes en commun pour des personnages")
+    print("  pt sc|ch - Afficher le contenu du fichier csv pour les scènes (sc) ou les personnages (ch)")
     
-    print("\nrn <perso> <nouveau_nom> - Renommer un personnage")
-    print("ad <perso> <scene1> <scene2> <...> - Ajouter un personnage dans des scènes")
+    print("\n  rn <perso> <nouveau_nom> - Renommer un personnage")
+    print("  ad <perso> <scene1> <scene2> <...> - Ajouter un personnage dans des scènes")
     
-    print("\nq - Quitter")
+    print("\n  q - Quitter")
 
 
 def delete_piece(piece: str) -> None:
@@ -100,7 +100,7 @@ def main(piece, characters, scenes) -> None:
             else:
                 print(f"Aucune donnée ne correspond à la pièce '{piece}'")
         
-        elif command[0] == "dl":
+        elif command[0] == "rm":
             piece_to_delete = command[1]
             delete_piece(piece_to_delete)
             
