@@ -11,14 +11,16 @@ def usage() -> None:
     """
     print("\nh - Afficher cette aide")
     
-    print("\nrd [fichier] - Lire un fichier texte pour collecter des données et les stockers dans des fichiers csv")
-    print("ls - Afficher la liste des pièces disponibles, dont on peut analyser les données")
-    print("ld [dossier] - Charger les données présentes dans un dossier")
-    print("dl [dossier] - Supprimer les données présentes dans un dossier")
+    print("\nrd <fichier> - Lire un fichier texte pour collecter des données et les stockers dans des fichiers csv")
+    
+    print("\nls - Afficher la liste des pièces disponibles, dont on peut analyser les données")
+    print("ld <dossier> - Charger les données présentes dans un dossier")
+    print("dl <dossier> - Supprimer les données présentes dans un dossier")
     
     print("\nsc - Afficher les scènes et les personnages présents")
     print("ch - Afficher les personnages avec leur nombre de répliques et de mots")
-    print("ch [nom_personnage] - Afficher les informations détaillées d'un personnage spécifique")
+    print("ch <nom_personnage> - Afficher les informations détaillées d'un personnage spécifique")
+    print("pt <sc/ch> - Afficher le contenu du fichier csv pour les scènes (sc) ou les personnages (ch)")
     
     print("\nq - Quitter")
 
@@ -36,12 +38,35 @@ def delete_piece(piece: str) -> None:
         print(f"Les données associées à la pièce '{piece}' ont été supprimées avec succès")
     else:
         print(f"Le dossier '{piece}' n'existe pas")
+
+
+def print_csv(piece: str, file_type: str) -> None:
+    """ Affiche le fichier csv en dur
+
+    Args:
+        piece (str): nom de la pièce
+        file_type (str): type du fichier (sc ou ch)
+    """
+    
+    file_name = f"{piece}/"
+    if file_type == "sc":
+        file_name += "scenes.csv"
+    elif file_type == "ch":
+        file_name += "characters.csv"
+    else:
+        print("Veuillez entrer 'sc' ou 'ch' pour spécifier quel fichier afficher")
+        return
+        
+    with open(file_name, "r", encoding="utf-8") as file:
+        for line in file:
+            print(line, end="")
     
 
 def main() -> None:
     """ Fonction principale qui gère les commandes
     """
     
+    piece = None
     characters = None
     scenes = None
     
@@ -72,8 +97,8 @@ def main() -> None:
                 print(f"Aucune donnée ne correspond à la pièce '{piece}'")
         
         elif command.startswith("dl "):
-            piece = command[3:]
-            delete_piece(piece)
+            piece_to_delete = command[3:]
+            delete_piece(piece_to_delete)
             
         else:
             if not characters or not scenes:
@@ -88,6 +113,13 @@ def main() -> None:
                 
             elif command == "ch":
                 analyse.print_characters(characters)
+            
+            elif command.startswith("pt "):
+                file_type = command[3:].strip()
+                if data.piece_exists(piece):
+                    print_csv(piece, file_type)
+                else:
+                    print(f"Aucune donnée n'est associée à la pièce '{piece}'")
                 
             else:
                 print("Commande inconnue. Veuillez réessayer.")

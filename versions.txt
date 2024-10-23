@@ -5,7 +5,7 @@ v1.0 :
 
 v1.1 :
 - ajouts de commandes textes pour obtenir des informations sur la pièce
-- gestion des dossiers de collecte
++ gestion des dossiers de collecte
 
 v1.2 :
 - plus de données collectées (nombre de répliques et de mots d'une scène)
