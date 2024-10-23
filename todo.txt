@@ -2,4 +2,4 @@
 - ad <perso> <scene1> <scene2> <...> pour ajouter perso à la liste des scènes spécifiées
 - rn <perso> <nouveau_nom> pour renommer un personnage 
 
-Si on entre les commandes mg ou ad sans arguments, ça ouvre un éditeur qui affiche les personnages et les scènes avec des numéros et nous demande de choisir. 
+Si on entre les commandes mg, ad, ou rn sans arguments, ça ouvre un éditeur qui affiche les personnages et les scènes avec des numéros et nous demande de choisir. 

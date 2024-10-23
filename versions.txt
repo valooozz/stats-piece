@@ -15,8 +15,9 @@ v1.3 :
 + visualisation graphique des données
 
 v2.0 :
-- possibilité de réaliser des opérations sur les informations stockées (fusion de personnages, ajout de personnages qui ne parlent pas)
+- possibilité de réaliser des opérations sur les informations stockées (renommage de perso, ajout de perso, fusion de perso)
 
 v2.1 :
-- éditeur de fusion
+- éditeur de renommage
 - éditeur d'ajout
+- éditeur de fusion
