@@ -1,3 +1,19 @@
-Ajouter une demande du dossier à analyser (en argument au script je pense)
-
 Revoir, renommer, commenter code de analyse.py
+
+Ajouter un fichier qui contient tous les dossiers analysés
+Permettre de supprimer un dossier.
+
+Commandes :
+- pt [sc/ch] pour afficher les fichiers csv en dur 
+- mg [perso1] [perso2] pour fusionner le perso1 dans le perso2 
+- ad [perso] [scene1,scene2,...] pour ajouter perso à la liste des scènes spécifiées 
+- ch [perso1] [perso2] pour afficher les liens entre deux persos
+
+Collecter plus de données :
+- nombre de répliques d'une scène
+- nombre de mots d'une scène
+- didascalies
+
+Si on ajoute gr après une commande d'analyse, ça affiche un graphique en plus des données texte. 
+
+Si on entre les commandes mg ou ad sans arguments, ça ouvre un éditeur qui affiche les personnages et les scènes avec des numéros et nous demande de choisir. 

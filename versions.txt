@@ -1,14 +1,17 @@
 v1.0 :
 + récupération de statistiques sur la pièce, à partir d'un fichier texte
 + écriture des statistiques dans des fichiers csv 
-- quelques commandes textes pour obtenir les informations stockées dans les fichiers csv 
++ quelques commandes textes pour obtenir les informations stockées dans les fichiers csv 
 
 v1.1 :
-- plus de données collectées (nombre de répliques et de mots d'une scène)
-- ajouts de commandes textes pour obtenir des informations sur la pièce (nombre de scènes où deux personnages sont ensembles)
+- ajouts de commandes textes pour obtenir des informations sur la pièce
+- gestion des dossiers de collecte
 
 v1.2 :
-- visualisation graphique des données
+- plus de données collectées (nombre de répliques et de mots d'une scène)
 
 v1.3 :
+- visualisation graphique des données
+
+v1.4 :
 - possibilité de réaliser des opérations sur les informations stockées (fusion de personnages, ajout de personnages qui ne parlent pas)
