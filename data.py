@@ -1,4 +1,4 @@
-
+import type
 
 DATA_FILE = "data.txt"
 

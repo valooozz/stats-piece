@@ -2,14 +2,14 @@ import csv
 from typing import List, Dict
 
 
-def get_characters(file_name: str) -> List[Dict[str, int]]:
+def get_characters(file_name: str) -> List[type.Character]:
     """ Récupère les données des personnages depuis le fichier CSV
 
     Args:
         file_name (str): nom du fichier à lire
 
     Returns:
-        List[Dict[str, int]]: liste de personnages avec les informations associées à chacun
+        List[type.Character]: liste de personnages avec les informations associées à chacun
     """
     
     characters = []
@@ -24,14 +24,14 @@ def get_characters(file_name: str) -> List[Dict[str, int]]:
     return characters
 
 
-def get_scenes(file_name: str) -> List[Dict[str, str]]:
+def get_scenes(file_name: str) -> List[type.Scene]:
     """ Récupère les données des scènes depuis le fichier CSV
 
     Args:
         file_name (str): nom du fichier
 
     Returns:
-        List[Dict[str, str]]: Liste des scènes avec les informations associées
+        List[type.Scene]: Liste des scènes avec les informations associées
     """
     
     scenes = []
@@ -45,11 +45,11 @@ def get_scenes(file_name: str) -> List[Dict[str, str]]:
     return scenes
 
 
-def print_scenes(scenes: List[Dict[str, str]]) -> None:
+def print_scenes(scenes: List[type.Scene]) -> None:
     """ Affiche les scènes et les personnages présents dans ces scènes
 
     Args:
-        scenes (List[Dict[str, str]]): _description_
+        scenes (List[type.Scene]): _description_
     """
     current_act = None
     for scene in scenes:
@@ -62,11 +62,11 @@ def print_scenes(scenes: List[Dict[str, str]]) -> None:
         print(f"Scène {numero_scene} : {personnages_formates}")
 
 
-def print_characters(characters: List[Dict[str, int]]) -> None:
+def print_characters(characters: List[type.Character]) -> None:
     """ Affiche les personnages triés par nombre de mots décroissant
 
     Args:
-        characters (List[Dict[str, int]]): liste des personnages
+        characters (List[type.Character]): liste des personnages
     """
     
     characters_sorted = sorted(characters, key=lambda x: x['Total Words'], reverse=True)
@@ -74,12 +74,12 @@ def print_characters(characters: List[Dict[str, int]]) -> None:
         print(f"- {character['Character']}, Répliques : {character['Total lines']}, Mots : {character['Total Words']}")
         
         
-def print_character_detail(characters: List[Dict[str, int]], scenes: List[Dict[str, str]], nom_personnage: str) -> None:
+def print_character_detail(characters: List[type.Character], scenes: List[type.Scene], nom_personnage: str) -> None:
     """ Affiche les informations détaillées d'un personnage spécifique
 
     Args:
-        characters (List[Dict[str, int]]): liste des personnages
-        scenes (List[Dict[str, str]]): liste des scènes
+        characters (List[type.Character]): liste des personnages
+        scenes (List[type.Scene]): liste des scènes
         nom_personnage (str): nom du personnage
     """
     
@@ -120,11 +120,11 @@ def print_character_detail(characters: List[Dict[str, int]], scenes: List[Dict[s
     print(', '.join(sorted(other_characters)))
 
 
-def print_characters_together(scenes: List[Dict[str, str]], list_characters: List[str]) -> None:
+def print_characters_together(scenes: List[type.Scene], list_characters: List[str]) -> None:
     """ Affiche les scènes où les personnages entrés sont ensemble
 
     Args:
-        scenes (List[Dict[str, str]]): liste des scènes avec les données collectées
+        scenes (List[type.Scene]): liste des scènes avec les données collectées
         list_characters (List[str]): liste des personnages à rechercher
     """
     

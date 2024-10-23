@@ -5,10 +5,10 @@ from typing import Dict, List, Tuple
 
 import data
 
-Character = str
-Scene = Tuple[str, str]
+CharacterName = str
+SceneName = Tuple[str, str]
 
-def change_scene(old_act: str, old_scene: str, line: str) -> Tuple[bool, Scene, str]:
+def change_scene(old_act: str, old_scene: str, line: str) -> Tuple[bool, SceneName, str]:
     """ Change le numéro de l'acte ou de la scène si la ligne est le titre d'acte ou de scène
 
     Args:
@@ -17,7 +17,7 @@ def change_scene(old_act: str, old_scene: str, line: str) -> Tuple[bool, Scene, 
         line (str): ligne lue dans le fichier
 
     Returns:
-        Tuple[bool, Scene]: True si la scène a changé, et la nouvelle scène ainsi que son nom
+        Tuple[bool, SceneName]: True si la scène a changé, et la nouvelle scène ainsi que son nom
     """
     
     new_act = old_act
@@ -57,15 +57,15 @@ def get_stats_line(line: str) -> Tuple[str, int]:
     return character, nb_words
 
 
-def add_character_in_scene(list_of_character: List[Character], new_character: Character) -> List[Character]:
+def add_character_in_scene(list_of_character: List[CharacterName], new_character: CharacterName) -> List[CharacterName]:
     """ Ajoute un personnage à la liste des personnages d'une scène, si celui-ci n'y est pas déjà présent
 
     Args:
-        list_of_character (List[Character]): liste des personnages de la scène
-        new_character (Character): personnage rencontré à la ligne lue dans le fichier
+        list_of_character (List[CharacterName]): liste des personnages de la scène
+        new_character (CharacterName): personnage rencontré à la ligne lue dans le fichier
 
     Returns:
-        List[Character]: nouvelle liste des personnages de la scène
+        List[CharacterName]: nouvelle liste des personnages de la scène
     """
     
     if new_character not in list_of_character:
@@ -74,16 +74,16 @@ def add_character_in_scene(list_of_character: List[Character], new_character: Ch
     return list_of_character
 
 
-def update_character_info(dico_characters: Dict[Character, Tuple[int, int]], character: Character, nb_words_in_new_line: int) -> Dict[Character, Tuple[int, int]]:
+def update_character_info(dico_characters: Dict[CharacterName, Tuple[int, int]], character: CharacterName, nb_words_in_new_line: int) -> Dict[CharacterName, Tuple[int, int]]:
     """ Met à jour les informations sur un personnage
     
     Args:
-        dico_characters (Dict[Character: Tuple[int, int]]): dictionnaire des informations sur les personnages
-        character (Character): personnage à mettre à jour
+        dico_characters (Dict[CharacterName: Tuple[int, int]]): dictionnaire des informations sur les personnages
+        character (CharacterName): personnage à mettre à jour
         nb_words_in_new_line (int): nombre de mots dans la réplique du personnage
 
     Returns:
-        Dict[Character: Tuple[int, int]]: nouveau dictionnaire des informations sur les personnages
+        Dict[CharacterName: Tuple[int, int]]: nouveau dictionnaire des informations sur les personnages
     """
     
     try:
@@ -118,12 +118,12 @@ def create_directory(dir_name: str) -> bool:
         return False
 
 
-def write_info(dir_name: str, dico_scenes: Dict[str, List[Character]], dico_characters: Dict[str, Tuple[int, int]]) -> bool:
+def write_info(dir_name: str, dico_scenes: Dict[str, List[CharacterName]], dico_characters: Dict[str, Tuple[int, int]]) -> bool:
     """ Écris les statistiques collectées dans des fichiers csv
 
     Args:
         dir_name (str): nom du dossier dans lequel créer les fichiers
-        dico_scenes (Dict[str, List[Character]]): dictionnaire contenant des infos sur les scènes
+        dico_scenes (Dict[str, List[CharacterName]]): dictionnaire contenant des infos sur les scènes
         dico_characters (Dict[str, Tuple[int, int]]): dictionnaire contenant des infos sur les personnages
         
     Returns:
@@ -139,7 +139,7 @@ def write_info(dir_name: str, dico_scenes: Dict[str, List[Character]], dico_char
     
     with open(file_scenes, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
-        writer.writerow(["Scene", "Characters"])
+        writer.writerow(["SceneName", "CharacterNames"])
         
         for scene, list_characters in dico_scenes.items():
             str_characters = ":".join(list_characters)
@@ -147,7 +147,7 @@ def write_info(dir_name: str, dico_scenes: Dict[str, List[Character]], dico_char
     
     with open(file_characters, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
-        writer.writerow(["Character", "Total lines", "Total Words"])
+        writer.writerow(["CharacterName", "Total lines", "Total Words"])
         
         for character, (total_lines, total_words) in dico_characters.items():
             writer.writerow([character, total_lines, total_words])
@@ -157,23 +157,23 @@ def write_info(dir_name: str, dico_scenes: Dict[str, List[Character]], dico_char
     return True
 
 
-def read_file(file_name: str) -> Tuple[Dict[str, List[Character]], Dict[Character, Tuple[int, int]]]:
+def read_file(file_name: str) -> Tuple[Dict[str, List[CharacterName]], Dict[CharacterName, Tuple[int, int]]]:
     """ Analyse un fichier texte contenant une pièce de théâtre
 
     Args:
         file_name (str): nom du fichier à analyser
     
     Returns:
-        Tuple[Dict[str, List[Character]], Dict[Character, Tuple[int, int]]]: dictionnaires des infos sur les scènes et les personnages
+        Tuple[Dict[str, List[CharacterName]], Dict[CharacterName, Tuple[int, int]]]: dictionnaires des infos sur les scènes et les personnages
     """
     
     current_act: str = "0"
     current_scene: str = "0"
     
-    dico_scenes: Dict[str, List[Character]] = {}
-    dico_characters: Dict[Character, Tuple[int, int]] = {}
+    dico_scenes: Dict[str, List[CharacterName]] = {}
+    dico_characters: Dict[CharacterName, Tuple[int, int]] = {}
     
-    list_of_characters_in_scene: List[Character] = []
+    list_of_characters_in_scene: List[CharacterName] = []
     
     try:
         with open(file_name, 'r', encoding="utf-8") as file:
