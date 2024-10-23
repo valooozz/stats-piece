@@ -25,6 +25,7 @@ def usage() -> None:
     print("pt sc|ch - Afficher le contenu du fichier csv pour les scènes (sc) ou les personnages (ch)")
     
     print("\nrn <perso> <nouveau_nom> - Renommer un personnage")
+    print("ad <perso> <scene1> <scene2> <...> - Ajouter un personnage dans des scènes")
     
     print("\nq - Quitter")
 
@@ -70,89 +71,99 @@ def main(piece, characters, scenes) -> None:
     """ Fonction principale qui gère les commandes
     """
     
-    try:
-        while True:
-            graphic = False
-            
-            command = input("\n > ").split()
+    #try:
+    while True:
+        graphic = False
+        
+        command = input("\n > ").split()
 
-            if command[0] == "h":
-                usage()
-                
-            elif command[0] == "q":
-                print("Au revoir !\n")
-                break
+        if command[0] == "h":
+            usage()
             
-            elif command[0] == "rd":
-                file_name = command[1]
-                read.read(file_name)
+        elif command[0] == "q":
+            print("Au revoir !\n")
+            break
+        
+        elif command[0] == "rd":
+            file_name = command[1]
+            read.read(file_name)
+        
+        elif command[0] == "ls":
+            data.print_pieces()
             
-            elif command[0] == "ls":
-                data.print_pieces()
-                
-            elif command[0] == "ld":
-                piece = command[1]
-                if data.piece_exists(piece):
-                    characters = analyse.get_characters(f"{piece}/characters.csv")
-                    scenes = analyse.get_scenes(f"{piece}/scenes.csv")
-                    print(f"Les données de '{piece}' ont été chargées avec succès")
-                else:
-                    print(f"Aucune donnée ne correspond à la pièce '{piece}'")
-            
-            elif command[0] == "dl":
-                piece_to_delete = command[1]
-                delete_piece(piece_to_delete)
-                
+        elif command[0] == "ld":
+            piece = command[1]
+            if data.piece_exists(piece):
+                characters = analyse.get_characters(f"{piece}/characters.csv")
+                scenes = analyse.get_scenes(f"{piece}/scenes.csv")
+                print(f"Les données de '{piece}' ont été chargées avec succès")
             else:
-                if not characters or not scenes:
-                    print("Vous devez d'abord charger les données d'une pièce")
-                    
-                elif command[0] == "sc":
-                    if len(command) > 1:
-                        if command[1] == "gr":
-                            graphic = True
-                    analyse.print_scenes(scenes, graphic)
-                    
-                elif command[0] == "ch":                
-                    if len(command) > 1:
-                        if command[1] == "gr":
-                            graphic = True
-                    analyse.print_characters(characters, graphic)
+                print(f"Aucune donnée ne correspond à la pièce '{piece}'")
+        
+        elif command[0] == "dl":
+            piece_to_delete = command[1]
+            delete_piece(piece_to_delete)
+            
+        else:
+            if not characters or not scenes:
+                print("Vous devez d'abord charger les données d'une pièce")
                 
-                elif command[0] == "dt":
+            elif command[0] == "sc":
+                if len(command) > 1:
                     if command[1] == "gr":
                         graphic = True
-                        nom_personnage = command[2]
-                    else:
-                        nom_personnage = command[1]
-                    analyse.print_character_detail(characters, scenes, nom_personnage, graphic)
+                analyse.print_scenes(scenes, graphic)
                 
-                elif command[0] == "tg":
-                    list_characters = command[1:]
-                    analyse.print_characters_together(scenes, list_characters)
-                
-                elif command[0] == "pt":
-                    file_type = command[1]
-                    if data.piece_exists(piece):
-                        print_csv(piece, file_type)
-                    else:
-                        print(f"Aucune donnée n'est associée à la pièce '{piece}'")
-                
-                elif command[0] == "rn":
-                    old_name = command[1]
-                    new_name = command[2]
-                    
-                    modify.rename_character(piece, old_name, new_name)
-                    characters = analyse.get_characters(f"{piece}/characters.csv")
-                    scenes = analyse.get_scenes(f"{piece}/scenes.csv")
-                    
-                    print("Le changement de nom a été opéré avec succès")
-                        
+            elif command[0] == "ch":                
+                if len(command) > 1:
+                    if command[1] == "gr":
+                        graphic = True
+                analyse.print_characters(characters, graphic)
+            
+            elif command[0] == "dt":
+                if command[1] == "gr":
+                    graphic = True
+                    nom_personnage = command[2]
                 else:
-                    print("Commande inconnue. Veuillez réessayer")
-    except:
-        print("Commande mal formée. Veuillez réessayer")
-        main(piece, characters, scenes)
+                    nom_personnage = command[1]
+                analyse.print_character_detail(characters, scenes, nom_personnage, graphic)
+            
+            elif command[0] == "tg":
+                list_characters = command[1:]
+                analyse.print_characters_together(scenes, list_characters)
+            
+            elif command[0] == "pt":
+                file_type = command[1]
+                if data.piece_exists(piece):
+                    print_csv(piece, file_type)
+                else:
+                    print(f"Aucune donnée n'est associée à la pièce '{piece}'")
+            
+            elif command[0] == "rn":
+                old_name = command[1]
+                new_name = command[2]
+                
+                modify.rename_character(piece, old_name, new_name)
+                characters = analyse.get_characters(f"{piece}/characters.csv")
+                scenes = analyse.get_scenes(f"{piece}/scenes.csv")
+                
+                print("Le changement de nom a été opéré avec succès")
+            
+            elif command[0] == "ad":
+                new_character = command[1]
+                list_scenes = command[2:]
+                
+                modify.add_character(piece, new_character, list_scenes)
+                characters = analyse.get_characters(f"{piece}/characters.csv")
+                scenes = analyse.get_scenes(f"{piece}/scenes.csv")
+                
+                print("Le personnage a bien été ajouté")
+                    
+            else:
+                print("Commande inconnue. Veuillez réessayer")
+    #except:
+    #    print("Commande mal formée. Veuillez réessayer")
+    #    main(piece, characters, scenes)
 
 if __name__ == "__main__":
     main(None, None, None)

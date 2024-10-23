@@ -1,5 +1,3 @@
-- mg <perso1> <perso2> pour fusionner le perso1 dans le perso2 
-- ad <perso> <scene1> <scene2> <...> pour ajouter perso à la liste des scènes spécifiées
-- rn <perso> <nouveau_nom> pour renommer un personnage 
+- mg <perso1> <perso2> pour fusionner le perso1 dans le perso2
 
 Si on entre les commandes mg, ad, ou rn sans arguments, ça ouvre un éditeur qui affiche les personnages et les scènes avec des numéros et nous demande de choisir. 
