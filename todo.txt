@@ -1,4 +1,7 @@
 Collecter plus de données :
+- didascalies
+
+Afficher les nouvelles données collectées :
 - nombre de répliques d'une scène
 - nombre de mots d'une scène
 - didascalies

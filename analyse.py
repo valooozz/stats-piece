@@ -41,6 +41,8 @@ def get_scenes(file_name: str) -> List[type.Scene]:
         for row in reader:
             scenes.append({
                 'Scene': row['Scene'],
+                'Total lines': row['Total lines'],
+                'Total words': row['Total words'],
                 'Characters': row['Characters']
             })
     return scenes

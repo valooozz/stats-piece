@@ -139,15 +139,15 @@ def write_info(dir_name: str, dico_scenes: Dict[str, List[CharacterName]], dico_
     
     with open(file_scenes, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
-        writer.writerow(["SceneName", "CharacterNames"])
+        writer.writerow(["Scene", "Total lines", "Total words", "Characters"])
         
-        for scene, list_characters in dico_scenes.items():
+        for scene, (total_lines, total_words, list_characters) in dico_scenes.items():
             str_characters = ":".join(list_characters)
-            writer.writerow([scene, str_characters])
+            writer.writerow([scene, total_lines, total_words, str_characters])
     
     with open(file_characters, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
-        writer.writerow(["CharacterName", "Total lines", "Total Words"])
+        writer.writerow(["Character", "Total lines", "Total Words"])
         
         for character, (total_lines, total_words) in dico_characters.items():
             writer.writerow([character, total_lines, total_words])
@@ -170,36 +170,45 @@ def read_file(file_name: str) -> Tuple[Dict[str, List[CharacterName]], Dict[Char
     current_act: str = "0"
     current_scene: str = "0"
     
-    dico_scenes: Dict[str, List[CharacterName]] = {}
+    dico_scenes: Dict[str, Tuple[int, int, List[CharacterName]]] = {}
     dico_characters: Dict[CharacterName, Tuple[int, int]] = {}
     
     list_of_characters_in_scene: List[CharacterName] = []
+    nb_lines_in_scene: int = 0
+    nb_words_in_scene: int = 0
     
     try:
         with open(file_name, 'r', encoding="utf-8") as file:
             for line in file:
-                line = line.strip()  # strip() enlève les caractères de fin de ligne (comme \n)
+                line = line.strip()
                 
                 scene_has_changed, current_act, current_scene, last_scene_name = change_scene(current_act, current_scene, line)
                 
                 if scene_has_changed and list_of_characters_in_scene:
-                    dico_scenes[last_scene_name] = list_of_characters_in_scene
+                    dico_scenes[last_scene_name] = (nb_lines_in_scene, nb_words_in_scene, list_of_characters_in_scene)
+                    
                     list_of_characters_in_scene = []
+                    nb_lines_in_scene = 0
+                    nb_words_in_scene = 0
                     continue
                 
-                character, nb_words = get_stats_line(line)
-                if character and nb_words:
+                character, nb_words_in_line = get_stats_line(line)
+                if character and nb_words_in_line:
                     list_of_characters_in_scene = add_character_in_scene(list_of_characters_in_scene, character)
-                    dico_characters = update_character_info(dico_characters, character, nb_words)
+                    dico_characters = update_character_info(dico_characters, character, nb_words_in_line)
+                    nb_lines_in_scene += 1
+                    nb_words_in_scene += nb_words_in_line
             
-            dico_scenes[f"{current_act}:{current_scene}"] = list_of_characters_in_scene # pour la dernière scène
-        
+            # Pour la dernière scène
+            last_scene_name = f"{current_act}:{current_scene}"
+            dico_scenes[last_scene_name] = (nb_lines_in_scene, nb_words_in_scene, list_of_characters_in_scene)
+            
         return dico_scenes, dico_characters
                 
     except FileNotFoundError:
         print(f"Le fichier {file_name} n'a pas été trouvé.")
-    except Exception as e:
-        print(f"Une erreur s'est produite : {e}")
+    #except Exception as e:
+    #    print(f"Une erreur s'est produite : {e}")
     
     return None, None
 
