@@ -1,5 +1,3 @@
-import type
-
 DATA_FILE = "data.txt"
 
 def add_piece(new_piece: str) -> None:

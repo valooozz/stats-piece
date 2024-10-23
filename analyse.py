@@ -1,6 +1,7 @@
 import csv
-from typing import List, Dict
+from typing import List
 
+import type
 
 def get_characters(file_name: str) -> List[type.Character]:
     """ Récupère les données des personnages depuis le fichier CSV
