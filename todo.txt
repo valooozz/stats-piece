@@ -1,6 +1,5 @@
-Si on ajoute gr après une commande d'analyse, ça affiche un graphique en plus des données texte. 
-
-- mg [perso1] [perso2] pour fusionner le perso1 dans le perso2 
-- ad [perso] [scene1,scene2,...] pour ajouter perso à la liste des scènes spécifiées 
+- mg <perso1> <perso2> pour fusionner le perso1 dans le perso2 
+- ad <perso> <scene1> <scene2> <...> pour ajouter perso à la liste des scènes spécifiées
+- rn <perso> <nouveau_nom> pour renommer un personnage 
 
 Si on entre les commandes mg ou ad sans arguments, ça ouvre un éditeur qui affiche les personnages et les scènes avec des numéros et nous demande de choisir. 

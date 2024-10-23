@@ -12,7 +12,7 @@ v1.2 :
 + nouvel affichage avec ces données
 
 v1.3 :
-- visualisation graphique des données
++ visualisation graphique des données
 
 v2.0 :
 - possibilité de réaliser des opérations sur les informations stockées (fusion de personnages, ajout de personnages qui ne parlent pas)

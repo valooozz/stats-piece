@@ -1,8 +1,11 @@
 import csv
 from typing import List
+import warnings
 from matplotlib import pyplot as plt
 
 import type
+
+warnings.filterwarnings("ignore") # Pour ignorer les warnings de matplotlib
 
 def get_characters(file_name: str) -> List[type.Character]:
     """ Récupère les données des personnages depuis le fichier CSV
@@ -50,6 +53,47 @@ def get_scenes(file_name: str) -> List[type.Scene]:
     return scenes
 
 
+def print_graphic(labels: List[str], lines: List[int], words: List[int]) -> None:
+    """ Affiche un graphique avec matplotlib
+
+    Args:
+        labels (List[str]): liste des noms des personnages ou des scènes
+        lines (List[int]): liste des nombres de répliques
+        words (List[int]): liste des nombres de mots
+    """
+
+    x = range(len(labels))
+    width = 0.35  # Largeur des barres
+
+    fig, ax = plt.subplots()
+    rects1 = ax.bar(x, lines, width, label='Répliques')
+    rects2 = ax.bar([p + width for p in x], words, width, label='Mots')
+
+    # Ajouter des étiquettes, un titre et une légende
+    ax.set_xlabel('Personnages')
+    ax.set_ylabel('Nombre')
+    ax.set_title('Nombre de répliques et de mots par personnage')
+    ax.set_xticks([p + width / 2 for p in x])
+    ax.set_xticklabels(labels)
+    ax.legend()
+
+    # Ajouter des valeurs au-dessus des barres
+    def autolabel(rects):
+        for rect in rects:
+            height = rect.get_height()
+            ax.annotate('{}'.format(height),
+                        xy=(rect.get_x() + rect.get_width() / 2, height),
+                        xytext=(0, 3),  # 3 points de décalage vertical
+                        textcoords="offset points",
+                        ha='center', va='bottom')
+
+    autolabel(rects1)
+    autolabel(rects2)
+
+    # Afficher le graphique
+    plt.show()
+
+
 def print_scenes(scenes: List[type.Scene], graphic: bool) -> None:
     """ Affiche les scènes et les personnages présents dans ces scènes
 
@@ -66,6 +110,13 @@ def print_scenes(scenes: List[type.Scene], graphic: bool) -> None:
         personnages = scene['Characters'].split(':')
         personnages_formates = ', '.join(sorted(personnage for personnage in personnages if personnage))
         print(f"Scène {numero_scene}, Répliques : {scene['Total lines']}, Didascalies : {scene['Didascalies']}, Mots : {scene['Total words']}, Personnages : {personnages_formates}")
+    
+    if graphic:
+        scene_names = [scene['Scene'] for scene in scenes]
+        total_lines = [int(scene['Total lines']) for scene in scenes]
+        total_words = [int(scene['Total words']) for scene in scenes]
+        
+        print_graphic(scene_names, total_lines, total_words)
 
 
 def print_characters(characters: List[type.Character], graphic: bool) -> None:
@@ -79,6 +130,13 @@ def print_characters(characters: List[type.Character], graphic: bool) -> None:
     characters_sorted = sorted(characters, key=lambda x: x['Total Words'], reverse=True)
     for character in characters_sorted:
         print(f"- {character['Character']}, Répliques : {character['Total lines']}, Mots : {character['Total Words']}")
+    
+    if graphic:
+        characters_names = [character['Character'] for character in characters_sorted]
+        total_lines = [character['Total lines'] for character in characters_sorted]
+        total_words = [character['Total Words'] for character in characters_sorted]
+        
+        print_graphic(characters_names, total_lines, total_words)
         
         
 def print_character_detail(characters: List[type.Character], scenes: List[type.Scene], nom_personnage: str, graphic: bool) -> None:
