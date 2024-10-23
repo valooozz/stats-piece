@@ -18,9 +18,9 @@ def usage() -> None:
     print("dl <dossier> - Supprimer les données présentes dans un dossier")
     
     print("\nsc - Afficher les scènes et les personnages présents")
-    print("ch - Afficher les personnages avec leur nombre de répliques et de mots")
-    print("ch <nom_personnage> - Afficher les informations détaillées d'un personnage spécifique")
-    print("tg <perso1:perso2:...> - Afficher les scènes en commun pour des personnages")
+    print("ch [gr] - Afficher les personnages avec leur nombre de répliques et de mots (gr pour afficher un graphique)")
+    print("dt [gr] <nom_personnage> - Afficher les informations détaillées d'un personnage spécifique (gr pour afficher un graphique)")
+    print("tg <perso1> <perso2> <...> - Afficher les scènes en commun pour des personnages")
     print("pt sc|ch - Afficher le contenu du fichier csv pour les scènes (sc) ou les personnages (ch)")
     
     print("\nq - Quitter")
@@ -63,72 +63,83 @@ def print_csv(piece: str, file_type: str) -> None:
             print(line, end="")
     
 
-def main() -> None:
+def main(piece, characters, scenes) -> None:
     """ Fonction principale qui gère les commandes
     """
     
-    piece = None
-    characters = None
-    scenes = None
-    
-    while True:        
-        command = input("\n > ").strip()
+    try:
+        while True:
+            graphic = False
+            
+            command = input("\n > ").split()
 
-        if command == "h":
-            usage()
-            
-        elif command == "q":
-            print("Au revoir !\n")
-            break
-        
-        elif command.startswith("rd "):
-            file_name = command[3:]
-            read.read(file_name)
-        
-        elif command == "ls":
-            data.print_pieces()
-            
-        elif command.startswith("ld "):
-            piece = command[3:]
-            if data.piece_exists(piece):
-                characters = analyse.get_characters(f"{piece}/characters.csv")
-                scenes = analyse.get_scenes(f"{piece}/scenes.csv")
-                print(f"Les données de '{piece}' ont été chargées avec succès")
-            else:
-                print(f"Aucune donnée ne correspond à la pièce '{piece}'")
-        
-        elif command.startswith("dl "):
-            piece_to_delete = command[3:]
-            delete_piece(piece_to_delete)
-            
-        else:
-            if not characters or not scenes:
-                print("Vous devez d'abord charger les données d'une pièce")
+            if command[0] == "h":
+                usage()
                 
-            elif command == "sc":
-                analyse.print_scenes(scenes)
+            elif command[0] == "q":
+                print("Au revoir !\n")
+                break
+            
+            elif command[0] == "rd":
+                file_name = command[1]
+                read.read(file_name)
+            
+            elif command[0] == "ls":
+                data.print_pieces()
                 
-            elif command == "ch":
-                analyse.print_characters(characters)
-            
-            elif command.startswith("ch "):
-                nom_personnage = command[3:].strip()
-                analyse.print_character_detail(characters, scenes, nom_personnage)
-            
-            elif command.startswith("tg "):
-                list_characters = command[3:].split(":")
-                analyse.print_characters_together(scenes, list_characters)
-            
-            elif command.startswith("pt "):
-                file_type = command[3:].strip()
+            elif command[0] == "ld":
+                piece = command[1]
                 if data.piece_exists(piece):
-                    print_csv(piece, file_type)
+                    characters = analyse.get_characters(f"{piece}/characters.csv")
+                    scenes = analyse.get_scenes(f"{piece}/scenes.csv")
+                    print(f"Les données de '{piece}' ont été chargées avec succès")
                 else:
-                    print(f"Aucune donnée n'est associée à la pièce '{piece}'")
+                    print(f"Aucune donnée ne correspond à la pièce '{piece}'")
+            
+            elif command[0] == "dl":
+                piece_to_delete = command[1]
+                delete_piece(piece_to_delete)
                 
             else:
-                print("Commande inconnue. Veuillez réessayer.")
-
+                if not characters or not scenes:
+                    print("Vous devez d'abord charger les données d'une pièce")
+                    
+                elif command[0] == "sc":
+                    if len(command) > 1:
+                        if command[1] == "gr":
+                            graphic = True
+                    analyse.print_scenes(scenes, graphic)
+                    
+                elif command[0] == "ch":                
+                    if len(command) > 1:
+                        if command[1] == "gr":
+                            graphic = True
+                    analyse.print_characters(characters, graphic)
+                
+                elif command[0] == "dt":
+                    if command[1] == "gr":
+                        graphic = True
+                        nom_personnage = command[2]
+                    else:
+                        nom_personnage = command[1]
+                    analyse.print_character_detail(characters, scenes, nom_personnage, graphic)
+                
+                elif command[0] == "tg":
+                    list_characters = command[1:]
+                    analyse.print_characters_together(scenes, list_characters)
+                
+                elif command[0] == "pt":
+                    file_type = command[1]
+                    if data.piece_exists(piece):
+                        print_csv(piece, file_type)
+                    else:
+                        print(f"Aucune donnée n'est associée à la pièce '{piece}'")
+                        
+                else:
+                    print("Commande inconnue. Veuillez réessayer")
+    except:
+        print("Commande mal formée. Veuillez réessayer")
+        main(piece, characters, scenes)
 
 if __name__ == "__main__":
-    main()
+    main(None, None, None)

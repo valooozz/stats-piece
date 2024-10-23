@@ -1,5 +1,6 @@
 import csv
 from typing import List
+from matplotlib import pyplot as plt
 
 import type
 
@@ -49,11 +50,12 @@ def get_scenes(file_name: str) -> List[type.Scene]:
     return scenes
 
 
-def print_scenes(scenes: List[type.Scene]) -> None:
+def print_scenes(scenes: List[type.Scene], graphic: bool) -> None:
     """ Affiche les scènes et les personnages présents dans ces scènes
 
     Args:
-        scenes (List[type.Scene]): _description_
+        scenes (List[type.Scene]): liste des scènes avec les informations associées
+        graphic (bool): affichage d'un graphique si cet argument est True
     """
     current_act = None
     for scene in scenes:
@@ -66,11 +68,12 @@ def print_scenes(scenes: List[type.Scene]) -> None:
         print(f"Scène {numero_scene}, Répliques : {scene['Total lines']}, Didascalies : {scene['Didascalies']}, Mots : {scene['Total words']}, Personnages : {personnages_formates}")
 
 
-def print_characters(characters: List[type.Character]) -> None:
+def print_characters(characters: List[type.Character], graphic: bool) -> None:
     """ Affiche les personnages triés par nombre de mots décroissant
 
     Args:
         characters (List[type.Character]): liste des personnages
+        graphic (bool): affichage d'un graphique si cet argument est True
     """
     
     characters_sorted = sorted(characters, key=lambda x: x['Total Words'], reverse=True)
@@ -78,13 +81,14 @@ def print_characters(characters: List[type.Character]) -> None:
         print(f"- {character['Character']}, Répliques : {character['Total lines']}, Mots : {character['Total Words']}")
         
         
-def print_character_detail(characters: List[type.Character], scenes: List[type.Scene], nom_personnage: str) -> None:
+def print_character_detail(characters: List[type.Character], scenes: List[type.Scene], nom_personnage: str, graphic: bool) -> None:
     """ Affiche les informations détaillées d'un personnage spécifique
 
     Args:
         characters (List[type.Character]): liste des personnages
         scenes (List[type.Scene]): liste des scènes
         nom_personnage (str): nom du personnage
+        graphic (bool): affichage d'un graphique si cet argument est True
     """
     
     # Recherche le personnage dans la liste des personnages
