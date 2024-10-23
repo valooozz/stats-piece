@@ -63,7 +63,7 @@ def print_scenes(scenes: List[type.Scene]) -> None:
             print(f"=== Acte {act} ===")
         personnages = scene['Characters'].split(':')
         personnages_formates = ', '.join(sorted(personnage for personnage in personnages if personnage))
-        print(f"Scène {numero_scene} : {personnages_formates}")
+        print(f"Scène {numero_scene}, Répliques : {scene['Total lines']}, Didascalies : {scene['Didascalies']}, Mots : {scene['Total words']}, Personnages : {personnages_formates}")
 
 
 def print_characters(characters: List[type.Character]) -> None:

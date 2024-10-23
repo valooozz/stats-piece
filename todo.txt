@@ -1,8 +1,3 @@
-Afficher les nouvelles données collectées :
-- nombre de répliques d'une scène
-- nombre de mots d'une scène
-- didascalies
-
 Si on ajoute gr après une commande d'analyse, ça affiche un graphique en plus des données texte. 
 
 - mg [perso1] [perso2] pour fusionner le perso1 dans le perso2 

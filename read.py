@@ -187,11 +187,12 @@ def read_file(file_name: str) -> Tuple[Dict[str, List[CharacterName]], Dict[Char
                 scene_has_changed, current_act, current_scene, last_scene_name = change_scene(current_act, current_scene, line)
                 
                 if scene_has_changed and list_of_characters_in_scene:
-                    dico_scenes[last_scene_name] = (nb_lines_in_scene, nb_words_in_scene, nb_didascalies_in_scene, list_of_characters_in_scene)
+                    dico_scenes[last_scene_name] = (nb_lines_in_scene, nb_didascalies_in_scene, nb_words_in_scene, list_of_characters_in_scene)
                     
                     list_of_characters_in_scene = []
                     nb_lines_in_scene = 0
                     nb_words_in_scene = 0
+                    nb_didascalies_in_scene = 0
                     continue
                 
                 character, nb_words_in_line = get_stats_line(line)
@@ -207,7 +208,7 @@ def read_file(file_name: str) -> Tuple[Dict[str, List[CharacterName]], Dict[Char
             
             # Pour la dernière scène
             last_scene_name = f"{current_act}:{current_scene}"
-            dico_scenes[last_scene_name] = (nb_lines_in_scene, nb_words_in_scene, nb_didascalies_in_scene, list_of_characters_in_scene)
+            dico_scenes[last_scene_name] = (nb_lines_in_scene, nb_didascalies_in_scene, nb_words_in_scene, list_of_characters_in_scene)
             
         return dico_scenes, dico_characters
                 
