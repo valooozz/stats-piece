@@ -152,7 +152,7 @@ def print_character_detail(characters: List[type.Character], scenes: List[type.S
     # Recherche le personnage dans la liste des personnages
     personnage = next((c for c in characters if c['Character'] == nom_personnage), None)
     if personnage is None:
-        print(f"\nPersonnage '{nom_personnage}' non trouvé.")
+        print(f"Personnage '{nom_personnage}' non trouvé.")
         return
 
     # Affiche les informations de base du personnage
