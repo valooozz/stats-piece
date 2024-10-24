@@ -26,6 +26,7 @@ def usage() -> None:
     
     print("\n  rn <perso> <nouveau_nom> - Renommer un personnage")
     print("  ad <perso> <scene1> <scene2> <...> - Ajouter un personnage dans des scènes")
+    print("  mg <perso1> <perso2> - Fusionner le perso1 dans le perso2")
     
     print("\n  q - Quitter")
 
@@ -158,6 +159,17 @@ def main(piece, characters, scenes) -> None:
                 scenes = analyse.get_scenes(f"{piece}/scenes.csv")
                 
                 print("Le personnage a bien été ajouté")
+            
+            elif command[0] == "mg":
+                source_character = command[1]
+                destination_character = command[2]
+                
+                modify.merge_characters(piece, source_character, destination_character)
+                
+                characters = analyse.get_characters(f"{piece}/characters.csv")
+                scenes = analyse.get_scenes(f"{piece}/scenes.csv")
+                
+                print("Les personnages ont bien été fusionnés")
                     
             else:
                 print("Commande inconnue. Veuillez réessayer")

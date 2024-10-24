@@ -50,12 +50,12 @@ def add_character(piece: str, new_character: str, list_scenes: List[str]) -> Non
     
     with open(scenes_file, "r", encoding="utf-8") as file:
         reader = csv.reader(file)
-        lines = list(reader)
+        rows = list(reader)
     
     with open(scenes_file, "w", newline="", encoding="utf-8") as file:
         writer = csv.writer(file)
         
-        for row in lines:
+        for row in rows:
             if row[0] in list_scenes:
                 if new_character not in row[4].split(":"):
                     row[4] = row[4] + ":" + new_character
@@ -63,16 +63,60 @@ def add_character(piece: str, new_character: str, list_scenes: List[str]) -> Non
     
     with open(characters_file, "r", encoding="utf-8") as file:
         reader = csv.reader(file)
-        lines = list(reader)
+        rows = list(reader)
 
-    for row in lines:
+    for row in rows:
         if new_character == row[0]:
             return
     
     with open(characters_file, "w", newline="", encoding="utf-8") as file:
         writer = csv.writer(file)
         
-        for row in lines:
+        for row in rows:
             writer.writerow(row)
         
         writer.writerow([new_character, 0, 0])
+
+
+def merge_characters(piece: str, source_character: str, destination_character: str) -> None:
+    
+    
+    scenes_file = f"{piece}/scenes.csv"
+    characters_file = f"{piece}/characters.csv"
+    
+    with open(scenes_file, "r", encoding="utf-8") as file:
+        reader = csv.reader(file)
+        rows = list(reader)
+    
+    with open(scenes_file, "w", newline="", encoding="utf-8") as file:
+        writer = csv.writer(file)
+        
+        for row in rows:
+            list_characters = row[4].split(":")
+            if source_character in list_characters:
+                list_characters.remove(source_character)
+                if destination_character not in list_characters:                    
+                    list_characters.append(destination_character)
+            
+            row[4] = ":".join(list_characters)
+            writer.writerow(row)
+
+    with open(characters_file, "r", encoding="utf-8") as file:
+        reader = csv.reader(file)
+        rows = list(reader)
+    
+    for row in rows:
+        if row[0] == source_character:
+            lines_of_source_character = int(row[1])
+            words_of_source_character = int(row[2])
+            break
+    
+    with open(characters_file, "w", newline="", encoding="utf-8") as file:
+        writer = csv.writer(file)
+        
+        for row in rows:
+            if row[0] == destination_character:
+                row[1] = int(row[1]) + lines_of_source_character
+                row[2] = int(row[2]) + words_of_source_character
+            if row[0] != source_character:
+                writer.writerow(row)
