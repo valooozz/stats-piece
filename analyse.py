@@ -197,6 +197,8 @@ def print_characters_together(scenes: List[type.Scene], list_characters: List[st
     
     characters_set = set(list_characters)
     
+    nb_scenes_together = 0
+    
     current_act = None
     for scene in scenes:
         act, numero_scene = scene['Scene'].split(':')
@@ -206,6 +208,9 @@ def print_characters_together(scenes: List[type.Scene], list_characters: List[st
         characters_scene = set(scene['Characters'].split(':'))
 
         if characters_set.issubset(characters_scene):
+            nb_scenes_together += 1
             other_characters = characters_scene - characters_set
             other_characters_formated = ', '.join(sorted(other_characters))
             print(f"Scène {numero_scene} avec : {other_characters_formated}")
+    
+    print(f"\nCes personnages partagent {nb_scenes_together} scènes")
