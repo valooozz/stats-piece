@@ -139,7 +139,7 @@ def print_characters(characters: List[type.Character], graphic: bool) -> None:
         print_graphic(characters_names, total_lines, total_words)
         
         
-def print_character_detail(characters: List[type.Character], scenes: List[type.Scene], nom_personnage: str, graphic: bool) -> None:
+def print_character_detail(characters: List[type.Character], scenes: List[type.Scene], nom_personnage: str) -> None:
     """ Affiche les informations détaillées d'un personnage spécifique
 
     Args:

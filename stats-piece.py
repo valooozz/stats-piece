@@ -124,12 +124,11 @@ def main(piece, characters, scenes) -> None:
                     analyse.print_characters(characters, graphic)
                 
                 elif command[0] == "dt":
-                    if command[1] == "gr":
-                        graphic = True
-                        nom_personnage = " ".join(command[2:])
+                    if len(command) == 1:
+                        character_name = editor.dt(characters)
                     else:
-                        nom_personnage = " ".join(command[1:])
-                    analyse.print_character_detail(characters, scenes, nom_personnage, graphic)
+                        character_name = " ".join(command[1:])
+                    analyse.print_character_detail(characters, scenes, character_name)
                 
                 elif command[0] == "tg":
                     list_characters = command[1:]
@@ -144,7 +143,7 @@ def main(piece, characters, scenes) -> None:
                 
                 elif command[0] == "rn":
                     if len(command) == 1:
-                        old_name, new_name = editor.rename(characters)
+                        old_name, new_name = editor.rn(characters)
                     else:
                         old_name = command[1]
                         new_name = command[2]
@@ -157,7 +156,7 @@ def main(piece, characters, scenes) -> None:
                 
                 elif command[0] == "ad":
                     if len(command) == 1:
-                        new_character, list_scenes = editor.add(scenes, characters)
+                        new_character, list_scenes = editor.ad(scenes, characters)
                     else:
                         new_character = command[1]
                         list_scenes = command[2:]
@@ -170,7 +169,7 @@ def main(piece, characters, scenes) -> None:
                 
                 elif command[0] == "mg":
                     if len(command) == 1:
-                        source_character, destination_character = editor.merge(characters)
+                        source_character, destination_character = editor.mg(characters)
                     else:
                         source_character = command[1]
                         destination_character = command[2]
@@ -183,9 +182,9 @@ def main(piece, characters, scenes) -> None:
                     print("Les personnages ont bien été fusionnés")
                         
                 else:
-                    print("Commande inconnue. Veuillez réessayer")
+                    print("Commande inconnue")
     except:
-        print("Commande mal formée. Veuillez réessayer")
+        print("Commande mal formée")
         main(piece, characters, scenes)
 
 if __name__ == "__main__":

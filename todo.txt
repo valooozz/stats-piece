@@ -1,6 +1,16 @@
 Créer un éditeur pour toutes les commandes :
-- dt
 - tg
 - pt 
 - ld
 - rm
+
+Réécrire gestion des commandes avec un switch
+
+Nombre de scènes pour dt et tg
+
+Obtenir les scènes avec un certain nombre de personnages 
+
+Interface de gestion des comédiens :
+- ac pour entrer dans le mode comédien 
+- lk <comedien> <perso> pour lier un comédien à un personnage 
+- commandes habituelles 
