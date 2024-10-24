@@ -155,11 +155,12 @@ def print_character_detail(characters: List[type.Character], scenes: List[type.S
         print(f"Personnage '{nom_personnage}' non trouvé.")
         return
 
-    # Affiche les informations de base du personnage
-    print(f"\n=== {personnage['Character']} ===\nRépliques : {personnage['Total lines']}\nMots : {personnage['Total Words']}")
-
     # Recherche les scènes où le personnage est présent
     scenes_personnage = [scene for scene in scenes if nom_personnage in scene['Characters'].split(':')]
+
+    # Affiche les informations de base du personnage
+    print(f"\n=== {personnage['Character']} ===\nRépliques : {personnage['Total lines']}\nMots : {personnage['Total Words']}\nNombre de scènes : {len(scenes_personnage)}")
+
     if not scenes_personnage:
         print(f"Le personnage '{nom_personnage}' n'est présent·e dans aucune scène.")
         return
