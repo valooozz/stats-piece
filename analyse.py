@@ -139,6 +139,25 @@ def print_scenes_with_nb(scenes: List[type.Scene], nb: int) -> None:
             characters_formated = ', '.join(sorted(character for character in characters if character))
             print(f"Scène {numero_scene}, Répliques : {scene['Total lines']}, Didascalies : {scene['Didascalies']}, Mots : {scene['Total words']}, Personnages : {characters_formated}")
 
+
+def print_nb_of_characters_in_scenes(scenes: List[type.Scene], nb_of_characters_in_piece: int) -> None:
+    """ Affiche le nombre de scènes pour chaque nombre de personnages présent dans la pièce
+
+    Args:
+        scenes (List[type.Scene]): liste des scènes avec les informations associées
+        nb_of_characters_in_piece (int): nombre total de personnages dans la pièce
+    """
+    
+    info_nb_characters: List[int] = [0] * (nb_of_characters_in_piece+1)
+    for scene in scenes:
+        characters = scene["Characters"].split(":")
+        info_nb_characters[len(characters)] += 1
+    
+    for i in range(len(info_nb_characters)):
+        if info_nb_characters[i] > 0:
+            print(f"Avec {i} personnage·s : {info_nb_characters[i]} scène·s")
+
+
 def print_characters(characters: List[type.Character], graphic: bool) -> None:
     """ Affiche les personnages triés par nombre de mots décroissant
 

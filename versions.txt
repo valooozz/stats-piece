@@ -24,8 +24,8 @@ v2.1 :
 
 v2.2 :
 + éditeurs pour d'autres commandes (dt, tg)
-- affichage du nombre de scènes pour dt et tg
-- commande nb pour obtenir les scènes avec un certain nombre de personnages
++ affichage du nombre de scènes pour dt et tg
++ commande nb pour obtenir les scènes avec un certain nombre de personnages
 
 v3.0 :
 - interface de gestion des commédiens

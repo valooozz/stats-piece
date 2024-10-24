@@ -1,5 +1,3 @@
-Obtenir les scènes avec un certain nombre de personnages 
-
 Interface de gestion des comédiens :
 - ac pour entrer dans le mode comédien 
 - lk <comedien> <perso> pour lier un comédien à un personnage 

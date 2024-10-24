@@ -120,8 +120,11 @@ def main(piece, characters, scenes) -> None:
                                 graphic = True
                             analyse.print_scenes(scenes, graphic)
                         
-                        case ["nb", nb]:
-                            analyse.print_scenes_with_nb(scenes, int(nb))
+                        case ["nb", *args]:
+                            if args:
+                                analyse.print_scenes_with_nb(scenes, int(args[0]))
+                            else:
+                                analyse.print_nb_of_characters_in_scenes(scenes, len(characters))
                         
                         case ["ch", *args]:
                             if args == ["gr"]:
