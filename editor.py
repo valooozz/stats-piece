@@ -102,7 +102,14 @@ def mg(characters: List[type.Character]) -> Tuple[str, str]:
 
 
 def dt(characters: List[type.Character]) -> str:
-    
+    """ Éditeur de choix de personnage pour la commande dt
+
+    Args:
+        characters (List[type.Character]): liste des personnages avec leurs informations
+
+    Returns:
+        str: personnage à afficher
+    """
     
     list_characters = [c["Character"] for c in characters]
     
@@ -114,3 +121,18 @@ def dt(characters: List[type.Character]) -> str:
     character = list_characters[int(input("   >>> "))]
     
     return character
+
+
+def tg(characters: List[type.Character]) -> List[str]:
+    
+    list_characters = [c["Character"] for c in characters]
+    
+    print("\n  >>>>> Choix des personnages <<<<<")
+    
+    print_list(list_characters, "personnages")
+    
+    print("\n  Personnages à étudier (séparés par une virgule)")
+    num = input("   >>> ").split(",")
+    characters_to_study = [list_characters[int(i)] for i in num]
+    
+    return characters_to_study

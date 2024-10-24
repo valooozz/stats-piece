@@ -1,9 +1,3 @@
-Créer un éditeur pour toutes les commandes :
-- tg
-- pt 
-- ld
-- rm
-
 Réécrire gestion des commandes avec un switch
 
 Nombre de scènes pour dt et tg

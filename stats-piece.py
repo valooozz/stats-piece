@@ -28,7 +28,8 @@ def usage() -> None:
     print("\n  rn <perso> <nouveau_nom> - Renommer un personnage")
     print("  ad <perso> <scene1> <scene2> <...> - Ajouter un personnage dans des scènes")
     print("  mg <perso1> <perso2> - Fusionner le perso1 dans le perso2")
-    print("  Entrer une des trois commandes précédentes sans argument ouvrira un éditeur pour choisir les arguments")
+    
+    print("\n  Entrer une commande sans argument alors qu'elle nécessite un personnage et/ou une scène ouvrira un éditeur pour choisir les arguments")
     
     print("\n  q - Quitter")
 
@@ -131,7 +132,10 @@ def main(piece, characters, scenes) -> None:
                     analyse.print_character_detail(characters, scenes, character_name)
                 
                 elif command[0] == "tg":
-                    list_characters = command[1:]
+                    if len(command) == 1:
+                        list_characters = editor.tg(characters)
+                    else:
+                        list_characters = command[1:]
                     analyse.print_characters_together(scenes, list_characters)
                 
                 elif command[0] == "pt":
