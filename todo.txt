@@ -1,1 +1,6 @@
-Si on entre les commandes mg, ad, ou rn sans arguments, ça ouvre un éditeur qui affiche les personnages et les scènes avec des numéros et nous demande de choisir. 
+Créer un éditeur pour toutes les commandes :
+- dt
+- tg
+- pt 
+- ld
+- rm

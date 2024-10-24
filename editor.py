@@ -48,7 +48,7 @@ def add(scenes: List[type.Scene], characters: List[type.Character]) -> Tuple[str
     for i in range(len(list_characters)):
         print(f"   {i} - {list_characters[i]}")
         
-    print("\n  Personnage à ajouter (si vous souhaitez ajouter un nouveau personnage, entrez son nom) :")
+    print("\n  Personnage à ajouter (si vous souhaitez ajouter un nouveau personnage, entrez son nom)")
     entry = input("   >>> ").strip()
     try:
         new_character = list_characters[int(entry)]
@@ -66,3 +66,30 @@ def add(scenes: List[type.Scene], characters: List[type.Character]) -> Tuple[str
         scenes_to_add.append(list_scenes[int(num)])
     
     return new_character, scenes_to_add
+
+
+def merge(characters: List[type.Character]) -> Tuple[str, str]:
+    """ Éditeur de renommage de personnage
+
+    Args:
+        characters (List[str]): liste des personnages avec leurs informations
+
+    Returns:
+        Tuple[str, str]: personnages à fusionner (source et destination)
+    """
+    
+    list_characters = [c["Character"] for c in characters]
+    
+    print("\n  >>>>> Éditeur de fusion de personnages <<<<<")
+    
+    print("\n  Liste des personnages :")
+    for i in range(len(list_characters)):
+        print(f"   {i} - {list_characters[i]}")
+    
+    print("\n  Personnage à fusionner (source) :")
+    source_character = list_characters[int(input("   >>> "))]
+    
+    print(f"\n  Personnage à fusionner (destination) :")
+    destination_character = list_characters[int(input("   >>> "))]
+    
+    return source_character, destination_character
