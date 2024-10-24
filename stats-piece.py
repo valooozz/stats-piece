@@ -5,6 +5,7 @@ import read
 import analyse
 import data
 import modify
+import editor
 
 
 def usage() -> None:
@@ -141,8 +142,11 @@ def main(piece, characters, scenes) -> None:
                     print(f"Aucune donnée n'est associée à la pièce '{piece}'")
             
             elif command[0] == "rn":
-                old_name = command[1]
-                new_name = command[2]
+                if len(command) == 1:
+                    old_name, new_name = editor.rename(characters)
+                else:
+                    old_name = command[1]
+                    new_name = command[2]
                 
                 modify.rename_character(piece, old_name, new_name)
                 characters = analyse.get_characters(f"{piece}/characters.csv")

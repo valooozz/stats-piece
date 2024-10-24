@@ -16,7 +16,6 @@ def replace_string(file_name: str, old_string: str, new_string: str) -> None:
     with open(file_name, "w", encoding="utf-8") as file:
         for line in lines:
             new_line = line.replace(old_string, new_string)
-            print(line, new_line)
             file.write(new_line)
 
 
@@ -79,7 +78,13 @@ def add_character(piece: str, new_character: str, list_scenes: List[str]) -> Non
 
 
 def merge_characters(piece: str, source_character: str, destination_character: str) -> None:
-    
+    """ Fusionne deux personnages dans les fichiers csv
+
+    Args:
+        piece (str): nom de la pièce
+        source_character (str): nom du personnage qui va disparaître en fusionnant
+        destination_character (str): nom du personnage qui reçoit les informations de l'autre personnage
+    """
     
     scenes_file = f"{piece}/scenes.csv"
     characters_file = f"{piece}/characters.csv"
