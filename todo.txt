@@ -1,5 +1,3 @@
-Nombre de scènes pour dt et tg
-
 Obtenir les scènes avec un certain nombre de personnages 
 
 Interface de gestion des comédiens :

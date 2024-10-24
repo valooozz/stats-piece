@@ -101,15 +101,16 @@ def print_scenes(scenes: List[type.Scene], graphic: bool) -> None:
         scenes (List[type.Scene]): liste des scènes avec les informations associées
         graphic (bool): affichage d'un graphique si cet argument est True
     """
+    
     current_act = None
     for scene in scenes:
         act, numero_scene = scene['Scene'].split(':')
         if act != current_act:
             current_act = act
             print(f"=== Acte {act} ===")
-        personnages = scene['Characters'].split(':')
-        personnages_formates = ', '.join(sorted(personnage for personnage in personnages if personnage))
-        print(f"Scène {numero_scene}, Répliques : {scene['Total lines']}, Didascalies : {scene['Didascalies']}, Mots : {scene['Total words']}, Personnages : {personnages_formates}")
+        characters = scene['Characters'].split(':')
+        characters_formated = ', '.join(sorted(character for character in characters if character))
+        print(f"Scène {numero_scene}, Répliques : {scene['Total lines']}, Didascalies : {scene['Didascalies']}, Mots : {scene['Total words']}, Personnages : {characters_formated}")
     
     if graphic:
         scene_names = [scene['Scene'] for scene in scenes]
@@ -118,6 +119,25 @@ def print_scenes(scenes: List[type.Scene], graphic: bool) -> None:
         
         print_graphic(scene_names, total_lines, total_words)
 
+
+def print_scenes_with_nb(scenes: List[type.Scene], nb: int) -> None:
+    """ Affiche les scènes contenant un certain nombre de personnages
+
+    Args:
+        scenes (List[type.Scene]): liste des scènes avec les informations associées
+        nb (int): nombre de personnages à rechercher
+    """
+    
+    current_act = None
+    for scene in scenes:
+        act, numero_scene = scene['Scene'].split(':')
+        if act != current_act:
+            current_act = act
+            print(f"=== Acte {act} ===")
+        characters = scene['Characters'].split(':')
+        if len(characters) == nb:
+            characters_formated = ', '.join(sorted(character for character in characters if character))
+            print(f"Scène {numero_scene}, Répliques : {scene['Total lines']}, Didascalies : {scene['Didascalies']}, Mots : {scene['Total words']}, Personnages : {characters_formated}")
 
 def print_characters(characters: List[type.Character], graphic: bool) -> None:
     """ Affiche les personnages triés par nombre de mots décroissant

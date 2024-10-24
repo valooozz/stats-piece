@@ -23,7 +23,7 @@ v2.1 :
 + éditeur de fusion
 
 v2.2 :
-- éditeurs pour les autres commandes (dt, tg, pt, ld, rm)
++ éditeurs pour d'autres commandes (dt, tg)
 - affichage du nombre de scènes pour dt et tg
 - commande nb pour obtenir les scènes avec un certain nombre de personnages
 
