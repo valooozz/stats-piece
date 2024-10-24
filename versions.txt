@@ -18,6 +18,6 @@ v2.0 :
 + possibilité de réaliser des opérations sur les informations stockées (renommage de perso, ajout de perso, fusion de perso)
 
 v2.1 :
-- éditeur de renommage
-- éditeur d'ajout
++ éditeur de renommage
++ éditeur d'ajout
 - éditeur de fusion

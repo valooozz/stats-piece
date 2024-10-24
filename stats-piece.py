@@ -125,9 +125,9 @@ def main(piece, characters, scenes) -> None:
             elif command[0] == "dt":
                 if command[1] == "gr":
                     graphic = True
-                    nom_personnage = command[2]
+                    nom_personnage = " ".join(command[2:])
                 else:
-                    nom_personnage = command[1]
+                    nom_personnage = " ".join(command[1:])
                 analyse.print_character_detail(characters, scenes, nom_personnage, graphic)
             
             elif command[0] == "tg":
@@ -155,8 +155,11 @@ def main(piece, characters, scenes) -> None:
                 print("Le changement de nom a été opéré avec succès")
             
             elif command[0] == "ad":
-                new_character = command[1]
-                list_scenes = command[2:]
+                if len(command) == 1:
+                    new_character, list_scenes = editor.add(scenes, characters)
+                else:
+                    new_character = command[1]
+                    list_scenes = command[2:]
                 
                 modify.add_character(piece, new_character, list_scenes)
                 characters = analyse.get_characters(f"{piece}/characters.csv")
