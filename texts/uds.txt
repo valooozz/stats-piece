@@ -700,7 +700,7 @@ MAXIME : Je ne vois pas ce qu'il pourrait faire de mal.
 
 L'Ange Gabriel entre. Il ne soucie pas des gens présents car, en dehors de Gabriel, personne ne peut le voir et personne ne peut l'entendre.
 
-ANGE : Mais où est-ce que j'ai atterri moi ? Gabriel ? Vous êtes là ? Il faut que je vous parle, c'est important. Où est-ce qu'il est ? Vous ne savez pas où il est vous ? Non, vous ne savez pas que c'est lui. Pauvres mortels, vous êtes bien ignorants. D'ailleurs vous ne servez à rien. Vous vous contentez de vivre, comme ça, redoutant chaque jour un peu plus la mort. Vous voudriez peut-être savoir quand vous allez mourir. Mais ce n'est pas possible, je suis un ange, pas Dieu, ce n'est pas moi le chef. Je n'ai pas le droit d'accéder à ce genre d'informations car on ne sait jamais ce que pourrait faire un ange avec. N'est-ce pas ? Pourquoi faire confiance à un ange qui vous sert depuis des millénaires ? À tout moment, il pourrait raconter tout ce qu'il veut aux mortels. C'est vrai tiens. Mais peut-être que s'il me faisait un peu plus confiance, que s'il me témoignait un peu de reconnaissance, l'idée ne me traverserait jamais la tête. Alors je ne vais pas vous dire quand vous allez mourir, je vais plutôt vous tuer avant ça, et peut-être qu'ainsi il se rappellera mon existence.
+ANGE : Mais où est-ce que j'ai atterri moi ? Gabriel ? Vous êtes là ? Il faut que je vous parle, c'est important. Où est-ce qu'il est ? Vous ne savez pas où il est vous ? Non, vous ne savez pas que c'est lui. Vous ne savez rien en fait, vous ne vous doutez de rien. Vous n'imaginez pas que votre ami est revenu d'entre les morts. Vous ne vous rendez même pas compte qu'il y a actuellement un ange, et pas n'importe lequel, juste devant vous. Vous vous contentez de vivre, comme ça, redoutant chaque jour un peu plus la mort. D'ailleurs, vous voudriez peut-être savoir quand vous allez mourir. Ça vous intéresserait ? Mais ce n'est pas possible, je suis un ange, pas Dieu. Ce n'est pas moi le chef. Je n'ai pas le droit d'accéder à ce genre d'informations. Forcément, on ne sait jamais ce que pourrait faire un ange avec. N'est-ce pas ? Pourquoi faire confiance à un ange ? Pourquoi faire confiance à celui qui vous sert depuis des millénaires ? C'est vrai. À tout moment, il pourrait raconter tout ce qu'il veut aux mortels. C'est bien connu, les anges sont là pour vous servir mais il faut se méfier d'eux. Enfin se méfier, au début, quand on se souvient encore qu'ils existent, avant de les laisser se démerder tous seuls dans leur boulot de veiller sur ces mortels qui ne se rendent même pas compte de tout ce qu'on fait pour eux. Qui est là pour veiller à ce que vous ne mouriez pas trop tôt ? Qui est là quand vous décidez de plonger dans l'eau du haut d'une falaise ? Qui est là quand vous buvez plus d'alcool que votre faible corps est capable d'en ingérer ? Vous êtes marrant à remercier votre "bonne étoile". "J'ai eu de la chance, je dois avoir une bonne étoile." Elles n'existent pas les étoiles. Enfin si, elles existent, mais c'est juste des étoiles. C'est moi qui veille sur vous. C'est Gabriel, tout seul, comme un grand, tout seul. Tout seul. Alors non, je ne vais pas vous dire quand vous allez mourir, je vais plutôt vous tuer avant ça, et peut-être qu'ainsi vous comprendrez que j'existe. Et peut-être que lui aussi, là-haut, se rappellera mon existence.
 
 MAXIME : On va voir ce que font les autres ?
 
@@ -807,6 +807,8 @@ ANGE : Non, je vais juste dehors prendre le soleil, nous les anges avons besoin 
 GABRIEL : Quoi ?
 
 ANGE : Mince, j'ai encore gaffé.
+
+Noir.
 
 Acte II
 
@@ -946,7 +948,19 @@ CAMILLE : C'est pas ce que t'as dit.
 
 GABRIEL : Ah bon ? J'ai dû me tromper, je parlais bien de Gabriel.
 
-ANGE : Pour une fois que c'est pas moi qui gaffe. Attention à toi, s'ils apprennent la vérité tu vas avoir des problèmes, ce ne sera plus de mon ressort.
+ANGE : Pour une fois que c'est pas moi qui gaffe.
+
+THIBAULT : T'es bizarre mec. On peut confondre deux personnes, mais qui confond quelqu'un d'autre avec soi-même ?
+
+GABRIEL : J'ai confondu avec moi-même ?
+
+MAXIME : Oui t'as dit "ce que vous m'avez offert".
+
+ANGÈLE : Je vous dis, il est louche ce gars, je sais pas pourquoi on l'écoute.
+
+GABRIEL : Mais je me suis juste trompé.
+
+ANGE : Attention à toi, s'ils apprennent la vérité tu vas avoir des problèmes, ce ne sera plus de mon ressort.
 
 GABRIEL : Alors ? Qu'avez-vous offert à Gabriel ?
 
@@ -1128,7 +1142,7 @@ ANGE : J'ai pris quelques jours de congé pour l'occasion. C'est la première fo
 
 GABRIEL : Ça t'avait pas manqué ?
 
-ANGE : Un peu, c'est vrai.
+ANGE : Si un peu, c'est vrai.
 
 GABRIEL : Peut-être que si tu disais plus souvent aux morts ce qu'ils ont droit de faire, tu t'amuserais un peu plus.
 
@@ -1162,7 +1176,7 @@ GABRIEL : Pourquoi t'as demandé alors ?
 
 ANGE : Je sais pas. À force d'observer les humains, je me mets à adopter leur manière de vivre, de parler.
 
-GABRIEL : T'aimes bien nos gâteaux apéros aussi apparemment.
+GABRIEL : De manger aussi apparemment.
 
 ANGE : Ouais c'est délicieux ces trucs. Tu vas voir au Paradis, la nourriture, c'est moins... addictif.
 
@@ -1222,23 +1236,107 @@ GABRIEL : Je sais pas.
 
 ANGE : Sa date de naissance, celle de son chien, celle de son père, je sais pas moi.
 
-Gabriel s'approche du téléphone. Il entre plusieurs codes mais ça ne marche pas. Finalement, un code fonctionne.
+Gabriel s'approche du téléphone. Il entre plusieurs codes mais ça ne marche pas. 
 
-GABRIEL : C'est bon, j'ai trouvé.
+GABRIEL : Ça marche pas.
 
-ANGE : C'était quoi ?
+ANGE : Mais essaie encore.
 
-GABRIEL : La mienne. Ma date de naissance.
+GABRIEL : Je peux pas, le portable est bloqué. J'ai entré trop de mauvais codes. Il faut attendre un peu avant de réessayer.
 
-ANGE : C'est romantique. Sauf si on remarque que c'est également ta date de mort. 
+L'Ange Gabriel grogne de frustation.
 
-Gabriel arrête l'enregistrement vocal, le supprime, puis en relance un autre. Il repose le téléphone.
+ANGE : Il ne faut pas que les gens sachent qui tu es.
 
-ANGE : C'est bon ?
+GABRIEL : Je sais.
 
-Gabriel répond en levant le pouce.
+ANGE : J'ai besoin de prendre le soleil.
+
+L'Ange Gabriel sort.
+
+GABRIEL : Mais attends, tu peux vraiment rien faire ? T'as pas des pouvoirs ? 
+
+Gabriel suit l'Ange Gabriel.
 
 Scène 7
+
+Angèle revient dans la pièce, toujours énervée. Thibault la suit.
+
+ANGÈLE : Je te dis que ce gars est un imposteur.
+
+THIBAULT : Mais il sait quand même beaucoup de choses sur Gabriel, et sur nous aussi.
+
+ANGÈLE : Justement. C'est bizarre d'en savoir autant. Si c'était juste un de ses amis, il en saurait un peu, il connaîtrait peut-être nos prénoms, mais c'est tout. Là, il a forcément dû faire des recherches sur nous. Il nous a stalkés, il nous a peut-être même suivis dans la rue, chez nous.
+
+THIBAULT : Tu vas peut-être un peu loin là. Comment il aurait pu savoir exactement ce que pensait Gabriel de son chat ? Il nous a sorti la phrase exacte qu'il prononçait tout le temps.
+
+ANGÈLE : Des micros. Dans sa maison. Je ne vois que ça.
+
+THIBAULT : Je suis désolé mais tu délires.
+
+ANGÈLE : Moi je délire ? C'est vous les fous, qui l'écoutez sans vous poser de questions.
+
+THIBAULT : Mais je m'en suis posé des questions. Pourquoi il ferait ça ? Pourquoi quelqu'un s'amuserait à collecter des informations sur nous puis viendrait nous aider à enquêter sur la mort de notre pote ? Ça n'a pas de sens.
+
+ANGÈLE : Parce que c'est lui qui l'a tué.
+
+THIBAULT : Mais non, réfléchis, ce serait débile de venir nous voir après l'avoir tué alors que personne ne le connais et qu'il peut juste rester discrètement dans son coin.
+
+ANGÈLE : Tu ne vois pas assez loin. Il peut très bien s'amuser avec nous, nous lancer sur des fausses pistes, nous voir nous tromper. Et peut-être même que derrière son but est de tous nous tuer.
+
+Gabriel entre alors qu'Angèle prononce ses derniers mots. Étonné, il hésite à s'avancer plus. Thibault le remarque et est gêné.
+
+THIBAULT : Tom, salut.
+
+GABRIEL : Tout va bien ici ?
+
+ANGÈLE : Tout va bien oui. C'est même le plus beau jour de ma vie. Et toi, comment ça va ?
+
+GABRIEL : Écoute Angèle, t'es pas la seule à être triste de la mort de Gabriel. Moi aussi je suis touché, autant que toi, peut-être même un peu plus. Alors je pense qu'il faut qu'on reste ensemble dans cette épreuve, soudés.
+
+ANGÈLE : Écoute moi bien mon petit gars. Les autres ils avalent peut-être tes mensonges, mais pas moi. Je sais pas qui t'es, mais je vais le découvrir. Et à ce moment-là je te souhaite que l'inspecteur ne soit pas dans les parages.
+
+THIBAULT : Angèle...
+
+Angèle sort vers l'autre pièce de la maison. Thibault hésite puis la suit.
+
+Scène 8
+
+Gabriel s'asseoit sur le canapé. Il prend le portable de Camille et essaie à nouveau des codes. 
+
+Maxime revient avec une boîte de chocolats. Gabriel remet le portable précipitamment sur la table et se lève. 
+
+MAXIME : C'est bon j'ai les chocolats. J'en fais quoi ?
+
+GABRIEL : On les range quelque part. Mathilde a demandé que personne ne parle des chocolats, donc la pièce non plus ne doit pas évoquer ça.
+
+Gabriel récupère les chocolats et les range.
+
+MAXIME : Ils sont où les autres ?
+
+GABRIEL : Angèle est un peu énervée. Thibault est avec elle. 
+
+MAXIME : Et Camille ? 
+
+GABRIEL : Elle est au téléphone avec Louis. Mathilde a oublié son portable ici et il l'a appelée. 
+
+MAXIME : Ok, je vais aller voir si tout va bien. 
+
+Maxime repart de l'autre côté, vers Angèle et Thibault. 
+
+Après un peu d'hésitation, Maxime reprend le portable de Camille et essaie à nouveau des codes. 
+
+
+
+L'Ange Gabriel entre. Gabriel remet précipitamment le portable sur la table. 
+
+ANGE : Ce n'est que moi. Toujours pas de code qui fonctionne ? 
+
+GABRIEL : Non, j'ai tout essayé. 
+
+ANGE : Non, si tu avais tout essayé tu aurais trouvé. Je le répète Gabriel. Si quelqu'un apprend qui tu es, tu vas avoir des problèmes.
+
+Scène 9
 
 Camille revient. 
 
@@ -1310,33 +1408,363 @@ GABRIEL : Moi ça me dérange pas. Enfin, des fois il me lisait des passages don
 
 CAMILLE : Ça m'étonnerait qu'il y ait vraiment quelque chose pour moi.
 
-ANGE : Et puis surtout il tenait pas de journal.
+ANGE : Et puis surtout il ne tenait pas de journal.
 
 GABRIEL : On sait jamais.
 
-Scène 8
+Scène 10
 
-Maxime revient avec une boîte de chocolats.
+Angèle, Thibault, et Maxime entrent. 
 
-MAXIME : C'est bon j'ai les chocolats. J'en fais quoi ?
+MAXIME : Il faut qu'on trouve un moyen de sortir Mathilde de là. 
 
-GABRIEL : On les range quelque part. Mathilde a demandé que personne ne parle des chocolats, donc la pièce non plus ne doit pas évoquer ça.
+ANGÈLE : Ne parle pas de ça en sa présence. 
 
-Gabriel récupère les chocolats et les range.
+THIBAULT : Angèle... 
 
-MAXIME : Ils sont où les autres ?
+ANGÈLE : Il sort. On ne prévoit rien alors qu'il est encore là. Il pourrait nous mettre des bâtons dans les roues. 
 
-CAMILLE : Angèle s'est un peu énervée, Thibault doit être en train de la calmer.
+CAMILLE : Mais qu'est ce tu racontes ? Il est là pour nous aider. 
 
-Angèle et Thibault entrent.
+ANGÈLE : Non. Il sort. 
 
-ANGÈLE : Je suis calme.
+CAMILLE : Mais Angèle. 
+
+GABRIEL : C'est pas grave, je peux sortir. 
+
+Gabriel sort. L'Ange Gabriel le suit. 
+
+CAMILLE : Qu'est-ce qui te prend toi ? 
+
+ANGÈLE : Ce mec n'est pas un ami de Gabriel. Il est louche, il nous manipule, il doit dégager. 
+
+CAMILLE : Mais d'où tu sors ça ? 
+
+ANGÈLE : Comment ça d'où je sors ça ? T'es aveugle ma pauvre. On a jamais entendu parler de lui, il arrive deux jours après la mort de Gabriel, il a pas de portable, il connaît des choses qu'il ne devrait pas, et il nous donne des ordres pour soit-disant nous aider. Et Maxime, dis lui ce que tu as vu. 
+
+MAXIME : Mais peut-être qu'il vérifiait seulement que... 
+
+ANGÈLE : Dis lui. 
+
+MAXIME : Quand je suis rentré tout à l'heure, il avait ton portable dans les mains. Je sais pas ce qu'il faisait avec, mais il l'a vite reposé sur la table quand il m'a entendu. 
+
+THIBAULT : J'ai des raisons de croire qu'on peut lui faire confiance, mais c'est vrai que ce que dit Maxime ne me rassure pas. Angèle a peut-être raison. 
+
+CAMILLE : Alors vous pensez que c'est qui ? 
+
+ANGÈLE : Un malade qui veut tous nous tuer. 
+
+MAXIME : On sait pas vraiment. Mais c'est vrai qu'il y aurait peut-être quelques points à éclaircir. 
+
+Pause où Camille semble réfléchir. 
+
+CAMILLE : Il est bizarre, je suis d'accord. Mais pourquoi ça voudrait dire qu'il nous voudrait du mal ? Vous avez pas réfléchi à d'autres explications. 
+
+MAXIME : C'est vrai ça. 
+
+ANGÈLE : Vas-y on t'écoute, quelle explication tu proposes ? 
+
+CAMILLE : Non mais... 
+
+ANGÈLE : Voilà, t'as rien. Donc tant qu'on sait pas s'il est innocent, il est coupable. 
+
+THIBAULT : C'est pas très... 
+
+ANGÈLE : La présomption d'innocence, c'est pour les faibles. 
+
+CAMILLE : Et si... Et si Tom était pas vraiment Tom ? 
+
+ANGÈLE : Oui c'est ce que je dis. 
+
+CAMILLE : Non... Et si Tom était Gabriel ? 
+
+Pause. 
+
+ANGÈLE : Pardon ? 
+
+CAMILLE : Quand Tom parle, j'ai l'impression d'entendre Gab. 
+
+ANGÈLE : Mais tu délires complètement. Gabriel est mort Camille. Je sais bien que t'aimerais le revoir, nous aussi, mais c'est pas une raison pour croire qu'il est revenu d'entre les morts. 
+
+CAMILLE : Mais vous avez pas cette impression, vous aussi ? 
+
+MAXIME : Camille, Angèle a raison. Gabriel n'est plus là. 
+
+THIBAULT : Moi aussi j'ai eu cette impression. 
+
+ANGÈLE : Tu vas pas t'y mettre toi aussi. 
+
+THIBAULT : Quand il est arrivé ici, on aurait dit Gabriel qui essayait de jouer un autre rôle mais qui n'y arrivait pas vraiment. 
+
+ANGÈLE : Gabriel est mort. Pourquoi vous ne voulez pas accepter ça ? 
+
+La voix d'Angèle commence à trembler. 
+
+CAMILLE : Nous étions les deux personnes les plus proches de lui. 
+
+ANGÈLE : Donc vous êtes les deux personnes les plus susceptibles d'inventer des histoires pour qu'il soit encore près de vous. 
+
+CAMILLE : Je ne mens pas. 
+
+MAXIME : Oui bien sûr, ce que veut dire Angèle c'est que votre cerveau peut voir des similitudes car vous pensez beaucoup à Gabriel en ce moment. 
+
+ANGÈLE : Et si c'est Gabriel, pourquoi il ne nous le dit juste pas ? 
+
+CAMILLE : Je sais pas. 
+
+THIBAULT : Peut-être qu'il ne peut pas. 
+
+ANGÈLE : J'arrive pas à croire que je perds du temps à essayer de vous raisonner alors que je devrais être en train de chercher qui est cet imposteur. 
+
+Angèle sort, énervée. 
+
+MAXIME : Je pense vraiment qu'Angèle essaie juste d'aider, elle a une mauvaise intuition. 
+
+CAMILLE : Nous aussi, on veut comprendre ce qui se passe. Et, comme elle, on suit notre intuition. 
+
+Camille sort. 
+
+THIBAULT : Qu'est-ce qu'on fait ? 
+
+MAXIME : Je sais pas. Plus ça va et plus on a de questions qui se posent. Qui a tué Gabriel ? Pourquoi Mathilde s'est laissée emmener ? Et maintenant qui est Tom ? 
+
+THIBAULT : Peut-être que toutes ces questions sont liées. 
+
+MAXIME : Ouais sûrement. Elles sont liées par la question "Qu'est-ce qui se passe bordel ?". 
+
+THIBAULT : J'ai peut-être une idée pour Tom. 
+
+Mx : Tu te rends quand même compte que tu veux défendre le fait que Gabriel, qui est mort, est avec nous depuis hier. Dans le corps de quelqu'un d'autre, il est devenu blond tout à coup. 
+
+THIBAULT : Non brun. 
+
+Mx : Mais pas Gabriel. Tom. Il est blond. 
+
+THIBAULT : Non il est brun. 
+
+Mx : Non il est blond. 
+
+THIBAULT : Non il est brun. 
+
+Mx : Non il est blond. 
+
+THIBAULT : Non il est brun. 
+
+Mx : Mais qu'est ce que tu racontes ? Il a les cheveux super clairs. 
+
+THIBAULT : Non il est brun. 
+
+Mx : On le voit pas de la même manière ? Il y a un truc bizarre. 
+
+THIBAULT : Mais c'est quoi ce truc ? 
+
+Mx : Plus ça va et plus je commence à vous croire. C'était quoi ton idée ? 
+
+THIBAULT : Viens, il faut voir où il est. 
+
+Thibault et Maxime sortent.
+
+Scène 11
+
+Gabriel et l'Ange Gabriel entrent en discutant. Gabriel parle en étant un peu saoulé que l'Ange Gabriel lui pose toujours les mêmes questions. 
+
+ANGE : Tu as essayé tous les anniversaires de sa famille ? 
+
+GABRIEL : Oui, tous ceux dont je me souviens. 
+
+ANGE : Tu es sûr qu'elle n'a pas d'animaux de compagnie ? 
+
+GABRIEL : Oui. 
+
+ANGE : Mais qu'est-ce qu'elle aime dans la vie ? 
+
+GABRIEL : Elle aime le foot, les vacances avec ses amis, les randonnées en montagne. 
+
+ANGE : Un peu banal comme fille. 
+
+GABRIEL : Mais qu'est-ce que tu voulais qu'elle aime ? La torture sur les enfants ? 
+
+ANGE : Non, mais des choses plus précises. Elle ne parlait jamais de quelque chose en particulier ? Elle t'aimait bien, ça ne pourrait pas être quelque chose en rapport avec toi ? 
+
+GABRIEL : Les choses en rapport avec moi, ce ne sont pas des choses qui se traduisent en code PIN de téléphone. 
+
+ANGE : C'est vrai que normalement les gens mettent des dates de naissance. 
+
+GABRIEL : Oui mais là peut-être qu'elle a simplement mis un code qui n'a pas de signification. Les dates de naissance, j'ai tout ess... 
+
+Gabriel a soudain une idée. Il se dirige vers la table et reprend le téléphone. Il entre un code et ça fonctionne. 
+
+GABRIEL : C'est bon, j'ai trouvé.
+
+ANGE : C'était quoi ?
+
+GABRIEL : La mienne. Ma date de naissance.
+
+ANGE : C'est romantique. Sauf si on remarque que c'est également ta date de mort. 
+
+Gabriel arrête l'enregistrement vocal, le supprime, puis en relance un autre. Il repose le téléphone.
+
+ANGE : C'est bon ?
+
+Gabriel répond en levant le pouce. 
+
+L'Ange Gabriel est soulagé. 
+
+ANGE : Tout est bien qui finit bien. Je vais aller remercier le Seigneur pour cette issue inespérée. 
+
+L'Ange Gabriel sort.
+
+Scène 12
+
+Thibault et Maxime entrent. 
+
+THIBAULT : Gab ? 
+
+Gabriel répond sans se retourner. 
+
+GABRIEL : Ouais ? 
+
+Maxime et Thibault se regardent en écarquillant les yeux. 
+
+THIBAULT : Tu ne sais toujours pas ce que Mathilde avait en tête en se livrant à la police ? 
+
+GABRIEL : Non, j'espère juste qu'elle a pas fait un trop gros coup de poker. 
+
+Thibault et Maxime fixent Gabriel sans savoir quoi dire. 
+
+GABRIEL : Qu'est-ce qu'il y a ? 
+
+THIBAULT et MAXIME : Rien. 
+
+GABRIEL : Vous aussi vous voulez que je parte ? 
+
+MAXIME : Non pas du tout. On pense que t'es vraiment un ami de Gabriel. Enfin, on te fait confiance. 
+
+THIBAULT : C'est juste Angèle qui a des doutes. Tu la connais. 
+
+GABRIEL : Non, je la connais pas. 
+
+MAXIME : Oui enfin tu as entendu un peu parler d'elle. Quand Thibault dit "tu la connais", il ne veut pas dire que tu la connais vraiment, mais plutôt que tu as entendu parler d'elle. 
+
+GABRIEL : Oui... d'accord. 
+
+MAXIME : Donc c'est comme si tu la connaissais. 
+
+THIBAULT : Je pense qu'il a compris. 
+
+Silence gêné. 
+
+THIBAULT : J'aurais aimé lui parler un peu avant qu'il parte. 
+
+Mx : À l'inspecteur ? 
+
+THIBAULT : Non, à Gabriel. 
+
+Mx : Oui mais ce n'est pas possible. 
+
+GABRIEL : Qu'est-ce que tu aurais voulu lui dire ? 
+
+Mx : Ça ne sert à rien de se demander, il n'est plus là. 
+
+THIBAULT : Je pense que je lui aurais dit que je n'aurais jamais cru pouvoir être... 
+
+Mx : Allez viens Thibault, on va voir ce que font les filles. 
+
+Maxime prend le bras de Thibault et essaie de l'entraîner vers la sortie. 
+
+THIBAULT : Non je n'ai pas envie de voir Angèle dans l'état où elle est. 
+
+GABRIEL : Elle est toujours énervée contre moi ? 
+
+Mx : Ce n'est pas vraiment qu'elle est énervée. 
+
+GABRIEL : Qu'est-ce que je peux faire pour lui prouver que j'ai de bonnes intentions ? 
+
+THIBAULT : Vu ce qu'elle s'est mis dans la tête, je ne suis pas sûr que tu puisses faire quoique ce soit. C'est Angèle, tu la connais. Enfin non, tu ne la connais toujours pas, mais... 
+
+Mx : Le seul moyen à présent, ce serait de trouver qui est le coupable de la mort de Gabriel. 
+
+GABRIEL : Mathilde, j'ai besoin de toi. 
+
+Noir.
+
+Acte III
+
+Scène 1
+
+Thibault, Maxime, et Camille sont au repère. 
+
+THIBAULT : Mais donc son film préféré c'était Inception ? J'étais son ami et je suis même pas capable de savoir ça. 
+
+MAXIME : Arrête de penser à ça, on s'en fout de son film préféré. 
+
+THIBAULT : Mais qu'est-ce qu'il doit penser de moi maintenant ? 
+
+MAXIME : Je pense qu'il s'en fout. 
+
+THIBAULT : De moi ? 
+
+MAXIME : Mais non, il a déjà oublié que tu t'es trompé. 
+
+CAMILLE : On peut lui dire qu'on sait. 
+
+THIBAULT : Oui, il faut lui dire qu'on a compris que c'était bien Inception son film préféré. 
+
+CAMILLE : Non, lui dire qu'on sait que c'est lui. 
+
+MAXIME : Je pense pas que ce soit une bonne idée. 
+
+CAMILLE : Pourquoi ? 
+
+MAXIME : Il ne nous l'a pas dit jusque là. Il doit y avoir une bonne raison. 
+
+CAMILLE : Oui mais maintenant qu'on a compris par nous-mêmes. 
+
+MAXIME : Ça change rien. Peut-être qu'il risque quelque chose à ce que ça se sache. 
+
+CAMILLE : Mais ce serait un secret entre nous. 
+
+Maxime ne répond pas. Camille se tourne vers Thibault. 
+
+CAMILLE : Qu'est-ce que t'en penses toi ? T'as pas envie de pouvoir lui parler à nouveau ? Comme avant ? 
+
+THIBAULT : Maxime a raison. C'est lui qui est dans une situation bizarre. On a aucune idée de ce qui se passe, ni de pourquoi il est là. C'est à lui de prendre les décisions. 
+
+MAXIME : On ne sait même pas combien de temps il sera encore là. 
+
+CAMILLE : C'est vrai qu'il avait parlé de partir, de rentrer chez lui. Mais il a aussi dit qu'il serait là à l'enterrement.
+
+MAXIME : Alors maintenant qu'on sait ça, on se contente de profiter de sa présence, et il partira quand il devra partir.
+
+Les trois amis restent silencieux un instant.
+
+Scène 2
+
+L'Ange Gabriel entre, suivi de Gabriel.
+
+ANGE : Et c'est comme ça que je suis devenu archange. J'ai commencé au plus bas et j'ai vraiment gravi les échelons un par un si tu veux.
+
+Gabriel ne répond pas car les autres sont là.
+
+ANGE : Tu m'écoutes ?
+
+GABRIEL : Angèle n'est toujours pas revenue ?
+
+THIBAULT : Non, elle aime bien marcher quand elle doit réfléchir.
+
+CAMILLE : Elle a surtout besoin de se calmer là.
+
+Angèle entre. Elle a entendu les dernière phrases.
+
+ANGÈLE : Coucou, j'ai bien réfléchi, et je suis calme.
+
+Silence gêné.
 
 CAMILLE : Tu veux t'asseoir ?
 
 ANGÈLE : Oui, car je suis très calme.
 
-Angèle s'asseoit. Silence un peu gêné.
+Angèle s'asseoit. Silence gêné.
 
 GABRIEL : Si Mathilde était là, elle dirait "Bonne ambiance".
 
@@ -1354,7 +1782,21 @@ THIBAULT : Tu m'as quand même l'air vachement détendu toi.
 
 GABRIEL : Je crois que je fais trop confiance à Mathilde. J'ai l'impression que grâce à elle tout va être résolu.
 
-Scène 9
+Mx : Par contre je suis en train de penser, il y a toujours le téléphone qui enregistre depuis tout à l'heure. Il n'y a pas un temps maximum pour chaque enregistrement ? Il ne faudrait pas qu'il s'arrête au mauvais moment.
+
+CAMILLE : On ne sait même pas ce qu'on cherche à enregistrer.
+
+Mx : Oui mais quand même.
+
+Camille prend son portable.
+
+CAMILLE : Je vais l'arrêter et en lancer un autre. Tiens, seulement douze minutes d'enregistrement. C'est bizarre je l'ai lancé il y a beaucoup plus longtemps.
+
+Mx : On a bien fait de vérifier, il y a une limite.
+
+CAMILLE : Une limite à exactement douze minutes et trente-cinq secondes ? Il y a plutôt eu un bug je pense. Mais pas grave, j'en relance un. Et je supprime celui-là, il n'y a rien eu d'intéressant de toute façon.
+
+Scène 3
 
 Louis entre en trombe, furieux.
 
@@ -1418,7 +1860,15 @@ ANGÈLE : J'ai pas faim moi.
 
 GABRIEL : Allez Angèle, c'est pas un petit chocolat qui va te tuer. 
 
-Pause où Angèle ne comprend pas ce qui se passe. Elle finit par en prendre un. Gabriel en prend un aussi. Il le lève pour porter un toast. 
+Pause où Angèle ne comprend pas ce qui se passe. 
+
+Mx : Prends en un, c'est juste pour grignoter un peu.
+
+ANGÈLE : T'es dans son camp toi aussi maintenant ?
+
+LOUIS : Vous avez l'air d'être de très bons amis en tout cas.
+
+Angèle lui lance un regard noir. Elle finit par prendre un chocolat. Gabriel en prend un aussi. Il le lève pour porter un toast. 
 
 GABRIEL : À Mathilde. 
 
@@ -1474,13 +1924,15 @@ LOUIS : Je sais. Je ne suis pas toujours gentil.
 
 Maxime finit par s'écrouler lui aussi. Les autres sont déjà tous inertes. Louis part, satisfait.
 
-Scène 10
+Scène 4
 
 Moment de silence où personne n'ose encore bouger. 
 
 ANGE : Ils sont vraiment morts ? 
 
 GABRIEL : Je crois qu'on a notre preuve. 
+
+MAXIME : J'en ai pas trop fait ? 
 
 Tout le monde se relève lentement. 
 
@@ -1518,7 +1970,7 @@ THIBAULT : Inspecteur adjoint Barnier. Ça sonne pas si mal.
 
 Noir.
 
-Scène 11
+Scène 5
 
 Le groupe d'amis est à l'enterrement de Gabriel. Ce dernier est là aussi. 
 
@@ -1576,7 +2028,7 @@ Camille reste un instant sans trop savoir quoi faire. Ils se regardent. Puis ell
 
 Gabriel retourne voir la tombe.
 
-Scène 12
+Scène 6
 
 L'Ange Gabriel rejoint Gabriel devant sa tombe. 
 

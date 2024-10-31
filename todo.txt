@@ -1,8 +1,12 @@
 Mode mise en scène avec :
-- poid associé à chaque scène
 - interface de gestion des comédiens
+- interface de gestion des scènes
 
 Interface de gestion des comédiens :
-- ac pour entrer dans le mode comédien 
 - lk <comedien> <perso> pour lier un comédien à un personnage 
-- commandes habituelles 
+- commandes habituelles
+
+Interface de gestion des scènes :
+- poids
+- avancement / qualité
+- planification de séances
