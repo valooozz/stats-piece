@@ -128,6 +128,32 @@ def merge_characters(piece: str, source_character: str, destination_characters: 
                 writer.writerow(row)
 
 
+def add_lines_and_words(piece: str, character_name: str, nb_lines_to_add: int, nb_words_to_add: int) -> None:
+    """ Ajoute un certain nombre de répliques et de mots à un personnage
+
+    Args:
+        piece (str): nom de la pièce
+        character_name (str): nom du personnage
+        nb_lines_to_add (int): nombre de répliques à ajouter
+        nb_words_to_add (int): nombre de mots à ajouter
+    """
+    
+    characters_file = f"{piece}/characters.csv"
+
+    with open(characters_file, "r", encoding="utf-8") as file:
+        reader = csv.reader(file)
+        rows = list(reader)
+    
+    with open(characters_file, "w", newline="", encoding="utf-8") as file:
+        writer = csv.writer(file)
+        
+        for row in rows:
+            if row[0] == character_name:
+                row[1] = int(row[1]) + nb_lines_to_add
+                row[2] = int(row[2]) + nb_words_to_add
+            writer.writerow(row)
+
+
 def delete_character(piece: str, characters_to_delete: str) -> None:
     """ Supprime un personnage
 

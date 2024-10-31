@@ -30,5 +30,9 @@ v2.2 :
 v2.3 :
 + nouvelles commandes de transformation (dl, mg de plusieurs personnages)
 
+v2.4 :
++ commande sp
+- d'autres trucs ?
+
 v3.0 :
 - interface de gestion des commédiens

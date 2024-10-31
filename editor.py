@@ -147,6 +147,34 @@ def tg(characters: List[type.Character]) -> List[str]:
     return characters_to_study
 
 
+def sp(characters: List[type.Character]) -> Tuple[str, int, int]:
+    """ Éditeur de choix pour la commande sp
+
+    Args:
+        characters (List[type.Character]): liste des personnages avec leurs informations
+
+    Returns:
+        Tuple[str, int, int]: personnage, nombre de répliques, et nombre de mots
+    """
+    
+    list_characters = [c["Character"] for c in characters]
+    
+    print("\n  >>>>> Choix de personnage <<<<<")
+    
+    print_list(list_characters, "personnages")
+    
+    print("\n  Personnage à modifier")
+    character = list_characters[int(input("   >>> "))]
+    
+    print(f"\n  Nombre de répliques à ajouter à {character}")
+    nb_lines_to_add = int(input("   >>> "))
+    
+    print(f"\n  Nombre de mots à ajouter à {character}")
+    nb_words_to_add = int(input("   >>> "))
+    
+    return character, nb_lines_to_add, nb_words_to_add
+
+
 def dl(characters: List[type.Character]) -> str:
     """ Éditeur de choix de personnage pour la commande dl
 
