@@ -70,10 +70,12 @@ def print_csv(piece: str, file_type: str) -> None:
         file_name += "scenes.csv"
     elif file_type == "ch":
         file_name += "characters.csv"
+    elif file_type == "ac":
+        file_name += "actors.csv"
     else:
-        print("Veuillez entrer 'sc' ou 'ch' pour spécifier quel fichier afficher")
+        print("Veuillez entrer 'sc', 'ch', ou 'ac' pour spécifier quel fichier afficher")
         return
-        
+    
     with open(file_name, "r", encoding="utf-8") as file:
         for line in file:
             print(line, end="")

@@ -1,9 +1,6 @@
-Mode mise en scène avec :
-- interface de gestion des comédiens
-- interface de gestion des scènes
-
 Interface de gestion des comédiens :
-- lk <comedien> <perso> pour lier un comédien à un personnage 
+- lk <comedien> <perso> pour lier un comédien à un personnage
+- ul <comedien> <perso> pour retirer un lien entre comédien et personnage
 - commandes habituelles
 
 Interface de gestion des scènes :
