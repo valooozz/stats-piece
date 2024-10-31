@@ -13,7 +13,7 @@ def usage() -> None:
     """
     print("\n  h - Afficher cette aide")
     
-    print("\n  rd <fichier> - Lire un fichier texte pour collecter des données et les stocker dans des fichiers csv")
+    print("\n  rd <piece> - Lire un fichier texte pour collecter des données et les stocker dans des fichiers csv")
     
     print("\n  ls - Afficher la liste des pièces disponibles, dont on peut analyser les données")
     print("  ld <dossier> - Charger les données présentes dans un dossier")
@@ -91,8 +91,8 @@ def main(piece, characters, scenes) -> None:
                     print("Au revoir !\n")
                     break
                 
-                case ["rd", file_name]:
-                    read.read(file_name)
+                case ["rd", piece_name]:
+                    read.read(piece_name)
                     
                 case ["ls"]:
                     data.print_pieces()

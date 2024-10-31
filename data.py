@@ -9,7 +9,7 @@ def add_piece(new_piece: str) -> None:
     
     if not piece_exists(new_piece):    
         with open(DATA_FILE, mode='a', encoding='utf-8') as file:
-            file.write(new_piece)
+            file.write("\n" + new_piece)
 
 
 def print_pieces() -> None:

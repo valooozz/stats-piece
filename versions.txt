@@ -27,5 +27,8 @@ v2.2 :
 + affichage du nombre de scènes pour dt et tg
 + commande nb pour obtenir les scènes avec un certain nombre de personnages
 
+v2.3 :
+- nouvelles commandes de transformation (dl, sp)
+
 v3.0 :
 - interface de gestion des commédiens

@@ -1,3 +1,11 @@
+Supprimer un personnage (avec éditeur)
+
+Split un personnage (avec éditeur)
+
+Mode mise en scène avec :
+- poid associé à chaque scène
+- interface de gestion des comédiens
+
 Interface de gestion des comédiens :
 - ac pour entrer dans le mode comédien 
 - lk <comedien> <perso> pour lier un comédien à un personnage 

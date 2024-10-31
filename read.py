@@ -215,32 +215,22 @@ def read_file(file_name: str) -> Tuple[Dict[str, List[CharacterName]], Dict[Char
                 
     except FileNotFoundError:
         print(f"Le fichier {file_name} n'a pas été trouvé.")
-    #except Exception as e:
-    #    print(f"Une erreur s'est produite : {e}")
     
     return None, None
 
 
-def read(file_name: str) -> None:
+def read(piece_name: str) -> None:
     """ Lit le fichier texte d'une pièce de théâtre pour collecter des données et les écrire dans des fichiers csv
 
     Args:
-        file_name (str): Nom du fichier à lire
+        piece_name (str): Nom de la pièce
     """
     
-    dir_name = file_name[:-4]
+    file_name = f"texts/{piece_name}.txt"
     dico_scenes, dico_characters = read_file(file_name)
     
     if dico_scenes and dico_characters:
-        written = write_info(dir_name, dico_scenes, dico_characters)
+        written = write_info(piece_name, dico_scenes, dico_characters)
     
         if written:
-            print(f"Les statistiques ont bien été collectées et ont été enregistrées dans le dossier '{dir_name}'")
-
-
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("python3 stats_piece.py [fichier txt à analyser]")
-    else:
-        file_name = sys.argv[1]
-        read(file_name)
+            print(f"Les statistiques ont bien été collectées et ont été enregistrées dans le dossier '{piece_name}'")
