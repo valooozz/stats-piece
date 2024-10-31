@@ -6,6 +6,7 @@ import analyse
 import data
 import modify
 import editor
+import stage
 
 
 def usage() -> None:
@@ -33,6 +34,7 @@ def usage() -> None:
     print("  dl <perso> - Supprimer un personnage")
     
     print("\n  dm - Entrer ou sortir du mode 'Mise en scène'")
+    print("  st - Savoir dans quel mode on est actuellement")
     print("  lk <comedien> <perso> - Lier un comédien à un ou plusieurs personnages")
     
     print("\n  Entrer une commande sans argument alors qu'elle nécessite un personnage et/ou une scène ouvrira un éditeur pour choisir les arguments")
@@ -77,7 +79,7 @@ def print_csv(piece: str, file_type: str) -> None:
             print(line, end="")
     
 
-def main(piece, characters, scenes, director_mode) -> None:
+def main(piece, characters, scenes, actors, director_mode) -> None:
     """ Fonction principale qui gère les commandes
     """
     
@@ -226,12 +228,39 @@ def main(piece, characters, scenes, director_mode) -> None:
                             
                             case ["dm"]:
                                 director_mode = not director_mode
+                                if director_mode:
+                                    print("Mode 'Mise en scène' activé")
+                                else:
+                                    print("Mode 'Mise en scène' désactivé")
+                            
+                            case ["st"]:
+                                if director_mode:
+                                    print("Mode 'Mise en scène' activé")
+                                else:
+                                    print("Mode 'Mise en scène' désactivé")
 
                             case _:
-                                print("Commande inconnue")
+                                if not director_mode:
+                                    print("Cette commande n'est potentiellement disponible que dans le mode 'Mise en scène'")
+                                else:
+                                    match command:
+                                        
+                                        case ["lk", *args]:
+                                            if args:
+                                                actor_name = args[0]
+                                                character_names = args[1:]
+                                            else:
+                                                print("Editeur pas encore développé")
+                                            
+                                            stage.link(piece, actor_name, character_names)
+                                            
+                                            print("Le·a comédien·ne a bien été lié·e au·x personnage·s")
+                                
+                                        case _:
+                                            print("Commande inconnue")
     except:
         print("Commande mal formée")
-        main(piece, characters, scenes, director_mode)
+        main(piece, characters, scenes, actors, director_mode)
 
 if __name__ == "__main__":
-    main(None, None, None, False)
+    main(None, None, None, None, False)
