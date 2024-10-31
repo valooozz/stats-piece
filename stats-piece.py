@@ -28,8 +28,7 @@ def usage() -> None:
     
     print("\n  rn <perso> <nouveau_nom> - Renommer un personnage")
     print("  ad <perso> <scene1> <scene2> <...> - Ajouter un personnage dans des scènes")
-    print("  mg <perso1> <perso2> - Fusionner le perso1 dans le perso2")
-    print("  sp <perso> <perso1> <perso2> <...> - Séparer un personnage en plusieurs")
+    print("  mg <perso> <perso1> <perso2> <...> - Fusionner le perso1 dans les personnages suivants")
     print("  dl <perso> - Supprimer un personnage")
     
     print("\n  Entrer une commande sans argument alors qu'elle nécessite un personnage et/ou une scène ouvrira un éditeur pour choisir les arguments")
