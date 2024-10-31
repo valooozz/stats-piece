@@ -15,3 +15,8 @@ HEADER_CHARACTERS = {
     "Lines": "Lines",
     "Words": "Words",
 }
+
+HEADER_ACTORS = {
+    "ActorName": "ActorName",
+    "CharactersPlayed": "CharactersPlayed"
+}

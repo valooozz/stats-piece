@@ -137,6 +137,7 @@ def write_info(dir_name: str, dico_scenes: Dict[str, List[CharacterName]], dico_
     
     file_scenes = f"{dir_name}/scenes.csv"
     file_characters = f"{dir_name}/characters.csv"
+    file_actors = f"{dir_name}/actors.csv"
     
     with open(file_scenes, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
@@ -152,6 +153,10 @@ def write_info(dir_name: str, dico_scenes: Dict[str, List[CharacterName]], dico_
         
         for character, (total_lines, total_words) in dico_characters.items():
             writer.writerow([character, total_lines, total_words])
+    
+    with open(file_actors, "w", newline="", encoding="utf-8") as file:
+        writer = csv.writer(file)
+        writer.writerow(list(type.HEADER_ACTORS.values()))
     
     data.add_piece(dir_name)
     

@@ -8,8 +8,8 @@ def add_piece(new_piece: str) -> None:
     """
     
     if not piece_exists(new_piece):    
-        with open(DATA_FILE, mode='a', encoding='utf-8') as file:
-            file.write("\n" + new_piece)
+        with open(DATA_FILE, mode='a', newline="", encoding='utf-8') as file:
+            file.write(new_piece + "\n")
 
 
 def print_pieces() -> None:
@@ -58,10 +58,10 @@ def remove_piece(piece: str) -> None:
             lignes = fichier.readlines()
 
         # Filtre les lignes pour exclure celle qui correspond à la pièce à retirer
-        lignes_filtrees = [ligne for ligne in lignes if ligne.strip() != piece]
+        lignes_filtrees = [ligne for ligne in lignes if ligne.strip() != piece]# and ligne.strip() != ""]
 
         # Écrit les lignes restantes dans le fichier
-        with open(DATA_FILE, mode='w', encoding='utf-8') as fichier:
+        with open(DATA_FILE, mode='w', newline="", encoding='utf-8') as fichier:
             fichier.writelines(lignes_filtrees)
 
     except Exception as e:
