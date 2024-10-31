@@ -28,7 +28,7 @@ v2.2 :
 + commande nb pour obtenir les scènes avec un certain nombre de personnages
 
 v2.3 :
-- nouvelles commandes de transformation (dl, sp)
++ nouvelles commandes de transformation (dl, mg de plusieurs personnages)
 
 v3.0 :
 - interface de gestion des commédiens
