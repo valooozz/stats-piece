@@ -77,7 +77,7 @@ def add_character(piece: str, new_character: str, list_scenes: List[str]) -> Non
         writer.writerow([new_character, 0, 0])
 
 
-def merge_characters(piece: str, source_character: str, destination_character: str) -> None:
+def merge_characters(piece: str, source_character: str, destination_characters: str) -> None:
     """ Fusionne deux personnages dans les fichiers csv
 
     Args:
@@ -100,8 +100,9 @@ def merge_characters(piece: str, source_character: str, destination_character: s
             list_characters = row[4].split(":")
             if source_character in list_characters:
                 list_characters.remove(source_character)
-                if destination_character not in list_characters:                    
-                    list_characters.append(destination_character)
+                for destination_character in destination_characters:
+                    if destination_character not in list_characters:
+                        list_characters.append(destination_character)
             
             row[4] = ":".join(list_characters)
             writer.writerow(row)
@@ -120,7 +121,7 @@ def merge_characters(piece: str, source_character: str, destination_character: s
         writer = csv.writer(file)
         
         for row in rows:
-            if row[0] == destination_character:
+            if row[0] in destination_characters:
                 row[1] = int(row[1]) + lines_of_source_character
                 row[2] = int(row[2]) + words_of_source_character
             if row[0] != source_character:

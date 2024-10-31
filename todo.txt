@@ -1,5 +1,3 @@
-Split un personnage (avec éditeur)
-
 Mode mise en scène avec :
 - poid associé à chaque scène
 - interface de gestion des comédiens

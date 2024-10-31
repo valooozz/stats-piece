@@ -1,33 +1,33 @@
 SceneName,Lines,Didascalies,Words,Characters
-I:1,26,9,614,Grand schtroumpf:Schtroumpf costaud:Schtroumpf cuisinier
+I:1,26,9,614,Grand:Costaud:Schtroumpf cuisinier
 I:2,10,4,476,Schtroumpf grognon
-I:3,46,7,842,Schtroumpf paresseux:Schtroumpf grognon:Grand schtroumpf
+I:3,46,7,842,Schtroumpf paresseux:Schtroumpf grognon:Grand
 I:4,11,6,317,Schtroumpf grognon
-I:5,28,7,383,Schtroumpf coquet:Schtroumpf grognon:Schtroumpf costaud:Schtroumpf paresseux
-I:6,40,10,745,Grand schtroumpf:Schtroumpf coquet:Schtroumpf costaud:Schtroumpf paysan:Schtroumpf grognon
-II:2,34,12,939,Charlotte:Schtroumpf coquet:Schtroumpf costaud:Schtroumpf paysan:Schtroumpf paresseux:Grand schtroumpf
-II:3,18,6,549,Les schtroumpfs:Schtroumpf grognon:Schtroumpf paresseux:Schtroumpf costaud:Schtroumpf coquet:Schtroumpf paysan:Les quatre schtroumpfs
+I:5,28,7,383,Schtroumpf coquet:Schtroumpf grognon:Costaud:Schtroumpf paresseux
+I:6,40,10,745,Grand:Schtroumpf coquet:Costaud:Schtroumpf paysan:Schtroumpf grognon
+II:2,34,12,939,Charlotte:Schtroumpf coquet:Costaud:Schtroumpf paysan:Schtroumpf paresseux:Grand
+II:3,18,6,549,Schtroumpf grognon:Schtroumpf paresseux:Costaud:Schtroumpf coquet:Schtroumpf paysan:Grand
 II:4,13,1,144,"On est devant la maison champignon de Charlotte, voisine de celle du schtroumpf grognon. Charlotte sort de chez elle pour se rendre à la place du village. Le schtroumpf grognon sort au même moment. En la voyant:Schtroumpf grognon"
 II:5,17,5,186,Schtroumpf paresseux
-II:6,36,10,520,Grand schtroumpf:Schtroumpf costaud:Schtroumpf paysan:Schtroumpf coquet:Schtroumpf paresseux
+II:6,36,10,520,Grand:Costaud:Schtroumpf paysan:Schtroumpf coquet:Schtroumpf paresseux
 II:7,15,5,176,Schtroumpf paresseux
 II:8,35,6,493,Schtroumpf grognon
-III:1,18,13,395,"Schtroumpf costaud:Les trois schtroumpfs ensemble, en chantant:Schtroumpf coquet:Schtroumpf costaud:Schtroumpf paysan"
+III:1,18,13,395,"Schtroumpf costaud:Les trois schtroumpfs ensemble, en chantant:Schtroumpf coquet:Costaud:Schtroumpf paysan"
 III:2,24,5,288,Lunettes
 III:3,35,8,454,Schtroumpf grognon
-III:4,40,9,842,Grand schtroumpf:Schtroumpf paresseux:Schtroumpf à lunette:Après un temps
+III:4,40,9,842,Grand:Schtroumpf paresseux:Schtroumpf à lunette:Après un temps
 III:5,15,3,218,"Schtroumpf grognon:Charlotte est bouche bée, elle ne sait pas quoi dire. Après un temps"
-III:6,36,8,550,Schtroumpf grognon:Grand schtroumpf:Schtroumpf coquet
+III:6,36,8,550,Schtroumpf grognon:Grand:Schtroumpf coquet
 III:7,23,3,198,Schtroumpf paresseux:Schtroumpf grognon:Le schtroumpf paresseux reste là à fixer le schtroumpf grognon. Ce dernier ne sait pas quoi faire donc il se contente de reprendre l’écriture de sa chanson comme s’il n’était pas là. Après un temps
-III:9,44,29,657,"Schtroumpf costaud:Schtroumpf grognon:Schtroumpf coquet:Schtroumpf costaud et Schtroumpf coquet:Les deux schtroumpfs, en chantant"
+III:9,44,29,657,"Costaud:Schtroumpf grognon:Schtroumpf coquet:Costaud et Schtroumpf coquet:Les deux schtroumpfs, en chantant"
 III:10,17,4,204,Schtroumpf paysan
-III:11,1,2,233,Schtroumpf costaud
-III:12,38,6,466,Schtroumpf grognon:Schtroumpf costaud
-III:13,29,8,398,Schtroumpf costaud:Schtroumpf coquet:Schtroumpf paysan:Schtroumpf paresseux
+III:11,1,2,233,Costaud
+III:12,38,6,466,Schtroumpf grognon:Costaud
+III:13,29,8,398,Costaud:Schtroumpf coquet:Schtroumpf paysan:Schtroumpf paresseux
 III:14,18,3,285,Schtroumpf grognon
-III:15,29,2,354,Schtroumpf paysan:Schtroumpf costaud
-III:16,20,6,383,Grand schtroumpf
-III:17,92,17,1337,Schtroumpf paysan:Schtroumpf costaud:Schtroumpf paresseux:Grand schtroumpf:Schtroumpf grognon
+III:15,29,2,354,Schtroumpf paysan:Costaud
+III:16,20,6,383,Grand
+III:17,92,17,1337,Schtroumpf paysan:Costaud:Schtroumpf paresseux:Grand:Schtroumpf grognon
 III:18,19,3,274,Schtroumpf grognon
-III:20,19,6,365,Schtroumpf costaud:Schtroumpf coquet:Schtroumpf paysan:Grand schtroumpf
-III:21,4,5,352,Schtroumpf grognon:Grand schtroumpf
+III:20,19,6,365,Costaud:Schtroumpf coquet:Schtroumpf paysan:Grand
+III:21,4,5,352,Schtroumpf grognon:Grand

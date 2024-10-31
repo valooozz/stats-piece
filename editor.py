@@ -76,14 +76,14 @@ def ad(scenes: List[type.Scene], characters: List[type.Character]) -> Tuple[str,
     return new_character, scenes_to_add
 
 
-def mg(characters: List[type.Character]) -> Tuple[str, str]:
+def mg(characters: List[type.Character]) -> Tuple[str, List[str]]:
     """ Éditeur de renommage de personnage
 
     Args:
         characters (List[str]): liste des personnages avec leurs informations
 
     Returns:
-        Tuple[str, str]: personnages à fusionner (source et destination)
+        Tuple[str, List[str]]: personnages à fusionner (source et destinations)
     """
     
     list_characters = [c["Character"] for c in characters]
@@ -95,10 +95,11 @@ def mg(characters: List[type.Character]) -> Tuple[str, str]:
     print("\n  Personnage à fusionner (source)")
     source_character = list_characters[int(input("   >>> "))]
     
-    print(f"\n  Personnage à fusionner (destination)")
-    destination_character = list_characters[int(input("   >>> "))]
+    print("\n  Personnages à fusionner (destination) (séparés par une virgule)")
+    num = input("   >>> ").split(",")
+    destination_characters = [list_characters[int(i)] for i in num]
     
-    return source_character, destination_character
+    return source_character, destination_characters
 
 
 def dt(characters: List[type.Character]) -> str:

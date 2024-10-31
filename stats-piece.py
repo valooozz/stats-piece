@@ -182,11 +182,11 @@ def main(piece, characters, scenes) -> None:
                             case ["mg", *args]:
                                 if args:
                                     source_character = args[0]
-                                    destination_character = args[1]
+                                    destination_characters = args[1:]
                                 else:
-                                    source_character, destination_character = editor.mg(characters)
+                                    source_character, destination_characters = editor.mg(characters)
                         
-                                modify.merge_characters(piece, source_character, destination_character)
+                                modify.merge_characters(piece, source_character, destination_characters)
                                 
                                 characters = analyse.get_characters(f"{piece}/characters.csv")
                                 scenes = analyse.get_scenes(f"{piece}/scenes.csv")
