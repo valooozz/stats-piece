@@ -127,7 +127,7 @@ def merge_characters(piece: str, source_character: str, destination_character: s
                 writer.writerow(row)
 
 
-def delete_character(piece: str, character_names: str) -> None:
+def delete_character(piece: str, characters_to_delete: str) -> None:
     """ Supprime un personnage
 
     Args:
@@ -135,8 +135,24 @@ def delete_character(piece: str, character_names: str) -> None:
         character_name (str): nom du personnage à supprimer
     """
     
+    scenes_file = f"{piece}/scenes.csv"
     characters_file = f"{piece}/characters.csv"
-    print(character_names)
+    
+    with open(scenes_file, "r", encoding="utf-8") as file:
+        reader = csv.reader(file)
+        rows = list(reader)
+    
+    with open(scenes_file, "w", newline="", encoding="utf-8") as file:
+        writer = csv.writer(file)
+        
+        for row in rows:
+            list_characters = row[4].split(":")
+            for present_character in list_characters:
+                if present_character in characters_to_delete:
+                    list_characters.remove(present_character)
+            
+            row[4] = ":".join(list_characters)
+            writer.writerow(row)
     
     with open(characters_file, "r", encoding="utf-8") as file:
         reader = csv.reader(file)
@@ -146,5 +162,5 @@ def delete_character(piece: str, character_names: str) -> None:
         writer = csv.writer(file)
         
         for row in rows:
-            if row[0] not in character_names:
+            if row[0] not in characters_to_delete:
                 writer.writerow(row)
