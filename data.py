@@ -19,7 +19,8 @@ def print_pieces() -> None:
         with open(DATA_FILE, "r", encoding="utf-8") as file:
             print("\nListe des pièces disponibles :")
             for line in file:
-                print(f"- {line}")
+                print(f"- {line}", end="")
+        print()
     except:
         print("\nAucune pièce n'a encore été lue par le système")
         

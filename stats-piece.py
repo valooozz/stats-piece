@@ -29,6 +29,7 @@ def usage() -> None:
     print("\n  rn <perso> <nouveau_nom> - Renommer un personnage")
     print("  ad <perso> <scene1> <scene2> <...> - Ajouter un personnage dans des scènes")
     print("  mg <perso1> <perso2> - Fusionner le perso1 dans le perso2")
+    print("  dl <perso> - Supprimer un personnage")
     
     print("\n  Entrer une commande sans argument alors qu'elle nécessite un personnage et/ou une scène ouvrira un éditeur pour choisir les arguments")
     
@@ -190,6 +191,19 @@ def main(piece, characters, scenes) -> None:
                                 scenes = analyse.get_scenes(f"{piece}/scenes.csv")
                                 
                                 print("Les personnages ont bien été fusionnés")
+                            
+                            case ["dl", *args]:
+                                if args:
+                                    character_name = args[0]
+                                else:
+                                    character_name = editor.dl(characters)
+                                
+                                modify.delete_character(piece, character_name)
+                                
+                                characters = analyse.get_characters(f"{piece}/characters.csv")                        
+                                scenes = analyse.get_scenes(f"{piece}/scenes.csv")
+                                
+                                print("Le personnage a bien été supprimé")
 
                             case _:
                                 print("Commande inconnue")

@@ -124,6 +124,14 @@ def dt(characters: List[type.Character]) -> str:
 
 
 def tg(characters: List[type.Character]) -> List[str]:
+    """ Éditeur de choix de personnages pour la commande tg
+
+    Args:
+        characters (List[type.Character]): liste des personnages avec leurs informations
+
+    Returns:
+        List[str]: liste de personnage à étudier
+    """
     
     list_characters = [c["Character"] for c in characters]
     
@@ -136,3 +144,25 @@ def tg(characters: List[type.Character]) -> List[str]:
     characters_to_study = [list_characters[int(i)] for i in num]
     
     return characters_to_study
+
+
+def dl(characters: List[type.Character]) -> str:
+    """ Éditeur de choix de personnage pour la commande dl
+
+    Args:
+        characters (List[type.Character]): liste des personnages avec leurs informations
+
+    Returns:
+        str: personnage à afficher
+    """
+    
+    list_characters = [c["Character"] for c in characters]
+    
+    print("\n  >>>>> Choix de personnage <<<<<")
+    
+    print_list(list_characters, "personnages")
+    
+    print("\n  Personnage à supprimer")
+    character = list_characters[int(input("   >>> "))]
+    
+    return character

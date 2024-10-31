@@ -1,5 +1,3 @@
-Supprimer un personnage (avec éditeur)
-
 Split un personnage (avec éditeur)
 
 Mode mise en scène avec :
