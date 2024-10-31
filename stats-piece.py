@@ -194,16 +194,16 @@ def main(piece, characters, scenes) -> None:
                             
                             case ["dl", *args]:
                                 if args:
-                                    character_name = args[0]
+                                    character_names = list(args)
                                 else:
-                                    character_name = editor.dl(characters)
+                                    character_names = editor.dl(characters)
                                 
-                                modify.delete_character(piece, character_name)
+                                modify.delete_character(piece, character_names)
                                 
                                 characters = analyse.get_characters(f"{piece}/characters.csv")                        
                                 scenes = analyse.get_scenes(f"{piece}/scenes.csv")
                                 
-                                print("Le personnage a bien été supprimé")
+                                print("Le·s personnage·s a/ont bien été supprimé·s")
 
                             case _:
                                 print("Commande inconnue")

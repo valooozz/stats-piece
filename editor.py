@@ -162,7 +162,8 @@ def dl(characters: List[type.Character]) -> str:
     
     print_list(list_characters, "personnages")
     
-    print("\n  Personnage à supprimer")
-    character = list_characters[int(input("   >>> "))]
+    print("\n  Personnages à supprimer (séparés par une virgule)")
+    num = input("   >>> ").split(",")
+    characters_to_study = [list_characters[int(i)] for i in num]
     
-    return character
+    return characters_to_study
