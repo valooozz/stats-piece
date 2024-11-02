@@ -2,6 +2,8 @@ from typing import Dict
 
 Character = Dict[str, int]
 Scene = Dict[str, str]
+Actor = Dict[str, int]
+Stage = Dict[str, str]
 
 HEADER_SCENES = {
     "SceneName": "SceneName",

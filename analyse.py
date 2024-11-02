@@ -22,9 +22,9 @@ def get_characters(file_name: str) -> List[type.Character]:
         reader = csv.DictReader(file)
         for row in reader:
             characters.append({
-                'Character': row[type.HEADER_CHARACTERS["CharacterName"]],
-                'Total lines': int(row[type.HEADER_CHARACTERS["Lines"]]),
-                'Total Words': int(row[type.HEADER_CHARACTERS["Words"]])
+                'Name': row[type.HEADER_CHARACTERS["CharacterName"]],
+                'Lines': int(row[type.HEADER_CHARACTERS["Lines"]]),
+                'Words': int(row[type.HEADER_CHARACTERS["Words"]])
             })
     return characters
 
@@ -45,12 +45,48 @@ def get_scenes(file_name: str) -> List[type.Scene]:
         for row in reader:
             scenes.append({
                 'Scene': row[type.HEADER_SCENES["SceneName"]],
-                'Total lines': row[type.HEADER_SCENES["Lines"]],
+                'Lines': row[type.HEADER_SCENES["Lines"]],
                 "Didascalies": row[type.HEADER_SCENES["Didascalies"]],
-                'Total words': row[type.HEADER_SCENES["Words"]],
+                'Words': row[type.HEADER_SCENES["Words"]],
                 'Characters': row[type.HEADER_SCENES["Characters"]]
             })
     return scenes
+
+
+def get_actors(file_name: str, characters: List[type.Character]) -> List[type.Actor]:
+    """ Récupère les données des acteurs depuis le fichier CSV et les informations des personnages
+
+    Args:
+        file_name (str): _description_
+        characters (List[type.Character]): _description_
+
+    Returns:
+        List[type.Actor]: _description_
+    """
+    
+    actors = []
+    with open(file_name, "r", encoding="utf-8") as file:
+        reader = csv.DictReader(file)
+        total_lines = 0
+        total_words = 0
+        for row in reader:
+            characters_played = row[type.HEADER_ACTORS["CharactersPlayed"]].split(":")
+            for character_played in characters_played:
+                character = next((c for c in characters if c["Name"] == character_played), None)
+                total_lines += character["Lines"]
+                total_words += character["Words"]
+            actors.append({
+                "Name": row[type.HEADER_ACTORS["ActorName"]],
+                "Lines": total_lines,
+                "Words": total_words
+            })
+    if not actors:
+        actors.append({
+            "Name": "Aucun acteur enregistré",
+            "Lines": 0,
+            "Words": 0
+        })
+    return actors
 
 
 def print_graphic(labels: List[str], lines: List[int], words: List[int]) -> None:
@@ -110,12 +146,12 @@ def print_scenes(scenes: List[type.Scene], graphic: bool) -> None:
             print(f"=== Acte {act} ===")
         characters = scene['Characters'].split(':')
         characters_formated = ', '.join(sorted(character for character in characters if character))
-        print(f"Scène {numero_scene}, Répliques : {scene['Total lines']}, Didascalies : {scene['Didascalies']}, Mots : {scene['Total words']}, Personnages : {characters_formated}")
+        print(f"Scène {numero_scene}, Répliques : {scene['Lines']}, Didascalies : {scene['Didascalies']}, Mots : {scene['Words']}, Personnages : {characters_formated}")
     
     if graphic:
         scene_names = [scene['Scene'] for scene in scenes]
-        total_lines = [int(scene['Total lines']) for scene in scenes]
-        total_words = [int(scene['Total words']) for scene in scenes]
+        total_lines = [int(scene['Lines']) for scene in scenes]
+        total_words = [int(scene['Words']) for scene in scenes]
         
         print_graphic(scene_names, total_lines, total_words)
 
@@ -137,7 +173,7 @@ def print_scenes_with_nb(scenes: List[type.Scene], nb: int) -> None:
         characters = scene['Characters'].split(':')
         if len(characters) == nb:
             characters_formated = ', '.join(sorted(character for character in characters if character))
-            print(f"Scène {numero_scene}, Répliques : {scene['Total lines']}, Didascalies : {scene['Didascalies']}, Mots : {scene['Total words']}, Personnages : {characters_formated}")
+            print(f"Scène {numero_scene}, Répliques : {scene['Lines']}, Didascalies : {scene['Didascalies']}, Mots : {scene['Words']}, Personnages : {characters_formated}")
 
 
 def print_nb_of_characters_in_scenes(scenes: List[type.Scene], nb_of_characters_in_piece: int) -> None:
@@ -166,14 +202,14 @@ def print_characters(characters: List[type.Character], graphic: bool) -> None:
         graphic (bool): affichage d'un graphique si cet argument est True
     """
     
-    characters_sorted = sorted(characters, key=lambda x: x['Total Words'], reverse=True)
+    characters_sorted = sorted(characters, key=lambda x: x["Words"], reverse=True)
     for character in characters_sorted:
-        print(f"- {character['Character']}, Répliques : {character['Total lines']}, Mots : {character['Total Words']}")
+        print(f"- {character['Name']}, Répliques : {character['Lines']}, Mots : {character['Words']}")
     
     if graphic:
-        characters_names = [character['Character'] for character in characters_sorted]
-        total_lines = [character['Total lines'] for character in characters_sorted]
-        total_words = [character['Total Words'] for character in characters_sorted]
+        characters_names = [character["Name"] for character in characters_sorted]
+        total_lines = [character["Lines"] for character in characters_sorted]
+        total_words = [character["Words"] for character in characters_sorted]
         
         print_graphic(characters_names, total_lines, total_words)
         
@@ -189,7 +225,7 @@ def print_character_detail(characters: List[type.Character], scenes: List[type.S
     """
     
     # Recherche le personnage dans la liste des personnages
-    personnage = next((c for c in characters if c['Character'] == nom_personnage), None)
+    personnage = next((c for c in characters if c["Name"] == nom_personnage), None)
     if personnage is None:
         print(f"Personnage '{nom_personnage}' non trouvé.")
         return
@@ -198,7 +234,7 @@ def print_character_detail(characters: List[type.Character], scenes: List[type.S
     scenes_personnage = [scene for scene in scenes if nom_personnage in scene['Characters'].split(':')]
 
     # Affiche les informations de base du personnage
-    print(f"\n=== {personnage['Character']} ===\nRépliques : {personnage['Total lines']}\nMots : {personnage['Total Words']}\nNombre de scènes : {len(scenes_personnage)}")
+    print(f"\n=== {personnage['Name']} ===\nRépliques : {personnage['Lines']}\nMots : {personnage['Words']}\nNombre de scènes : {len(scenes_personnage)}")
 
     if not scenes_personnage:
         print(f"Le personnage '{nom_personnage}' n'est présent·e dans aucune scène.")

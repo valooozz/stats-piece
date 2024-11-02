@@ -196,3 +196,7 @@ def dl(characters: List[type.Character]) -> str:
     characters_to_study = [list_characters[int(i)] for i in num]
     
     return characters_to_study
+
+
+def lk():
+    print("Editeur pas encore développé")
