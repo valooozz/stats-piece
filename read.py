@@ -1,10 +1,9 @@
-import sys
-import os
 import csv
 from typing import Dict, List, Tuple
 
 import data
 import type
+import utils
 
 CharacterName = str
 SceneName = Tuple[str, str]
@@ -102,28 +101,11 @@ def update_character_info(dico_characters: Dict[CharacterName, Tuple[int, int]],
     return dico_characters
 
 
-def create_directory(dir_name: str) -> bool:
-    """ Crée un dossier
-
-    Args:
-        dir_name (str): nom du dossier à créer
-
-    Returns:
-        bool: Retourne True si le dossier a bien été créé
-    """
-    try:
-        os.makedirs(dir_name, exist_ok=True)
-        return True
-    except OSError as e:
-        print(f"Erreur lors de la création du dossier '{dir_name}': {e}")
-        return False
-
-
-def write_info(dir_name: str, dico_scenes: Dict[str, List[CharacterName]], dico_characters: Dict[str, Tuple[int, int]]) -> bool:
+def write_info(piece: str, dico_scenes: Dict[str, List[CharacterName]], dico_characters: Dict[str, Tuple[int, int]]) -> bool:
     """ Écris les statistiques collectées dans des fichiers csv
 
     Args:
-        dir_name (str): nom du dossier dans lequel créer les fichiers
+        piece (str): nom de la pièce
         dico_scenes (Dict[str, List[CharacterName]]): dictionnaire contenant des infos sur les scènes
         dico_characters (Dict[str, Tuple[int, int]]): dictionnaire contenant des infos sur les personnages
         
@@ -131,13 +113,13 @@ def write_info(dir_name: str, dico_scenes: Dict[str, List[CharacterName]], dico_
         bool: retourn True si les informations ont bien été écrites
     """
     
-    directory_created = create_directory(dir_name)
+    directory_created = utils.create_directory(piece)
     if not directory_created:
         return False
     
-    file_scenes = f"{dir_name}/scenes.csv"
-    file_characters = f"{dir_name}/characters.csv"
-    file_actors = f"{dir_name}/actors.csv"
+    file_scenes = utils.get_scenes_file(piece)
+    file_characters = utils.get_characters_file(piece)
+    file_actors = utils.get_actors_file(piece)
     
     with open(file_scenes, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
@@ -158,7 +140,7 @@ def write_info(dir_name: str, dico_scenes: Dict[str, List[CharacterName]], dico_
         writer = csv.writer(file)
         writer.writerow(list(type.HEADER_ACTORS.values()))
     
-    data.add_piece(dir_name)
+    data.add_piece(piece)
     
     return True
 
@@ -210,7 +192,6 @@ def read_file(file_name: str) -> Tuple[Dict[str, List[CharacterName]], Dict[Char
                 elif nb_words_in_line: # didascalie
                     nb_didascalies_in_scene += 1
                     nb_words_in_scene += nb_words_in_line
-                    
             
             # Pour la dernière scène
             last_scene_name = f"{current_act}:{current_scene}"
@@ -224,18 +205,18 @@ def read_file(file_name: str) -> Tuple[Dict[str, List[CharacterName]], Dict[Char
     return None, None
 
 
-def read(piece_name: str) -> None:
+def read(piece: str) -> None:
     """ Lit le fichier texte d'une pièce de théâtre pour collecter des données et les écrire dans des fichiers csv
 
     Args:
-        piece_name (str): Nom de la pièce
+        piece (str): nom de la pièce
     """
     
-    file_name = f"texts/{piece_name}.txt"
+    file_name = utils.get_text_file(piece)
     dico_scenes, dico_characters = read_file(file_name)
     
     if dico_scenes and dico_characters:
-        written = write_info(piece_name, dico_scenes, dico_characters)
+        written = write_info(piece, dico_scenes, dico_characters)
     
         if written:
-            print(f"Les statistiques ont bien été collectées et ont été enregistrées dans le dossier '{piece_name}'")
+            print(f"Les statistiques ont bien été collectées et ont été enregistrées dans le dossier '{piece}'")

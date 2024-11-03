@@ -21,13 +21,13 @@ def print_graphic(labels: List[str], lines: List[int], words: List[int]) -> None
     width = 0.35  # Largeur des barres
 
     fig, ax = plt.subplots()
-    rects1 = ax.bar(x, lines, width, label='Répliques')
-    rects2 = ax.bar([p + width for p in x], words, width, label='Mots')
+    rects1 = ax.bar(x, lines, width, label="Répliques")
+    rects2 = ax.bar([p + width for p in x], words, width, label="Mots")
 
     # Ajouter des étiquettes, un titre et une légende
-    ax.set_xlabel('Personnages')
-    ax.set_ylabel('Nombre')
-    ax.set_title('Nombre de répliques et de mots par personnage')
+    ax.set_xlabel("Personnages")
+    ax.set_ylabel("Nombre")
+    ax.set_title("Nombre de répliques et de mots par personnage")
     ax.set_xticks([p + width / 2 for p in x])
     ax.set_xticklabels(labels)
     ax.legend()
@@ -40,12 +40,11 @@ def print_graphic(labels: List[str], lines: List[int], words: List[int]) -> None
                         xy=(rect.get_x() + rect.get_width() / 2, height),
                         xytext=(0, 3),  # 3 points de décalage vertical
                         textcoords="offset points",
-                        ha='center', va='bottom')
+                        ha="center", va="bottom")
 
     autolabel(rects1)
     autolabel(rects2)
 
-    # Afficher le graphique
     plt.show()
 
 
@@ -88,13 +87,13 @@ def print_scenes_with_nb(scenes: List[type.Scene], nb: int) -> None:
     
     current_act = None
     for scene in scenes:
-        act, numero_scene = scene['Scene'].split(':')
+        act, numero_scene = scene["Scene"].split(':')
         if act != current_act:
             current_act = act
             print(f"=== Acte {act} ===")
-        characters = scene['Characters']
+        characters = scene["Characters"]
         if len(characters) == nb:
-            characters_formated = ', '.join(sorted(character for character in characters if character))
+            characters_formated = ", ".join(sorted(character for character in characters if character))
             print(f"Scène {numero_scene}, Répliques : {scene['Lines']}, Didascalies : {scene['Didascalies']}, Mots : {scene['Words']}, Personnages : {characters_formated}")
 
 
@@ -167,11 +166,10 @@ def print_character_detail(characters: List[type.Character], scenes: List[type.S
     print(f"\nScènes où {nom_personnage} est présent·e :")
     current_act = None
     for scene in scenes_personnage:
-        act, numero_scene = scene['Scene'].split(':')
+        act, numero_scene = scene["Scene"].split(':')
         if act != current_act:
             current_act = act
             print(f"=== Acte {act} ===")
-        act, numero_scene = scene['Scene'].split(':')
         personnages = scene[to_show]
         personnages_formates = ', '.join(sorted(personnage for personnage in personnages if personnage and personnage != nom_personnage))
         print(f"Scène {numero_scene} avec : {personnages_formates}")
@@ -183,7 +181,7 @@ def print_character_detail(characters: List[type.Character], scenes: List[type.S
         other_characters.update(personnage for personnage in personnages if personnage and personnage != nom_personnage)
 
     print(f"\n{to_tell}s sur scène avec {nom_personnage}:")
-    print(', '.join(sorted(other_characters)))
+    print(", ".join(sorted(other_characters)))
 
 
 def print_characters_together(scenes: List[type.Scene], list_characters: List[str], ac: bool) -> None:

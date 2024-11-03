@@ -1,6 +1,8 @@
 from typing import List
 import csv
 
+import utils
+
 def replace_string(file_name: str, old_string: str, new_string: str) -> None:
     """ Remplace une chaîne de caractères par une autre dans un fichier
 
@@ -28,8 +30,8 @@ def rename_character(piece: str, old_name: str, new_name: str) -> None:
         new_name (str): nouveau nom du personnage
     """
     
-    scenes_file = f"{piece}/scenes.csv"
-    characters_file = f"{piece}/characters.csv"
+    scenes_file = utils.get_scenes_file(piece)
+    characters_file = utils.get_characters_file(piece)
     
     replace_string(scenes_file, old_name, new_name)
     replace_string(characters_file, old_name, new_name)
@@ -44,8 +46,8 @@ def add_character(piece: str, new_character: str, list_scenes: List[str]) -> Non
         list_scenes (List[str]): liste des scènes dans lesquelles ajouter le personnage
     """
     
-    scenes_file = f"{piece}/scenes.csv"
-    characters_file = f"{piece}/characters.csv"
+    scenes_file = utils.get_scenes_file(piece)
+    characters_file = utils.get_characters_file(piece)
     
     with open(scenes_file, "r", encoding="utf-8") as file:
         reader = csv.reader(file)
@@ -86,8 +88,8 @@ def merge_characters(piece: str, source_character: str, destination_characters: 
         destination_character (str): nom du personnage qui reçoit les informations de l'autre personnage
     """
     
-    scenes_file = f"{piece}/scenes.csv"
-    characters_file = f"{piece}/characters.csv"
+    scenes_file = utils.get_scenes_file(piece)
+    characters_file = utils.get_characters_file(piece)
     
     with open(scenes_file, "r", encoding="utf-8") as file:
         reader = csv.reader(file)
@@ -138,7 +140,7 @@ def add_lines_and_words(piece: str, character_name: str, nb_lines_to_add: int, n
         nb_words_to_add (int): nombre de mots à ajouter
     """
     
-    characters_file = f"{piece}/characters.csv"
+    characters_file = utils.get_characters_file(piece)
 
     with open(characters_file, "r", encoding="utf-8") as file:
         reader = csv.reader(file)
@@ -162,8 +164,8 @@ def delete_character(piece: str, characters_to_delete: str) -> None:
         character_name (str): nom du personnage à supprimer
     """
     
-    scenes_file = f"{piece}/scenes.csv"
-    characters_file = f"{piece}/characters.csv"
+    scenes_file = utils.get_scenes_file(piece)
+    characters_file = utils.get_characters_file(piece)
     
     with open(scenes_file, "r", encoding="utf-8") as file:
         reader = csv.reader(file)

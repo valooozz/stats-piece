@@ -32,7 +32,14 @@ v2.3 :
 
 v2.4 :
 + commande sp
-- d'autres trucs ?
 
 v3.0 :
-- interface de gestion des commédiens
++ gestion des comédien·nes
+- commandes lk et ul
+- commandes habituelles pour les comédien·nes
+
+v3.1 :
+- éditeurs pour les commandes avec les comédien·nes
+
+v4.0 :
+- gestion de la mise en scène

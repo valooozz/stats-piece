@@ -1,5 +1,3 @@
-import os
-import shutil
 from typing import List, Tuple
 
 import read
@@ -44,45 +42,6 @@ def usage() -> None:
     
     print("\n  q - Quitter")
 
-
-def delete_piece(piece: str) -> None:
-    """ Supprime toutes les données associées à une pièce lue
-
-    Args:
-        piece (str): nom de la pièce
-    """
-    
-    if os.path.exists(piece) and os.path.isdir(piece):
-        shutil.rmtree(piece)
-        data.remove_piece(piece)
-        print(f"Les données associées à la pièce '{piece}' ont été supprimées avec succès")
-    else:
-        print(f"Le dossier '{piece}' n'existe pas")
-
-
-def print_csv(piece: str, file_type: str) -> None:
-    """ Affiche le fichier csv en dur
-
-    Args:
-        piece (str): nom de la pièce
-        file_type (str): type du fichier (sc ou ch)
-    """
-    
-    file_name = f"{piece}/"
-    if file_type == "sc":
-        file_name += "scenes.csv"
-    elif file_type == "ch":
-        file_name += "characters.csv"
-    elif file_type == "ac":
-        file_name += "actors.csv"
-    else:
-        print("Veuillez entrer 'sc', 'ch', ou 'ac' pour spécifier quel fichier afficher")
-        return
-    
-    with open(file_name, "r", encoding="utf-8") as file:
-        for line in file:
-            print(line, end="")
-    
 
 def update(piece: str) -> Tuple[List[type.Character], List[type.Scene], List[type.Actor]]:
     """ Met à jour les informations collectées dans les fichiers CSV
@@ -136,7 +95,7 @@ def main(piece, characters, scenes, actors) -> None:
                     print(f"Aucune donnée ne correspond à la pièce '{piece}'")
                     
             case ["rm", piece_to_delete]:
-                delete_piece(piece_to_delete)
+                data.delete_piece(piece_to_delete)
                 
             case _:
                 if not characters or not scenes:
@@ -191,7 +150,7 @@ def main(piece, characters, scenes, actors) -> None:
                             
                         case ["pt", file_type]:
                             if data.piece_exists(piece):
-                                print_csv(piece, file_type)
+                                data.print_csv(piece, file_type)
                             else:
                                 print(f"Aucune donnée n'est associée à la pièce '{piece}'")
                         
