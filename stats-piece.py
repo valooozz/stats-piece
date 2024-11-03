@@ -9,6 +9,7 @@ import modify
 import editor
 import stage
 import type
+import load
 
 
 def usage() -> None:
@@ -26,7 +27,7 @@ def usage() -> None:
     print("  nb [<nombre>] - Afficher les scènes avec un certain nombre de personnages")
     print("  ch [gr] [ac] - Afficher les personnages avec leur nombre de répliques et de mots (gr pour afficher un graphique)")
     print("  dt [ac] <nom> - Afficher les informations détaillées d'un personnage spécifique")
-    print("  tg <perso1> <perso2> <...> [ac] - Afficher les scènes en commun pour des personnages")
+    print("  tg [ac] <perso1> <perso2> <...> - Afficher les scènes en commun pour des personnages")
     print("  pt sc|ch|ac - Afficher le contenu du fichier csv pour les scènes (sc), les personnages (ch), ou les comédien·es (ac)")
     
     print("\n  Le paramètre 'ac' sur les commandes précédentes permet d'afficher les informations concernant les comédien·es plutôt que les personnages")
@@ -37,7 +38,7 @@ def usage() -> None:
     print("  sp <perso> <repliques> <mot> - Ajouter un certain nombre de répliques et de mots à un personnage")
     print("  dl <perso> - Supprimer un personnage")
     
-    print("  lk <comedien> <perso> - Lier un comédien à un ou plusieurs personnages")
+    print("\n  lk <comedien> <perso> - Lier un comédien à un ou plusieurs personnages")
     
     print("\n  Entrer une commande sans argument alors qu'elle nécessite un personnage et/ou une scène ouvrira un éditeur pour choisir les arguments")
     
@@ -83,7 +84,7 @@ def print_csv(piece: str, file_type: str) -> None:
             print(line, end="")
     
 
-def update(piece: str) -> Tuple[List[type.Character], List[type.Scene], List[type.Actor], List[type.Stage]]:
+def update(piece: str) -> Tuple[List[type.Character], List[type.Scene], List[type.Actor]]:
     """ Met à jour les informations collectées dans les fichiers CSV
 
     Args:
@@ -93,21 +94,21 @@ def update(piece: str) -> Tuple[List[type.Character], List[type.Scene], List[typ
         Tuple[List[type.Character], List[type.Scene], List[type.Actor], List[type.Stage]]: informations sur la pièce
     """
     
-    characters = analyse.get_characters(f"{piece}/characters.csv")
-    scenes = analyse.get_scenes(f"{piece}/scenes.csv")
-    actors = analyse.get_actors(f"{piece}/actors.csv", characters)
-    # stage = 
+    characters = load.get_characters(piece)
+    scenes = load.get_scenes(piece)
+    actors = load.get_actors(piece, characters)
     
-    return characters, scenes, actors, None
+    return characters, scenes, actors
     
     
-def main(piece, characters, scenes, actors, stages, director_mode) -> None:
+def main(piece, characters, scenes, actors) -> None:
     """ Fonction principale qui gère les commandes
     """
     
     #try:
     while True:
         graphic = False
+        ac = False
         
         command = input("\n > ").split()
         
@@ -129,7 +130,7 @@ def main(piece, characters, scenes, actors, stages, director_mode) -> None:
             case ["ld", piece]:
                 piece = command[1]
                 if data.piece_exists(piece):
-                    characters, scenes, actors, stages = update(piece)                    
+                    characters, scenes, actors = update(piece)                    
                     print(f"Les données de '{piece}' ont été chargées avec succès")
                 else:
                     print(f"Aucune donnée ne correspond à la pièce '{piece}'")
@@ -144,12 +145,11 @@ def main(piece, characters, scenes, actors, stages, director_mode) -> None:
                     match command:
                         
                         case ["sc", *args]:
-                            to_show = scenes
                             if "gr" in args:
                                 graphic = True
                             if "ac" in args:
-                                to_show = stages
-                            analyse.print_scenes(to_show, graphic)
+                                ac = True
+                            analyse.print_scenes(scenes, graphic, ac)
                         
                         case ["nb", *args]:
                             if args:
@@ -168,28 +168,26 @@ def main(piece, characters, scenes, actors, stages, director_mode) -> None:
                         case ["dt", *args]:
                             if args:
                                 if args[0] == "ac":
-                                    to_show_ch = actors
-                                    to_show_sc = stages
+                                    to_show = actors
+                                    ac = True
                                     name = " ".join(args[1:])
                                 else:
-                                    to_show_ch = characters
-                                    to_show_sc = scenes
+                                    to_show = characters
                                     name = " ".join(args)
                             else:
                                 name = editor.dt(characters)                
-                            analyse.print_character_detail(to_show_ch, to_show_sc, name)
+                            analyse.print_character_detail(to_show, scenes, name, ac)
                             
                         case ["tg", *args]:
                             if args:
                                 if args[0] == "ac":
-                                    to_show = stages
+                                    ac = True
                                     list_characters = args[1:]
                                 else:
-                                    to_show = scenes
                                     list_characters = args
                             else:
                                 list_characters = editor.tg(characters)
-                            analyse.print_characters_together(scenes, list_characters)
+                            analyse.print_characters_together(scenes, list_characters, ac)
                             
                         case ["pt", file_type]:
                             if data.piece_exists(piece):
@@ -205,7 +203,7 @@ def main(piece, characters, scenes, actors, stages, director_mode) -> None:
                                 old_name, new_name = editor.rn(characters)
                                 
                             modify.rename_character(piece, old_name, new_name)
-                            characters, scenes, actors, stages = update(piece)
+                            characters, scenes, actors = update(piece)
                             
                             print("Le changement de nom a été opéré avec succès")
                         
@@ -217,7 +215,7 @@ def main(piece, characters, scenes, actors, stages, director_mode) -> None:
                                 new_character, list_scenes = editor.ad(scenes, characters)
                 
                             modify.add_character(piece, new_character, list_scenes)
-                            characters, scenes, actors, stages = update(piece)
+                            characters, scenes, actors = update(piece)
                             
                             print("Le personnage a bien été ajouté")
                         
@@ -230,7 +228,7 @@ def main(piece, characters, scenes, actors, stages, director_mode) -> None:
                     
                             modify.merge_characters(piece, source_character, destination_characters)
                             
-                            characters, scenes, actors, stages = update(piece)
+                            characters, scenes, actors = update(piece)
                             
                             print("Les personnages ont bien été fusionnés")
                         
@@ -244,7 +242,7 @@ def main(piece, characters, scenes, actors, stages, director_mode) -> None:
                             
                             modify.add_lines_and_words(piece, character_name, nb_lines_to_add, nb_words_to_add)
                             
-                            characters, scenes, actors, stages = update(piece)
+                            characters, scenes, actors = update(piece)
                             
                             print("Les modifications ont été réalisées avec succès")
                         
@@ -256,7 +254,7 @@ def main(piece, characters, scenes, actors, stages, director_mode) -> None:
                             
                             modify.delete_character(piece, character_names)
                             
-                            characters, scenes, actors, stages = update(piece)
+                            characters, scenes, actors = update(piece)
                             
                             print("Le·s personnage·s a/ont bien été supprimé·s")
                                     
@@ -269,7 +267,7 @@ def main(piece, characters, scenes, actors, stages, director_mode) -> None:
                             
                             stage.link(piece, actor_name, character_names)
                             
-                            characters, scenes, actors, stages = update(piece)
+                            characters, scenes, actors = update(piece)
                             
                             print("Le·a comédien·ne a bien été lié·e au·x personnage·s")
                 
@@ -277,7 +275,7 @@ def main(piece, characters, scenes, actors, stages, director_mode) -> None:
                             print("Commande inconnue")
     #except:
     #    print("Commande mal formée")
-    #    main(piece, characters, scenes, director_mode)
+    #    main(piece, characters, scenes, actors)
 
 if __name__ == "__main__":
-    main(None, None, None, None, None, False)
+    main(None, None, None, None)

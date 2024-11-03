@@ -1,6 +1,8 @@
 from typing import List
 import csv
 
+import utils
+
 def link(piece: str, actor_name: str, character_names: List[str]) -> None:
     """ Relie un comédien à des personnages
 
@@ -10,7 +12,7 @@ def link(piece: str, actor_name: str, character_names: List[str]) -> None:
         character_names (List[str]): liste des noms des personnages
     """
     
-    actors_file = f"{piece}/actors.csv"
+    actors_file = utils.get_actors_file(piece)
     
     try:
         with open(actors_file, "r", encoding="utf-8") as file:

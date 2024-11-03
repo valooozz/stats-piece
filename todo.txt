@@ -1,6 +1,8 @@
+Tout réorganiser en fait
+Changer noms des champs des dictionnaires
+Revoir un peu les fonctions de analyse.py
+
 Interface de gestion des comédiens :
-- récupération de stages
-- commandes habituelles d'affichage
 - commandes habituelles de modification
 - ul <comedien> <perso> pour retirer un lien entre comédien et personnage
 
@@ -11,10 +13,6 @@ Editeurs :
 - éditeur lk
 - éditeur ul
 - éditeur différent si 'ac' en paramètre
-
-Tout réorganiser en fait
-Changer noms des champs des dictionnaires
-Revoir un peu les fonctions de analyse.py
 
 Interface de gestion des scènes :
 - poids
