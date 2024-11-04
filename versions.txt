@@ -39,7 +39,7 @@ v3.0 :
 + commandes habituelles pour les comédien·nes
 
 v3.1 :
-- éditeurs pour les commandes avec les comédien·nes
++ éditeurs pour les commandes avec les comédien·nes
 
 v4.0 :
 - gestion de la mise en scène
