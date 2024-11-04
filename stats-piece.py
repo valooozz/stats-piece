@@ -27,14 +27,14 @@ def usage() -> None:
     print("  dt [ac] <nom> - Afficher les informations détaillées d'un personnage spécifique")
     print("  tg [ac] <perso1> <perso2> <...> - Afficher les scènes en commun pour des personnages")
     print("  pt sc|ch|ac - Afficher le contenu du fichier csv pour les scènes (sc), les personnages (ch), ou les comédien·es (ac)")
-    
-    print("\n  Le paramètre 'ac' sur les commandes précédentes permet d'afficher les informations concernant les comédien·es plutôt que les personnages")
-    
-    print("\n  rn <perso> <nouveau_nom> - Renommer un personnage")
+        
+    print("\n  rn [ac] <perso> <nouveau_nom> - Renommer un personnage")
     print("  ad <perso> <scene1> <scene2> <...> - Ajouter un personnage dans des scènes")
     print("  mg <perso> <perso1> <perso2> <...> - Fusionner un personnage dans un ou plusieurs personnages")
     print("  sp <perso> <repliques> <mot> - Ajouter un certain nombre de répliques et de mots à un personnage")
-    print("  dl <perso> - Supprimer un personnage")
+    print("  dl [ac] <perso> - Supprimer un personnage")
+    
+    print("\n  Le paramètre 'ac' sur les commandes précédentes permet d'afficher ou de modifier des informations concernant les comédien·es plutôt que les personnages")
     
     print("\n  lk <comedien> <perso> - Lier un comédien à un ou plusieurs personnages")
     
@@ -156,12 +156,17 @@ def main(piece, characters, scenes, actors) -> None:
                         
                         case ["rn", *args]:
                             if args:
-                                old_name = args[0]
-                                new_name = args[1]
+                                if args[0] == "ac":
+                                    ac = True
+                                    old_name = args[1]
+                                    new_name = args[2]
+                                else:
+                                    old_name = args[0]
+                                    new_name = args[1]
                             else:
                                 old_name, new_name = editor.rn(characters)
                                 
-                            modify.rename_character(piece, old_name, new_name)
+                            modify.rename_character(piece, old_name, new_name, ac)
                             characters, scenes, actors = update(piece)
                             
                             print("Le changement de nom a été opéré avec succès")
@@ -207,11 +212,15 @@ def main(piece, characters, scenes, actors) -> None:
                         
                         case ["dl", *args]:
                             if args:
-                                character_names = list(args)
+                                if args[0] == "ac":
+                                    ac = True
+                                    character_names = list(args[1:])
+                                else:
+                                    character_names = list(args)
                             else:
                                 character_names = editor.dl(characters)
                             
-                            modify.delete_character(piece, character_names)
+                            modify.delete_character(piece, character_names, ac)
                             
                             characters, scenes, actors = update(piece)
                             

@@ -21,20 +21,24 @@ def replace_string(file_name: str, old_string: str, new_string: str) -> None:
             file.write(new_line)
 
 
-def rename_character(piece: str, old_name: str, new_name: str) -> None:
+def rename_character(piece: str, old_name: str, new_name: str, ac: bool) -> None:
     """ Renomme un personnage dans les fichiers csv
 
     Args:
         piece (str): nom de la pièce
         old_name (str): ancien nom du personnage
         new_name (str): nouveau nom du personnage
+        ac (bool): on renomme un·e comédien·ne si ce paramètre est True
     """
     
     scenes_file = utils.get_scenes_file(piece)
-    characters_file = utils.get_characters_file(piece)
+    if ac:
+        people_file = utils.get_actors_file(piece)
+    else:
+        people_file = utils.get_characters_file(piece)
     
     replace_string(scenes_file, old_name, new_name)
-    replace_string(characters_file, old_name, new_name)
+    replace_string(people_file, old_name, new_name)
 
 
 def add_character(piece: str, new_character: str, list_scenes: List[str]) -> None:
@@ -156,16 +160,20 @@ def add_lines_and_words(piece: str, character_name: str, nb_lines_to_add: int, n
             writer.writerow(row)
 
 
-def delete_character(piece: str, characters_to_delete: str) -> None:
+def delete_character(piece: str, characters_to_delete: str, ac: bool) -> None:
     """ Supprime un personnage
 
     Args:
         piece (str): nom de la pièce concernée
         character_name (str): nom du personnage à supprimer
+        ac (bool): on supprime un·e comédien·ne si ce paramètre est True
     """
     
     scenes_file = utils.get_scenes_file(piece)
-    characters_file = utils.get_characters_file(piece)
+    if ac:
+        people_file = utils.get_actors_file(piece)
+    else:
+        people_file = utils.get_characters_file(piece)
     
     with open(scenes_file, "r", encoding="utf-8") as file:
         reader = csv.reader(file)
@@ -183,11 +191,11 @@ def delete_character(piece: str, characters_to_delete: str) -> None:
             row[4] = ":".join(list_characters)
             writer.writerow(row)
     
-    with open(characters_file, "r", encoding="utf-8") as file:
+    with open(people_file, "r", encoding="utf-8") as file:
         reader = csv.reader(file)
         rows = list(reader)
 
-    with open(characters_file, "w", newline="", encoding="utf-8") as file:
+    with open(people_file, "w", newline="", encoding="utf-8") as file:
         writer = csv.writer(file)
         
         for row in rows:
