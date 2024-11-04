@@ -36,7 +36,8 @@ def usage() -> None:
     
     print("\n  Le paramètre 'ac' sur les commandes précédentes permet d'afficher ou de modifier des informations concernant les comédien·es plutôt que les personnages")
     
-    print("\n  lk <comedien> <perso> - Lier un comédien à un ou plusieurs personnages")
+    print("\n  lk <comedien> <perso1> <perso2> <...> - Lier un comédien à un ou plusieurs personnages")
+    print("  ul <comedien> <perso> - Supprimer le lien entre un comédien et un personnage")
     
     print("\n  Entrer une commande sans argument alors qu'elle nécessite un personnage et/ou une scène ouvrira un éditeur pour choisir les arguments")
     
@@ -238,6 +239,19 @@ def main(piece, characters, scenes, actors) -> None:
                             characters, scenes, actors = update(piece)
                             
                             print("Le·a comédien·ne a bien été lié·e au·x personnage·s")
+                        
+                        case ["ul", *args]:
+                            if args:
+                                actor_name = args[0]
+                                character_name = args[1]
+                            else:
+                                editor.ul()
+                            
+                            stage.unlink(piece, actor_name, character_name)
+                            
+                            characters, scenes, actors = update(piece)
+                            
+                            print("Le lien entre le·a comédien·ne et le personnage a bien été retiré")
                 
                         case _:
                             print("Commande inconnue")

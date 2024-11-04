@@ -1,7 +1,3 @@
-Interface de gestion des comédiens :
-- commandes habituelles de modification
-- ul <comedien> <perso> pour retirer un lien entre comédien et personnage
-
 Factoriser :
 - editor
 

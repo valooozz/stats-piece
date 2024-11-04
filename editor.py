@@ -200,3 +200,7 @@ def dl(characters: List[type.Character]) -> str:
 
 def lk():
     print("Editeur pas encore développé")
+    
+
+def ul():
+    print("Editeur pas encore développé")

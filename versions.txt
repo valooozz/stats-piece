@@ -35,8 +35,8 @@ v2.4 :
 
 v3.0 :
 + gestion des comédien·nes
-- commandes lk et ul
-- commandes habituelles pour les comédien·nes
++ commandes lk et ul
++ commandes habituelles pour les comédien·nes
 
 v3.1 :
 - éditeurs pour les commandes avec les comédien·nes
