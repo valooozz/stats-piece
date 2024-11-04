@@ -1,4 +1,4 @@
-from typing import Tuple
+from typing import Dict, List, Tuple
 import os
 
 def get_characters_file(piece: str) -> str:
@@ -12,6 +12,9 @@ def get_actors_file(piece: str) -> str:
 
 def get_text_file(piece: str) -> str:
     return f"texts/{piece}.txt"
+
+def extract_list_names(list_infos: List[Dict], key: str) -> List[str]:
+    return [info[key] for info in list_infos]
 
 def handle_ac(ac: bool) -> Tuple[str, str]:
     if ac:

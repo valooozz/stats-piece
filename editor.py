@@ -1,6 +1,7 @@
 from typing import List, Tuple
 
 import type
+import utils
 
 
 def print_list(list_to_print: List[str], title: str) -> None:
@@ -16,24 +17,58 @@ def print_list(list_to_print: List[str], title: str) -> None:
         print(f"   {i} - {list_to_print[i]}")
         
 
-def rn(characters: List[type.Character]) -> Tuple[str, str]:
+def get_one(title: str, list_to_pick: List[str]) -> str:
+    """ Retourne un élément choisi dans une liste
+
+    Args:
+        title (str): titre du choix
+        list_to_pick (List[str]): liste dans laquelle choisir
+
+    Returns:
+        str: valeur choisie dans la liste
+    """
+    
+    print(f"\n  {title}")
+    num = int(input("   >>> "))
+    result = list_to_pick[num]
+    return result
+
+
+def get_multiple(title: str, list_to_pick: List[str]) -> List[str]:
+    """ Retourne une liste d'éléments choisis dans une liste
+
+    Args:
+        title (str): titre du choix
+        list_to_pick (List[str]): liste dans laquelle choisir
+
+    Returns:
+        List[str]: liste d'éléments choisis
+    """
+    
+    print(f"\n  {title} (séparés par une virgule)")
+    num = input("   >>> ").split(",")
+    result = [list_to_pick[int(i)] for i in num]
+    return result
+        
+
+def rn(characters: List[type.Character], people_name: str) -> Tuple[str, str]:
     """ Éditeur de renommage de personnage
 
     Args:
         characters (List[str]): liste des personnages avec leurs informations
+        people_name (str): nom des personnages étudiées
+        
 
     Returns:
         Tuple[str, str]: ancien et nouveau nom
     """
     
-    list_characters = [c["Character"] for c in characters]
+    list_characters = utils.extract_list_names(characters, "Name")
     
-    print("\n  >>>>> Éditeur de renommage de personnage <<<<<")
+    print(f"\n  >>>>> Éditeur de renommage de {people_name}s <<<<<")
     
-    print_list(list_characters, "personnages")
-    
-    print("\n  Personnage à renommer")
-    old_name = list_characters[int(input("   >>> "))]
+    print_list(list_characters, f"{people_name}s")
+    old_name = get_one(f"{people_name.capitalize()}s à renommer", list_characters)
     
     print(f"\n  Nouveau nom pour {old_name}")
     new_name = input("   >>> ").strip()
@@ -51,8 +86,8 @@ def ad(scenes: List[type.Scene], characters: List[type.Character]) -> Tuple[str,
         Tuple[str, List[str]]: personnage à ajouter et liste des scènes dans lesquelles l'ajouter
     """
     
-    list_scenes = [s["Scene"] for s in scenes]
-    list_characters = [c["Character"] for c in characters]
+    list_scenes = utils.extract_list_names(scenes, "Scene")
+    list_characters = utils.extract_list_names(characters, "Name")
     
     print("\n  >>>>> Éditeur d'ajout de personnage <<<<<")
     
@@ -65,13 +100,8 @@ def ad(scenes: List[type.Scene], characters: List[type.Character]) -> Tuple[str,
     except:
         new_character = entry
     
-    print_list(list_characters, "scènes")
-    
-    scenes_to_add = []
-    print(f"\n  Scènes où ajouter {new_character} (séparées par une virgule)")
-    num_sc = input("   >>> ").split(",")
-    for num in num_sc:
-        scenes_to_add.append(list_scenes[int(num)])
+    print_list(list_scenes, "scènes")
+    scenes_to_add = get_multiple(f"Scènes où ajouter {new_character}", list_scenes)
     
     return new_character, scenes_to_add
 
@@ -86,63 +116,55 @@ def mg(characters: List[type.Character]) -> Tuple[str, List[str]]:
         Tuple[str, List[str]]: personnages à fusionner (source et destinations)
     """
     
-    list_characters = [c["Character"] for c in characters]
+    list_characters = utils.extract_list_names(characters, "Name")
     
     print("\n  >>>>> Éditeur de fusion de personnages <<<<<")
     
     print_list(list_characters, "personnages")
-    
-    print("\n  Personnage à fusionner (source)")
-    source_character = list_characters[int(input("   >>> "))]
-    
-    print("\n  Personnages à fusionner (destination) (séparés par une virgule)")
-    num = input("   >>> ").split(",")
-    destination_characters = [list_characters[int(i)] for i in num]
+    source_character = get_one("Personnage à fusionner (source)", list_characters)
+    destination_characters = get_multiple("Personnages à fusionner (destination)", list_characters)
     
     return source_character, destination_characters
 
 
-def dt(characters: List[type.Character]) -> str:
+def dt(characters: List[type.Character], people_name: str) -> str:
     """ Éditeur de choix de personnage pour la commande dt
 
     Args:
         characters (List[type.Character]): liste des personnages avec leurs informations
+        people_name (str): nom des personnages étudiées
 
     Returns:
         str: personnage à afficher
     """
     
-    list_characters = [c["Character"] for c in characters]
+    list_characters = utils.extract_list_names(characters, "Name")
     
-    print("\n  >>>>> Choix de personnage <<<<<")
+    print(f"\n  >>>>> Choix de {people_name} <<<<<")
     
-    print_list(list_characters, "personnages")
-    
-    print("\n  Personnage à étudier")
-    character = list_characters[int(input("   >>> "))]
+    print_list(list_characters, f"{people_name}s")
+    character = get_one(f"{people_name.capitalize()} à étudier", list_characters)
     
     return character
 
 
-def tg(characters: List[type.Character]) -> List[str]:
+def tg(characters: List[type.Character], people_name: str) -> List[str]:
     """ Éditeur de choix de personnages pour la commande tg
 
     Args:
         characters (List[type.Character]): liste des personnages avec leurs informations
+        people_name (str): nom des personnages étudiées
 
     Returns:
         List[str]: liste de personnage à étudier
     """
     
-    list_characters = [c["Character"] for c in characters]
+    list_characters = utils.extract_list_names(characters, "Name")
     
-    print("\n  >>>>> Choix des personnages <<<<<")
+    print(f"\n  >>>>> Choix des {people_name}s <<<<<")
     
-    print_list(list_characters, "personnages")
-    
-    print("\n  Personnages à étudier (séparés par une virgule)")
-    num = input("   >>> ").split(",")
-    characters_to_study = [list_characters[int(i)] for i in num]
+    print_list(list_characters, f"{people_name}s")
+    characters_to_study = get_multiple(f"{people_name.capitalize()}s à étudier", list_characters)
     
     return characters_to_study
 
@@ -157,14 +179,12 @@ def sp(characters: List[type.Character]) -> Tuple[str, int, int]:
         Tuple[str, int, int]: personnage, nombre de répliques, et nombre de mots
     """
     
-    list_characters = [c["Character"] for c in characters]
+    list_characters = utils.extract_list_names(characters, "Name")
     
     print("\n  >>>>> Choix de personnage <<<<<")
     
     print_list(list_characters, "personnages")
-    
-    print("\n  Personnage à modifier")
-    character = list_characters[int(input("   >>> "))]
+    character = get_one("Personnage à modifier", list_characters)
     
     print(f"\n  Nombre de répliques à ajouter à {character}")
     nb_lines_to_add = int(input("   >>> "))
@@ -175,32 +195,78 @@ def sp(characters: List[type.Character]) -> Tuple[str, int, int]:
     return character, nb_lines_to_add, nb_words_to_add
 
 
-def dl(characters: List[type.Character]) -> str:
+def dl(characters: List[type.Character], people_name: str) -> str:
     """ Éditeur de choix de personnage pour la commande dl
 
     Args:
         characters (List[type.Character]): liste des personnages avec leurs informations
+        people_name (str): nom des personnages étudiées
 
     Returns:
         str: personnage à afficher
     """
     
-    list_characters = [c["Character"] for c in characters]
+    list_characters = utils.extract_list_names(characters, "Name")
     
-    print("\n  >>>>> Choix de personnage <<<<<")
+    print(f"\n  >>>>> Choix de {people_name}s <<<<<")
     
-    print_list(list_characters, "personnages")
-    
-    print("\n  Personnages à supprimer (séparés par une virgule)")
-    num = input("   >>> ").split(",")
-    characters_to_study = [list_characters[int(i)] for i in num]
+    print_list(list_characters, f"{people_name}s")
+    characters_to_study = get_multiple(f"{people_name.capitalize()}s à supprimer", list_characters)
     
     return characters_to_study
 
 
-def lk():
-    print("Editeur pas encore développé")
-    
+def lk(actors: List[type.Actor], characters: List[type.Character]) -> Tuple[str, List[str]]:
+    """ Éditeur de création de lien entre comédien·ne et personnage·s
 
-def ul():
-    print("Editeur pas encore développé")
+    Args:
+        actors (List[type.Actor]): liste des comédien·nes avec leurs infos
+        characters (List[type.Character]): liste des personnages avec leurs infos
+
+    Returns:
+        Tuple[str, List[str]]: nom du comédien·ne et des personnages à relier
+    """
+    
+    list_actors = utils.extract_list_names(actors, "Name")
+    list_characters = utils.extract_list_names(characters, "Name")
+    
+    print("\n  >>>>> Éditeur de lien <<<<<")
+    
+    print_list(list_actors, "comédien·nes")
+    
+    print("\n  Comédien·e à relier (si vous souhaitez ajouter un·e nouveau·lle comédien·ne, entrez son nom)")
+    entry = input("   >>> ").strip()
+    try:
+        actor_to_link = list_actors[int(entry)]
+    except:
+        actor_to_link = entry
+    
+    print_list(list_characters, "personnages")
+    characters_to_link = get_multiple("Personnages à relier", list_characters)
+    
+    return actor_to_link, characters_to_link
+
+
+def ul(actors: List[type.Actor], characters: List[type.Character]) -> Tuple[str, str]:
+    """ Éditeur de destruction de lien entre comédien·ne et personnage
+
+    Args:
+        actors (List[type.Actor]): liste des comédien·nes avec leurs infos
+        characters (List[type.Character]): liste des personnages avec leurs infos
+
+    Returns:
+        Tuple[str, str]: nom du comédien·ne et du personnage à séparer
+    """
+    
+    list_actors = utils.extract_list_names(actors, "Name")
+    list_characters = utils.extract_list_names(characters, "Name")
+    
+    print("\n  >>>>> Éditeur de séparation <<<<<")
+    
+    print_list(list_actors, "comédien·nes")
+    actor_to_link = get_one("Comédien·ne à séparer", list_actors)
+    
+    print_list(list_characters, "personnages")
+    characters_to_link = get_one("Personnage à séparer", list_characters)
+    
+    return actor_to_link, characters_to_link

@@ -65,199 +65,234 @@ def main(piece, characters, scenes, actors) -> None:
     """ Fonction principale qui gère les commandes
     """
     
-    try:
-        while True:
-            graphic = False
-            ac = False
+    #try:
+    while True:
+        graphic = False
+        ac = False
+        
+        command = input("\n > ").split()
+        
+        match command:
             
-            command = input("\n > ").split()
+            case ["h"]:
+                usage()
+                                    
+            case ["q"]:
+                print("Au revoir !\n")
+                break
             
-            match command:
+            case ["rd", piece_name]:
+                read.read(piece_name)
                 
-                case ["h"]:
-                    usage()
-                                        
-                case ["q"]:
-                    print("Au revoir !\n")
-                    break
+            case ["ls"]:
+                data.print_pieces()
                 
-                case ["rd", piece_name]:
-                    read.read(piece_name)
+            case ["ld", piece]:
+                piece = command[1]
+                if data.piece_exists(piece):
+                    characters, scenes, actors = update(piece)                    
+                    print(f"Les données de '{piece}' ont été chargées avec succès")
+                else:
+                    print(f"Aucune donnée ne correspond à la pièce '{piece}'")
                     
-                case ["ls"]:
-                    data.print_pieces()
-                    
-                case ["ld", piece]:
-                    piece = command[1]
-                    if data.piece_exists(piece):
-                        characters, scenes, actors = update(piece)                    
-                        print(f"Les données de '{piece}' ont été chargées avec succès")
-                    else:
-                        print(f"Aucune donnée ne correspond à la pièce '{piece}'")
+            case ["rm", piece_to_delete]:
+                data.delete_piece(piece_to_delete)
+                
+            case _:
+                if not characters or not scenes:
+                    print("Vous devez d'abord charger les données d'une pièce")
+                else:
+                    match command:
                         
-                case ["rm", piece_to_delete]:
-                    data.delete_piece(piece_to_delete)
-                    
-                case _:
-                    if not characters or not scenes:
-                        print("Vous devez d'abord charger les données d'une pièce")
-                    else:
-                        match command:
-                            
-                            case ["sc", *args]:
-                                if "gr" in args:
-                                    graphic = True
-                                if "ac" in args:
-                                    ac = True
-                                analyse.print_scenes(scenes, graphic, ac)
-                            
-                            case ["nb", *args]:
-                                if args:
-                                    analyse.print_scenes_with_nb(scenes, int(args[0]))
-                                else:
-                                    analyse.print_nb_of_characters_in_scenes(scenes, len(characters))
-                            
-                            case ["ch", *args]:
-                                to_show = characters
-                                if "gr" in args:
-                                    graphic = True
-                                if "ac" in args:
+                        case ["sc", *args]:
+                            if "gr" in args:
+                                graphic = True
+                            if "ac" in args:
+                                ac = True
+                            analyse.print_scenes(scenes, graphic, ac)
+                        
+                        case ["nb", *args]:
+                            if args:
+                                analyse.print_scenes_with_nb(scenes, int(args[0]))
+                            else:
+                                analyse.print_nb_of_characters_in_scenes(scenes, len(characters))
+                        
+                        case ["ch", *args]:
+                            to_show = characters
+                            if "gr" in args:
+                                graphic = True
+                            if "ac" in args:
+                                to_show = actors
+                            analyse.print_characters(to_show, graphic)
+                        
+                        case ["dt", *args]:
+                            if len(args) > 1:
+                                if args[0] == "ac":
                                     to_show = actors
-                                analyse.print_characters(to_show, graphic)
-                            
-                            case ["dt", *args]:
+                                    ac = True
+                                    name = " ".join(args[1:])
+                                else:
+                                    to_show = characters
+                                    name = " ".join(args)
+                            else:
                                 if args:
                                     if args[0] == "ac":
                                         to_show = actors
                                         ac = True
-                                        name = " ".join(args[1:])
+                                        name = editor.dt(actors, "comédien·ne")
                                     else:
-                                        to_show = characters
-                                        name = " ".join(args)
+                                        print("Commande mal formée")
+                                        continue
                                 else:
-                                    name = editor.dt(characters)                
-                                analyse.print_character_detail(to_show, scenes, name, ac)
-                                
-                            case ["tg", *args]:
-                                if args:
-                                    if args[0] == "ac":
-                                        ac = True
-                                        list_characters = args[1:]
-                                    else:
-                                        list_characters = args
-                                else:
-                                    list_characters = editor.tg(characters)
-                                analyse.print_characters_together(scenes, list_characters, ac)
-                                
-                            case ["pt", file_type]:
-                                if data.piece_exists(piece):
-                                    data.print_csv(piece, file_type)
-                                else:
-                                    print(f"Aucune donnée n'est associée à la pièce '{piece}'")
+                                    to_show = characters
+                                    name = editor.dt(characters, "personnage")
+                            analyse.print_character_detail(to_show, scenes, name, ac)
                             
-                            case ["rn", *args]:
+                        case ["tg", *args]:
+                            if len(args) > 1:
+                                if args[0] == "ac":
+                                    ac = True
+                                    list_characters = args[1:]
+                                else:
+                                    list_characters = args
+                            else:
                                 if args:
                                     if args[0] == "ac":
                                         ac = True
-                                        old_name = args[1]
-                                        new_name = args[2]
+                                        list_characters = editor.tg(actors, "comédien·ne")
                                     else:
-                                        old_name = args[0]
-                                        new_name = args[1]
+                                        print("Commande mal formée")
+                                        continue
                                 else:
-                                    old_name, new_name = editor.rn(characters)
+                                    list_characters = editor.tg(characters, "personnage")
                                     
-                                modify.rename_character(piece, old_name, new_name, ac)
-                                characters, scenes, actors = update(piece)
-                                
-                                print("Le changement de nom a été opéré avec succès")
+                            analyse.print_characters_together(scenes, list_characters, ac)
                             
-                            case ["ad", *args]:
-                                if args:
-                                    new_character = args[0]
-                                    list_scenes = args[1:]
-                                else:
-                                    new_character, list_scenes = editor.ad(scenes, characters)
-                    
-                                modify.add_character(piece, new_character, list_scenes)
-                                characters, scenes, actors = update(piece)
-                                
-                                print("Le personnage a bien été ajouté")
-                            
-                            case ["mg", *args]:
-                                if args:
-                                    source_character = args[0]
-                                    destination_characters = args[1:]
-                                else:
-                                    source_character, destination_characters = editor.mg(characters)
+                        case ["pt", file_type]:
+                            if data.piece_exists(piece):
+                                data.print_csv(piece, file_type)
+                            else:
+                                print(f"Aucune donnée n'est associée à la pièce '{piece}'")
                         
-                                modify.merge_characters(piece, source_character, destination_characters)
-                                
-                                characters, scenes, actors = update(piece)
-                                
-                                print("Les personnages ont bien été fusionnés")
-                            
-                            case ["sp", *args]:
-                                if args:
-                                    character_name = args[0]
-                                    nb_lines_to_add = int(args[1])
-                                    nb_words_to_add = int(args[2])
+                        case ["rn", *args]:
+                            if len(args) > 1:
+                                if args[0] == "ac":
+                                    ac = True
+                                    old_name = args[1]
+                                    new_name = args[2]
                                 else:
-                                    character_name, nb_lines_to_add, nb_words_to_add = editor.sp(characters)
-                                
-                                modify.add_lines_and_words(piece, character_name, nb_lines_to_add, nb_words_to_add)
-                                
-                                characters, scenes, actors = update(piece)
-                                
-                                print("Les modifications ont été réalisées avec succès")
-                            
-                            case ["dl", *args]:
+                                    old_name = args[0]
+                                    new_name = args[1]
+                            else:
                                 if args:
                                     if args[0] == "ac":
                                         ac = True
-                                        character_names = list(args[1:])
+                                        old_name, new_name = editor.rn(actors, "comédien·ne")
                                     else:
-                                        character_names = list(args)
+                                        print("Commande mal formée")
+                                        continue
                                 else:
-                                    character_names = editor.dl(characters)
+                                    old_name, new_name = editor.rn(characters, "personnage")
                                 
-                                modify.delete_character(piece, character_names, ac)
-                                
-                                characters, scenes, actors = update(piece)
-                                
-                                print("Le·s personnage·s a/ont bien été supprimé·s")
-                                        
-                            case ["lk", *args]:
-                                if args:
-                                    actor_name = args[0]
-                                    character_names = args[1:]
-                                else:
-                                    editor.lk()
-                                
-                                stage.link(piece, actor_name, character_names)
-                                
-                                characters, scenes, actors = update(piece)
-                                
-                                print("Le·a comédien·ne a bien été lié·e au·x personnage·s")
+                            modify.rename_character(piece, old_name, new_name, ac)
+                            characters, scenes, actors = update(piece)
                             
-                            case ["ul", *args]:
-                                if args:
-                                    actor_name = args[0]
-                                    character_name = args[1]
-                                else:
-                                    editor.ul()
-                                
-                                stage.unlink(piece, actor_name, character_name)
-                                
-                                characters, scenes, actors = update(piece)
-                                
-                                print("Le lien entre le·a comédien·ne et le personnage a bien été retiré")
+                            print("Le changement de nom a été opéré avec succès")
+                        
+                        case ["ad", *args]:
+                            if args:
+                                new_character = args[0]
+                                list_scenes = args[1:]
+                            else:
+                                new_character, list_scenes = editor.ad(scenes, characters)
+                
+                            modify.add_character(piece, new_character, list_scenes)
+                            characters, scenes, actors = update(piece)
+                            
+                            print("Le personnage a bien été ajouté")
+                        
+                        case ["mg", *args]:
+                            if args:
+                                source_character = args[0]
+                                destination_characters = args[1:]
+                            else:
+                                source_character, destination_characters = editor.mg(characters)
                     
-                            case _:
-                                print("Commande inconnue")
-    except:
-        print("Commande mal formée")
-        main(piece, characters, scenes, actors)
+                            modify.merge_characters(piece, source_character, destination_characters)
+                            
+                            characters, scenes, actors = update(piece)
+                            
+                            print("Les personnages ont bien été fusionnés")
+                        
+                        case ["sp", *args]:
+                            if args:
+                                character_name = args[0]
+                                nb_lines_to_add = int(args[1])
+                                nb_words_to_add = int(args[2])
+                            else:
+                                character_name, nb_lines_to_add, nb_words_to_add = editor.sp(characters)
+                            
+                            modify.add_lines_and_words(piece, character_name, nb_lines_to_add, nb_words_to_add)
+                            
+                            characters, scenes, actors = update(piece)
+                            
+                            print("Les modifications ont été réalisées avec succès")
+                        
+                        case ["dl", *args]:
+                            if len(args) > 1:
+                                if args[0] == "ac":
+                                    ac = True
+                                    character_names = list(args[1:])
+                                else:
+                                    character_names = list(args)
+                            else:
+                                if args:
+                                    if args[0] == "ac":
+                                        ac = True
+                                        character_names = editor.dl(actors, "comédien·ne")
+                                    else:
+                                        print("Commande mal formée")
+                                        continue
+                                else:
+                                    character_names = editor.dl(characters, "personnage")
+                            
+                            modify.delete_character(piece, character_names, ac)
+                            
+                            characters, scenes, actors = update(piece)
+                            
+                            print("Le·s personnage·s a/ont bien été supprimé·s")
+                                    
+                        case ["lk", *args]:
+                            if args:
+                                actor_name = args[0]
+                                character_names = args[1:]
+                            else:
+                                actor_name, character_names = editor.lk(actors, characters)
+                            
+                            stage.link(piece, actor_name, character_names)
+                            
+                            characters, scenes, actors = update(piece)
+                            
+                            print("Le·a comédien·ne a bien été lié·e au·x personnage·s")
+                        
+                        case ["ul", *args]:
+                            if args:
+                                actor_name = args[0]
+                                character_name = args[1]
+                            else:
+                                actor_name, character_name = editor.ul(actors, characters)
+                            
+                            stage.unlink(piece, actor_name, character_name)
+                            
+                            characters, scenes, actors = update(piece)
+                            
+                            print("Le lien entre le·a comédien·ne et le personnage a bien été retiré")
+                
+                        case _:
+                            print("Commande inconnue")
+    #except:
+    #    print("Commande mal formée")
+    #    main(piece, characters, scenes, actors)
 
 if __name__ == "__main__":
     main(None, None, None, None)
