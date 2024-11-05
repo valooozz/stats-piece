@@ -1,3 +1,5 @@
+Possibilité d'ajouter une scène qui n'existe pas
+
 Interface de gestion des scènes :
 - poids
 - avancement / qualité
