@@ -64,4 +64,5 @@ def unlink(piece: str, actor_name: str, character_name: str) -> None:
                 if character_name in list_characters:
                     list_characters.remove(character_name)
                 row[1] = ":".join(list_characters)
-            writer.writerow(row)
+            if row[1]:
+                writer.writerow(row)
