@@ -1,3 +1,4 @@
+import os
 import csv
 from typing import Dict, List, Tuple
 
@@ -136,9 +137,10 @@ def write_info(piece: str, dico_scenes: Dict[str, List[CharacterName]], dico_cha
         for character, (total_lines, total_words) in dico_characters.items():
             writer.writerow([character, total_lines, total_words])
     
-    with open(file_actors, "w", newline="", encoding="utf-8") as file:
-        writer = csv.writer(file)
-        writer.writerow(list(type.HEADER_ACTORS.values()))
+    if not os.path.exists(file_actors):
+        with open(file_actors, "w", newline="", encoding="utf-8") as file:
+            writer = csv.writer(file)
+            writer.writerow(list(type.HEADER_ACTORS.values()))
     
     data.add_piece(piece)
     

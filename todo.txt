@@ -1,3 +1,9 @@
+Si on fait un unlink sur un·e comédien·ne qui n'a qu'un seul rôle, on supprime la ligne
+
+Manière de voir la distribution des rôles :
+- soit une commande à part
+- soit quand on affiche les comédien·nes
+
 Interface de gestion des scènes :
 - poids
 - avancement / qualité
