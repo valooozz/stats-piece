@@ -1,6 +1,7 @@
 from typing import List
 import warnings
 from matplotlib import pyplot as plt
+from prettytable import PrettyTable
 
 import type
 import utils
@@ -57,17 +58,22 @@ def print_scenes(scenes: List[type.Scene], graphic: bool, ac: bool) -> None:
     """
     
     to_show, to_tell = utils.handle_ac(ac)
-    
+
+    table = PrettyTable()
+    table.field_names = ["Scène", "Répliques", "Didascalies", "Mots", f"{to_tell.capitalize()}s"]
+
     current_act = None
     for scene in scenes:
         act, numero_scene = scene["Scene"].split(":")
         if act != current_act:
             current_act = act
-            print(f"=== Acte {act} ===")
-        
+            table.add_row([f"=== Acte {act} ===", "==========", "==========", "==========", "=========="])
+
         characters = scene[to_show]
         characters_formated = ', '.join(sorted(character for character in characters if character))
-        print(f"Scène {numero_scene}, Répliques : {scene['Lines']}, Didascalies : {scene['Didascalies']}, Mots : {scene['Words']}, {to_tell}s : {characters_formated}")
+        table.add_row([numero_scene, scene['Lines'], scene['Didascalies'], scene['Words'], characters_formated])
+
+    print(table)
     
     if graphic:
         scene_names = [scene['Scene'] for scene in scenes]
@@ -85,17 +91,23 @@ def print_scenes_with_nb(scenes: List[type.Scene], nb: int) -> None:
         nb (int): nombre de personnages à rechercher
     """
     
+    table = PrettyTable()
+    table.field_names = ["Scène", "Répliques", "Didascalies", "Mots", "Personnages"]
+
     current_act = None
     for scene in scenes:
         act, numero_scene = scene["Scene"].split(':')
         if act != current_act:
             current_act = act
-            print(f"=== Acte {act} ===")
+            table.add_row([f"=== Acte {act} ===", "==========", "==========", "==========", "=========="])
+
         characters = scene["Characters"]
         if len(characters) == nb:
-            characters_formated = ", ".join(sorted(character for character in characters if character))
-            print(f"Scène {numero_scene}, Répliques : {scene['Lines']}, Didascalies : {scene['Didascalies']}, Mots : {scene['Words']}, Personnages : {characters_formated}")
+            characters_formated = ', '.join(sorted(character for character in characters if character))
+            table.add_row([numero_scene, scene['Lines'], scene['Didascalies'], scene['Words'], characters_formated])
 
+    print(table)
+    
 
 def print_nb_of_characters_in_scenes(scenes: List[type.Scene], nb_of_characters_in_piece: int) -> None:
     """ Affiche le nombre de scènes pour chaque nombre de personnages présent dans la pièce
@@ -123,15 +135,22 @@ def print_characters(characters: List[type.Character], ac: bool, graphic: bool) 
         ac (bool): on affiche les comédien·nes si cet argument est True
         graphic (bool): affichage d'un graphique si cet argument est True
     """
-    
+
+    table = PrettyTable()
+    if ac:
+        table.field_names = ["Nom", "Répliques", "Mots", "Rôles"]
+    else:
+        table.field_names = ["Nom", "Répliques", "Mots"]
+
     characters_sorted = sorted(characters, key=lambda x: x["Words"], reverse=True)
     for character in characters_sorted:
-        print(f"- {character['Name']}, Répliques : {character['Lines']}, Mots : {character['Words']}", end="")
         if ac:
             roles = ", ".join(character["Characters"])
-            print(f"\t({roles})")
+            table.add_row([character['Name'], character['Lines'], character['Words'], roles])
         else:
-            print()
+            table.add_row([character['Name'], character['Lines'], character['Words']])
+
+    print(table)
     
     if graphic:
         characters_names = [character["Name"] for character in characters_sorted]
@@ -156,32 +175,43 @@ def print_character_detail(characters: List[type.Character], scenes: List[type.S
     # Recherche le personnage dans la liste des personnages
     personnage = next((c for c in characters if c["Name"] == nom_personnage), None)
     if personnage is None:
-        print(f"{to_tell} '{nom_personnage}' non trouvé.")
+        print(f"{to_tell.capitalize()} '{nom_personnage}' non trouvé.")
         return
 
     # Recherche les scènes où le personnage est présent
     scenes_personnage = [scene for scene in scenes if nom_personnage in scene[to_show]]
 
-    # Affiche les informations de base du personnage
-    print(f"\n=== {personnage['Name']} ===\nRépliques : {personnage['Lines']}\nMots : {personnage['Words']}\nNombre de scènes : {len(scenes_personnage)}")
+    base_info_table = PrettyTable()
     if ac:
+        base_info_table.field_names = ["Nom", "Répliques", "Mots", "Nombre de scènes", "Personnages joués"]
         roles = ", ".join(personnage["Characters"])
-        print(f"Personnage·s joué·s : {roles}")
+        base_info_table.add_row([personnage['Name'], personnage['Lines'], personnage['Words'], len(scenes_personnage), roles])
+    else:
+        base_info_table.field_names = ["Nom", "Répliques", "Mots", "Nombre de scènes"]
+        base_info_table.add_row([personnage['Name'], personnage['Lines'], personnage['Words'], len(scenes_personnage)])
+
+    print(base_info_table)
 
     if not scenes_personnage:
         print(f"Le {to_tell} '{nom_personnage}' n'est présent·e dans aucune scène.")
         return
 
-    print(f"\nScènes où {nom_personnage} est présent·e :")
+    # Tableau pour les scènes où le personnage est présent
+    scenes_table = PrettyTable()
+    scenes_table.field_names = ["Scène", f"{to_tell.capitalize()}s présents avec {nom_personnage}"]
+
     current_act = None
     for scene in scenes_personnage:
         act, numero_scene = scene["Scene"].split(':')
         if act != current_act:
             current_act = act
-            print(f"=== Acte {act} ===")
+            scenes_table.add_row([f"=== Acte {act} ===", "=========="])
+
         personnages = scene[to_show]
         personnages_formates = ', '.join(sorted(personnage for personnage in personnages if personnage and personnage != nom_personnage))
-        print(f"Scène {numero_scene} avec : {personnages_formates}")
+        scenes_table.add_row([numero_scene, personnages_formates])
+
+    print(scenes_table)
 
     # Recherche les autres personnages présents dans les scènes avec ce personnage
     other_characters = set()
@@ -189,8 +219,11 @@ def print_character_detail(characters: List[type.Character], scenes: List[type.S
         personnages = scene[to_show]
         other_characters.update(personnage for personnage in personnages if personnage and personnage != nom_personnage)
 
-    print(f"\n{to_tell}s sur scène avec {nom_personnage}:")
-    print(", ".join(sorted(other_characters)))
+    # Tableau pour les personnages présents dans les scènes avec lui
+    other_characters_table = PrettyTable()
+    other_characters_table.field_names = [f"{to_tell.capitalize()}s sur scène avec {nom_personnage}"]
+    other_characters_table.add_row([", ".join(sorted(other_characters))])
+    print(other_characters_table)
 
 
 def print_characters_together(scenes: List[type.Scene], list_characters: List[str], ac: bool) -> None:
@@ -202,23 +235,28 @@ def print_characters_together(scenes: List[type.Scene], list_characters: List[st
     """
     
     to_show, to_tell = utils.handle_ac(ac)
-    
+
     characters_set = set(list_characters)
-    
     nb_scenes_together = 0
-    
+
+    scenes_table = PrettyTable()
+    scenes_table.field_names = ["Scène", f"Autres {to_tell}s présents"]
+
     current_act = None
     for scene in scenes:
         act, numero_scene = scene["Scene"].split(':')
         if act != current_act:
             current_act = act
-            print(f"=== Acte {act} ===")
+            scenes_table.add_row([f"=== Acte {act} ===", "=========="])
+
         characters_scene = set(scene[to_show])
 
         if characters_set.issubset(characters_scene):
             nb_scenes_together += 1
             other_characters = characters_scene - characters_set
             other_characters_formated = ', '.join(sorted(other_characters))
-            print(f"Scène {numero_scene} avec : {other_characters_formated}")
-    
+            scenes_table.add_row([numero_scene, other_characters_formated])
+
+    print(scenes_table)
+
     print(f"\nCes {to_tell}s partagent {nb_scenes_together} scènes")

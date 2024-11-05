@@ -41,5 +41,10 @@ v3.0 :
 v3.1 :
 + éditeurs pour les commandes avec les comédien·nes
 
+v3.2 :
++ pas d'écrasement de actors.csv lors d'un rd
++ affichage des rôles dans les commandes ch et dt avec ac
++ affichages des informations dans des tableaux
+
 v4.0 :
 - gestion de la mise en scène

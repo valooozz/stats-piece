@@ -127,26 +127,21 @@ def main(piece, characters, scenes, actors) -> None:
                             analyse.print_characters(to_show, ac, graphic)
                         
                         case ["dt", *args]:
-                            if len(args) > 1:
+                            if args:
                                 if args[0] == "ac":
                                     to_show = actors
                                     ac = True
-                                    name = " ".join(args[1:])
+                                    if len(args) == 1:
+                                        name = editor.dt(actors, "comédien·ne")
+                                    else:
+                                        name = " ".join(args[1:])
                                 else:
                                     to_show = characters
                                     name = " ".join(args)
                             else:
-                                if args:
-                                    if args[0] == "ac":
-                                        to_show = actors
-                                        ac = True
-                                        name = editor.dt(actors, "comédien·ne")
-                                    else:
-                                        print("Commande mal formée")
-                                        continue
-                                else:
-                                    to_show = characters
-                                    name = editor.dt(characters, "personnage")
+                                to_show = characters
+                                name = editor.dt(characters, "personnage")
+                                
                             analyse.print_character_detail(to_show, scenes, name, ac)
                             
                         case ["tg", *args]:

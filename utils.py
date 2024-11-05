@@ -18,9 +18,9 @@ def extract_list_names(list_infos: List[Dict], key: str) -> List[str]:
 
 def handle_ac(ac: bool) -> Tuple[str, str]:
     if ac:
-        return "Actors", "Comédien·ne"
+        return "Actors", "comédien·ne"
     else:
-        return "Characters", "Personnage"
+        return "Characters", "personnage"
     
 def create_directory(dir_name: str) -> bool:
     """ Crée un dossier
