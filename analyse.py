@@ -115,17 +115,23 @@ def print_nb_of_characters_in_scenes(scenes: List[type.Scene], nb_of_characters_
             print(f"Avec {i} personnage·s : {info_nb_characters[i]} scène·s")
 
 
-def print_characters(characters: List[type.Character], graphic: bool) -> None:
+def print_characters(characters: List[type.Character], ac: bool, graphic: bool) -> None:
     """ Affiche les personnages triés par nombre de mots décroissant
 
     Args:
         characters (List[type.Character]): liste des personnages
+        ac (bool): on affiche les comédien·nes si cet argument est True
         graphic (bool): affichage d'un graphique si cet argument est True
     """
     
     characters_sorted = sorted(characters, key=lambda x: x["Words"], reverse=True)
     for character in characters_sorted:
-        print(f"- {character['Name']}, Répliques : {character['Lines']}, Mots : {character['Words']}")
+        print(f"- {character['Name']}, Répliques : {character['Lines']}, Mots : {character['Words']}", end="")
+        if ac:
+            roles = ", ".join(character["Characters"])
+            print(f"\t({roles})")
+        else:
+            print()
     
     if graphic:
         characters_names = [character["Name"] for character in characters_sorted]
@@ -158,6 +164,9 @@ def print_character_detail(characters: List[type.Character], scenes: List[type.S
 
     # Affiche les informations de base du personnage
     print(f"\n=== {personnage['Name']} ===\nRépliques : {personnage['Lines']}\nMots : {personnage['Words']}\nNombre de scènes : {len(scenes_personnage)}")
+    if ac:
+        roles = ", ".join(personnage["Characters"])
+        print(f"Personnage·s joué·s : {roles}")
 
     if not scenes_personnage:
         print(f"Le {to_tell} '{nom_personnage}' n'est présent·e dans aucune scène.")

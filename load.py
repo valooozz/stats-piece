@@ -113,7 +113,8 @@ def get_actors(piece: str, characters: List[type.Character]) -> List[type.Actor]
             actors.append({
                 "Name": row[type.HEADER_ACTORS["ActorName"]],
                 "Lines": total_lines,
-                "Words": total_words
+                "Words": total_words,
+                "Characters": characters_played
             })
     if not actors:
         actors.append({

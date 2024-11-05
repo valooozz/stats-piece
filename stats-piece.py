@@ -122,8 +122,9 @@ def main(piece, characters, scenes, actors) -> None:
                             if "gr" in args:
                                 graphic = True
                             if "ac" in args:
+                                ac = True
                                 to_show = actors
-                            analyse.print_characters(to_show, graphic)
+                            analyse.print_characters(to_show, ac, graphic)
                         
                         case ["dt", *args]:
                             if len(args) > 1:

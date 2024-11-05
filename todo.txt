@@ -1,7 +1,3 @@
-Manière de voir la distribution des rôles :
-- soit une commande à part
-- soit quand on affiche les comédien·nes
-
 Interface de gestion des scènes :
 - poids
 - avancement / qualité
