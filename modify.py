@@ -21,6 +21,27 @@ def replace_string(file_name: str, old_string: str, new_string: str) -> None:
             file.write(new_line)
 
 
+def add_scene(piece: str, new_scene: str, nb_lines: int, nb_didascalies: int, nb_words: int, next_scene: str) -> None:
+    
+    
+    scenes_file = utils.get_scenes_file(piece)
+    new_row = [new_scene, nb_lines, nb_didascalies, nb_words, ""]
+    
+    with open(scenes_file, "r", encoding="utf-8") as file:
+        reader = csv.reader(file)
+        rows = list(reader)
+    
+    if next_scene == "last":
+        rows.append(new_row)
+    
+    with open(scenes_file, "w", newline="", encoding="utf-8") as file:
+        writer = csv.writer(file)
+        for row in rows:
+            if row[0] == next_scene:
+                writer.writerow(new_row)
+            writer.writerow(row)
+
+
 def rename_character(piece: str, old_name: str, new_name: str, ac: bool) -> None:
     """ Renomme un personnage dans les fichiers csv
 

@@ -28,6 +28,8 @@ def usage() -> None:
     print("  tg [ac] <perso1> <perso2> <...> - Afficher les scènes en commun pour des personnages")
     print("  pt sc|ch|ac - Afficher le contenu du fichier csv pour les scènes (sc), les personnages (ch), ou les comédien·es (ac)")
         
+    print("\n  nw <nouvelle-scene> <repliques> <didascalies> <mots> <scene-suivante> - Ajouter une scène avec ses données, avant une autre spécifiée (ajoute à la fin si aucune scène donnée)")
+    
     print("\n  rn [ac] <perso> <nouveau_nom> - Renommer un personnage")
     print("  ad <perso> <scene1> <scene2> <...> - Ajouter un personnage dans des scènes")
     print("  mg <perso> <perso1> <perso2> <...> - Fusionner un personnage dans un ou plusieurs personnages")
@@ -65,8 +67,8 @@ def main(piece, characters, scenes, actors) -> None:
     """ Fonction principale qui gère les commandes
     """
     
-    try:
-        while True:
+    #try:
+    while True:
             graphic = False
             ac = False
             
@@ -169,6 +171,24 @@ def main(piece, characters, scenes, actors) -> None:
                                     data.print_csv(piece, file_type)
                                 else:
                                     print(f"Aucune donnée n'est associée à la pièce '{piece}'")
+                                    
+                            case ["nw", *args]:
+                                if args:
+                                    new_scene = args[0]
+                                    nb_lines = args[1]
+                                    nb_didascalies = args[2]
+                                    nb_words = args[3]
+                                    if len(args) > 4:
+                                        next_scene = args[4]
+                                    else:
+                                        next_scene = "last"
+                                else:
+                                    new_scene, nb_lines, nb_didascalies, nb_words, next_scene = editor.nw(scenes)
+                                
+                                modify.add_scene(piece, new_scene, nb_lines, nb_didascalies, nb_words, next_scene)
+                                characters, scenes, actors = update(piece)
+                                
+                                print("La scène a bien été ajoutée")
                             
                             case ["rn", *args]:
                                 if len(args) > 1:
@@ -286,9 +306,9 @@ def main(piece, characters, scenes, actors) -> None:
                     
                             case _:
                                 print("Commande inconnue")
-    except:
-        print("Commande mal formée")
-        main(piece, characters, scenes, actors)
+    #except:
+    #    print("Commande mal formée")
+    #    main(piece, characters, scenes, actors)
 
 if __name__ == "__main__":
     main(None, None, None, None)

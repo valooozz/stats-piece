@@ -46,5 +46,8 @@ v3.2 :
 + affichage des rôles dans les commandes ch et dt avec ac
 + affichages des informations dans des tableaux
 
+V3.3 :
++ command nw
+
 v4.0 :
 - gestion de la mise en scène

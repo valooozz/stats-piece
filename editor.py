@@ -49,7 +49,44 @@ def get_multiple(title: str, list_to_pick: List[str]) -> List[str]:
     num = input("   >>> ").split(",")
     result = [list_to_pick[int(i)] for i in num]
     return result
+
+
+def nw(scenes: List[type.Scene]) -> Tuple[str, int, int, int, str]:
+    """ Éditeur d'ajout de scène
+
+    Args:
+        scenes (List[type.Scene]): liste des scènes avec leurs informations
+
+    Returns:
+        Tuple[str, int, int, int, str]: infos sur la nouvelle scène et scène qui la suit
+    """    
+    
+    list_scenes = utils.extract_list_names(scenes, "Scene")
+    
+    print("\n  >>>>> Éditeur d'ajout de scène <<<<<")
+    
+    print("\n  Nom de la nouvelle scène")
+    new_scene = input("   >>> ")
+    
+    print("\n  Nombre de répliques")
+    nb_lines = int(input("   >>> "))
+    
+    print("\n  Nombre de didascalies")
+    nb_didascalies = int(input("   >>> "))
+    
+    print("\n  Nombre de mots")
+    nb_words = int(input("   >>> "))    
+    
+    print_list(list_scenes, "scènes")
+    print(f"\n  Scène suivant la nouvelle scène (n'entrez rien si elle doit être ajoutée à la fin)")
+    num = input("   >>> ")
+    try:
+        next_scene = list_scenes[int(num)]
+    except:
+        next_scene = "last"
         
+    return new_scene, nb_lines, nb_didascalies, nb_words, next_scene
+    
 
 def rn(characters: List[type.Character], people_name: str) -> Tuple[str, str]:
     """ Éditeur de renommage de personnage

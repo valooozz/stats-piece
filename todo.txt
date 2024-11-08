@@ -1,4 +1,4 @@
-Possibilité d'ajouter une scène qui n'existe pas
+Ajouter persos qui ne parlent pas dans llg
 
 Interface de gestion des scènes :
 - poids
