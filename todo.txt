@@ -1,6 +1,10 @@
-Ajouter persos qui ne parlent pas dans llg
+Montrer aussi les personnages qui ne sont pas sur scènes avec le personnage détaillé avec dt
+
+Avoir des stats sur les actes
 
 Interface de gestion des scènes :
 - poids
+- titre
+- description
 - avancement / qualité
 - planification de séances

@@ -5,7 +5,7 @@ I:3,46,7,842,Paresseux:Grognon:Grand
 I:4,11,6,317,Lunettes:Grognon
 I:5,28,7,383,Coquet:Grognon:Costaud:Paresseux
 I:6,40,10,745,Grand:Coquet:Costaud:Paysan:Lunettes:Grognon
-II:1,0,2,55,
+II:1,0,2,55,:Charlotte
 II:2,34,12,939,Lunettes:Charlotte:Coquet:Costaud:Paysan:Paresseux:Grand
 II:3,18,6,549,Grognon:Paresseux:Costaud:Coquet:Paysan
 II:4,13,1,144,Grognon:Charlotte
@@ -13,14 +13,14 @@ II:5,17,5,186,Paresseux:Lunettes
 II:6,36,10,520,Charlotte:Grand:Costaud:Paysan:Coquet:Paresseux
 II:7,15,5,176,Paresseux:Charlotte
 II:8,35,6,493,Charlotte:Grognon
-III:1,18,13,395,Coquet:Costaud:Paysan
+III:1,18,13,395,Coquet:Costaud:Paysan:Paresseux
 III:2,24,5,288,Charlotte:Lunettes
 III:3,35,8,454,Charlotte:Grognon
 III:4,40,9,842,Grand:Paresseux:Lunettes
 III:5,15,3,218,Grognon:Charlotte
 III:6,36,8,550,Grognon:Grand:Coquet
 III:7,23,3,198,Paresseux:Grognon
-III:8,0,1,48,
+III:8,0,1,48,:Lunettes:Grognon
 III:9,44,29,657,Costaud:Grognon:Coquet
 III:10,17,4,204,Lunettes:Paysan
 III:11,1,2,233,Costaud
@@ -31,6 +31,6 @@ III:15,29,2,354,Paysan:Costaud
 III:16,20,6,383,Grand:Lunettes
 III:17,92,17,1337,Paysan:Costaud:Paresseux:Grand:Charlotte:Grognon
 III:18,19,3,274,Grognon:Charlotte
-III:19,0,1,42,
-III:20,19,6,365,Costaud:Coquet:Paysan:Lunettes:Grand
-III:21,4,5,352,Grognon:Grand
+III:19,0,1,42,:Paresseux:Lunettes:Grognon:Grand:Paysan:Coquet:Costaud
+III:20,19,6,365,Costaud:Coquet:Paysan:Lunettes:Grand:Paresseux
+III:21,4,5,352,Grognon:Grand:Paresseux
