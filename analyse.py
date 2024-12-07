@@ -214,15 +214,20 @@ def print_character_detail(characters: List[type.Character], scenes: List[type.S
     print(scenes_table)
 
     # Recherche les autres personnages présents dans les scènes avec ce personnage
-    other_characters = set()
+    shared_scene_characters = set()
     for scene in scenes_personnage:
         personnages = scene[to_show]
-        other_characters.update(personnage for personnage in personnages if personnage and personnage != nom_personnage)
+        shared_scene_characters.update(personnage for personnage in personnages if personnage and personnage != nom_personnage)
+    
+    other_characters = []
+    for c in characters:
+        if c["Name"] not in shared_scene_characters and c["Name"] != nom_personnage:
+            other_characters.append(c["Name"])
 
     # Tableau pour les personnages présents dans les scènes avec lui
     other_characters_table = PrettyTable()
-    other_characters_table.field_names = [f"{to_tell.capitalize()}s sur scène avec {nom_personnage}"]
-    other_characters_table.add_row([", ".join(sorted(other_characters))])
+    other_characters_table.field_names = [f"{to_tell.capitalize()}s sur scène avec {nom_personnage}", "Aucune scène en commun"]
+    other_characters_table.add_row([", ".join(sorted(shared_scene_characters)), ", ".join(sorted(other_characters))])
     print(other_characters_table)
 
 
