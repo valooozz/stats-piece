@@ -22,6 +22,7 @@ def usage() -> None:
     print("  rm <dossier> - Supprimer les données présentes dans un dossier")
     
     print("\n  sc [gr] [ac] - Afficher les scènes et les personnages présents (gr pour afficher un graphique)")
+    print("  sc [gr] [ac] - Afficher les actes et les personnages présents (gr pour afficher un graphique)")
     print("  nb [<nombre>] - Afficher les scènes avec un certain nombre de personnages")
     print("  ch [gr] [ac] - Afficher les personnages avec leur nombre de répliques et de mots (gr pour afficher un graphique)")
     print("  dt [ac] <nom> - Afficher les informations détaillées d'un personnage spécifique")
@@ -112,6 +113,13 @@ def main(piece, characters, scenes, actors) -> None:
                                 if "ac" in args:
                                     ac = True
                                 analyse.print_scenes(scenes, graphic, ac)
+
+                            case ["at", *args]:
+                                if "gr" in args:
+                                    graphic = True
+                                if "ac" in args:
+                                    ac = True
+                                analyse.print_acts(scenes, graphic, ac)
                             
                             case ["nb", *args]:
                                 if args:

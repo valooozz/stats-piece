@@ -1,53 +1,53 @@
-v1.0 :
+# v1.0
 + récupération de statistiques sur la pièce, à partir d'un fichier texte
 + écriture des statistiques dans des fichiers csv 
 + quelques commandes textes pour obtenir les informations stockées dans les fichiers csv 
 
-v1.1 :
+# v1.1
 + ajouts de commandes textes pour obtenir des informations sur la pièce
 + gestion des dossiers de collecte
 
-v1.2 :
+# v1.2
 + plus de données collectées (nombre de répliques, de didascalies, et de mots d'une scène)
 + nouvel affichage avec ces données
 
-v1.3 :
+# v1.3
 + visualisation graphique des données
 
-v2.0 :
+# v2.0
 + possibilité de réaliser des opérations sur les informations stockées (renommage de perso, ajout de perso, fusion de perso)
 
-v2.1 :
+# v2.1
 + éditeur de renommage
 + éditeur d'ajout
 + éditeur de fusion
 
-v2.2 :
+# v2.2
 + éditeurs pour d'autres commandes (dt, tg)
 + affichage du nombre de scènes pour dt et tg
 + commande nb pour obtenir les scènes avec un certain nombre de personnages
 
-v2.3 :
+# v2.3
 + nouvelles commandes de transformation (dl, mg de plusieurs personnages)
 
-v2.4 :
+# v2.4
 + commande sp
 
-v3.0 :
+# v3.0
 + gestion des comédien·nes
 + commandes lk et ul
 + commandes habituelles pour les comédien·nes
 
-v3.1 :
+# v3.1
 + éditeurs pour les commandes avec les comédien·nes
 
-v3.2 :
+# v3.2
 + pas d'écrasement de actors.csv lors d'un rd
 + affichage des rôles dans les commandes ch et dt avec ac
 + affichages des informations dans des tableaux
 
-V3.3 :
+# v3.3
 + command nw
 
-v4.0 :
+# v4.0
 - gestion de la mise en scène
