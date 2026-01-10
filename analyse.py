@@ -30,7 +30,7 @@ def print_graphic(labels: List[str], lines: List[int], words: List[int]) -> None
     ax.set_ylabel("Nombre")
     ax.set_title("Nombre de répliques et de mots par personnage")
     ax.set_xticks([p + width / 2 for p in x])
-    ax.set_xticklabels(labels)
+    ax.set_xticklabels(labels, rotation=45, ha='right')
     ax.legend()
 
     # Ajouter des valeurs au-dessus des barres
@@ -45,6 +45,9 @@ def print_graphic(labels: List[str], lines: List[int], words: List[int]) -> None
 
     autolabel(rects1)
     autolabel(rects2)
+
+    fig.tight_layout()  # Ajustement automatique
+    fig.subplots_adjust(bottom=0.2)  # Laisse plus d'espace en bas
 
     plt.show()
 
