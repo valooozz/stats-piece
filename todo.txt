@@ -1,5 +1,3 @@
-Avoir des stats sur les actes
-
 Interface de gestion des scènes :
 - poids
 - titre

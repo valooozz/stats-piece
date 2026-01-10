@@ -37,3 +37,6 @@ def create_directory(dir_name: str) -> bool:
     except OSError as e:
         print(f"Erreur lors de la création du dossier '{dir_name}': {e}")
         return False
+
+def get_act_separator(act: str) -> List[str]:
+    return [f"=== Acte {act} ===", "==========", "==========", "==========", "=========="]

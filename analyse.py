@@ -67,7 +67,7 @@ def print_scenes(scenes: List[type.Scene], graphic: bool, ac: bool) -> None:
         act, numero_scene = scene["Scene"].split(":")
         if act != current_act:
             current_act = act
-            table.add_row([f"=== Acte {act} ===", "==========", "==========", "==========", "=========="])
+            table.add_row(utils.get_act_separator(act))
 
         characters = scene[to_show]
         characters_formated = ', '.join(sorted(character for character in characters if character))
@@ -81,6 +81,56 @@ def print_scenes(scenes: List[type.Scene], graphic: bool, ac: bool) -> None:
         total_words = [int(scene['Words']) for scene in scenes]
         
         print_graphic(scene_names, total_lines, total_words)
+
+
+def print_acts(scenes: List[type.Scene], graphic: bool, ac: bool) -> None:
+    """ Affiche les actes et les personnages présents dans ces actes
+
+    Args:
+        scenes (List[type.Scene]): liste des scènes avec les informations associées
+        graphic (bool): affichage d'un graphique si cet argument est True
+        ac (bool): on affiche les comédien·nes si cet argument est True
+    """
+    
+    to_show, to_tell = utils.handle_ac(ac)
+    
+    # Grouper les scènes par acte
+    acts_data = {}
+    for scene in scenes:
+        act, _ = scene["Scene"].split(":")
+        if act not in acts_data:
+            acts_data[act] = {
+                'Lines': 0,
+                'Didascalies': 0,
+                'Words': 0,
+                'Characters': set(),
+            }
+        
+        # Agréger les données
+        acts_data[act]['Lines'] += int(scene['Lines'])
+        acts_data[act]['Didascalies'] += int(scene['Didascalies'])
+        acts_data[act]['Words'] += int(scene['Words'])
+        acts_data[act]['Characters'].update(scene[to_show])
+    
+    table = PrettyTable()
+    table.field_names = ["Acte", "Répliques", "Didascalies", "Mots", f"{to_tell.capitalize()}s"]
+    
+    # Trier les actes par numéro
+    sorted_acts = sorted(acts_data.keys(), key=lambda x: int(x) if x.isdigit() else float('inf'))
+    
+    for act in sorted_acts:
+        data = acts_data[act]
+        characters_formated = ', '.join(sorted(character for character in data['Characters'] if character))
+        table.add_row([act, data['Lines'], data['Didascalies'], data['Words'], characters_formated])
+    
+    print(table)
+    
+    if graphic:
+        act_names = [f"Acte {act}" for act in sorted_acts]
+        total_lines = [acts_data[act]['Lines'] for act in sorted_acts]
+        total_words = [acts_data[act]['Words'] for act in sorted_acts]
+        
+        print_graphic(act_names, total_lines, total_words)
 
 
 def print_scenes_with_nb(scenes: List[type.Scene], nb: int) -> None:
@@ -99,7 +149,7 @@ def print_scenes_with_nb(scenes: List[type.Scene], nb: int) -> None:
         act, numero_scene = scene["Scene"].split(':')
         if act != current_act:
             current_act = act
-            table.add_row([f"=== Acte {act} ===", "==========", "==========", "==========", "=========="])
+            table.add_row(utils.get_act_separator(act))
 
         characters = scene["Characters"]
         if len(characters) == nb:

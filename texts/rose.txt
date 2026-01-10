@@ -74,7 +74,11 @@ CHEVALIER NATHAN : Ne tardons pas, le roi compte sur nous.
 
 
 
+<<<<<<< HEAD
 Scène 2 : La plus belle fleur
+=======
+Scène 2
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 Le roi malade est dans son lit. Son fils, le prince petit est à son chevet. 
 
@@ -140,7 +144,11 @@ ROI MALADE : Oublie cette histoire de renard.
 
 PRINCE PETIT : Mais à quoi ressemble cette fleur ? 
 
+<<<<<<< HEAD
 ROI MALADE : Personne ne le sait. Et peu de gens connaissent son existence.
+=======
+ROI MALADE : Personne ne le sait. 
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 La reine autoritaire entre dans la chambre. 
 
@@ -184,7 +192,11 @@ REINE AUTORITAIRE : Tu vas finir par le tuer cet enfant.
 
 
 
+<<<<<<< HEAD
 Scène 3 : Le futur roi
+=======
+Scène 3
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 ROI MALADE : Tu es belle aujourd'hui. 
 
@@ -224,7 +236,11 @@ ROI MALADE : Non moins dangereux cette fois, normalement.
 
 
 
+<<<<<<< HEAD
 Scène 4 : La déclaration de guerre
+=======
+Scène 4
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 Un conseiller entre. 
 
@@ -272,7 +288,11 @@ ROI MALADE : Peut-être pas des tulipes, mais si on leur offrait la plus belle f
 
 
 
+<<<<<<< HEAD
 Scène 5 : La lettre
+=======
+Scène 5
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 Le Conseiller Prudent entre.
 
@@ -296,11 +316,19 @@ ROI MALADE : Merci, vous pouvez y aller.
 
 Le Conseiller Prudent part. Le Roi Malade ouvre l'enveloppe et lit la lettre.
 
+<<<<<<< HEAD
 ROI MALADE : Mon très cher frère, j'ai appris par ta femme que tu étais tombé malade. J'espère donc que ce message n'arrivera pas trop tard. Je rentre te voir au plus vite, mais je suis loin de ton royaume, je ne sais pas combien de temps durera mon voyage. J'ai hâte de te parler des peuples que j'ai rencontrés de l'autre côté de la mer. Embrasse ton fils pour moi. J'ai hâte de voir comme il a grandi.
 
 
 
 Scène 6 : Le conseil de guerre
+=======
+ROI MALADE : Mon très cher frère, j'ai appris par ta femme que tu étais tombé malade. J'espère donc que ce message n'arrivera pas trop tard. Je rentre te voir au plus vite, mais je suis loin de ton royaume, je ne sais pas combien de temps durera mon voyage. J'ai hâte de te parler des peuples que j'ai rencontrés de l'autre côté de la mer. Embrasse ton fils pour moi. Je vais enfin le rencontrer.
+
+
+
+Scène 6
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 La reine autoritaire, le conseiller prudent, et les trois chevaliers sont rassemblés, le visage grave.
 
@@ -350,7 +378,11 @@ Les chevaliers Marc et François saluent la reine autoritaire et partent. Le con
 
 
 
+<<<<<<< HEAD
 Scène 7 : L'inquiétude
+=======
+Scène 7
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 Le chevalier Nathan s'approche de la reine autoritaire. Derrière eux, sans qu'ils ne le voient, le prince petit entre discrètement.
 
@@ -408,7 +440,11 @@ Le prince petit a peur de ce qu'il vient d'entendre. Il part précipitamment. La
 
 
 
+<<<<<<< HEAD
 Scène 8 : Le rêve
+=======
+Scène 8
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 C'est la nuit, le roi est en train de dormir dans son lit. Son sommeil est agité. Il rêve du passé avec sa femme, quand ils étaient jeunes. Elle s'est cachée dans le château et il la cherche. C'est un jeu.
 
@@ -432,7 +468,11 @@ REINE AUTORITAIRE : Oui je sais. Mais est-ce que ça t'excite de devenir roi un 
 
 ROI MALADE : Oui. Je pense que je vais aimer ça.
 
+<<<<<<< HEAD
 Le rêve se transforme. La reine autoritaire, jeune, disparaît. Le roi malade, moins jeune, est seul. On entend une voix, un homme qui parle très fort. Le roi malade, jeune, l'entend.
+=======
+Le rêve se transforme. La reine autoritaire, jeune, disparaît. Le roi malade, moins jeune, est seul. On entend une voix, une homme qui parle très fort. Le roi malade, jeune, l'entend.
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 LA VOIX : Mais il est faible ce roi. Il n'est pas capable de mener une armée, il n'est pas capable de tuer un cerf lors de la chasse. Ce devrait être le bouffon du roi, pas le roi en personne.
 
@@ -454,6 +494,7 @@ Le rêve se transforme encore. On voit le roi dire au revoir à quelqu'un, sans 
 
 REINE AUTORITAIRE : Il faut que je me ressaisisse. Il faut l'éduquer pour qu'il soit fort, qu'il devienne un grand roi, comme toi.
 
+<<<<<<< HEAD
 Le rêve se transforme. On entend une nouvelle voix.
 
 LA VOIX : Ils sont partis, c'est terminé. 
@@ -464,17 +505,27 @@ LA VOIX : Mais ça y est, nous avons gagné. Grâce à nos alliés. Ils ne revie
 
 ROI MALADE : Nous n'avons gagné que des morts. Les villages sont détruits et il n'y a plus personne pour les reconstruire. 
 
+=======
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 Le rêve se transforme. On voit le roi ouvrir une enveloppe. Le rêve se termine et on retrouve le roi dans son lit, paisible.
 
 
 
+<<<<<<< HEAD
 Scène 9 : La promesse
+=======
+Scène 9
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 Un homme masqué entre dans la chambre. Il fouille dans les affaires du roi.
 
 Après un moment, on entend quelqu'un arriver. L'homme masqué se cache. C'est le prince petit qui entre dans la chambre. Il s'approche du lit du roi malade.
 
+<<<<<<< HEAD
 PRINCE PETIT : Je la trouverai, cette fleur, Papa. Je la trouverai et je te la ramènerai. Et tout ira bien. Toi aussi tu viendras aux jardins. Tu viendras aux jardins avec moi. Et avec Maman aussi, on sera tous les trois. On parlera en marchant. Je vous raconterai comment j'ai fait pour trouver la fleur. Je vous raconterai comme elle était bien cachée mais que je l'ai quand même trouvée. Je ne sais pas encore comment, mais je vais bientôt le savoir. Bientôt je reviendrai des jardins. Tiens bon Papa. Tiens bon.
+=======
+PRINCE PETIT : Je la trouverai, cette fleur, Papa. Je la trouverai et je te la ramènerai. Et tout ira bien. Toi aussi tu viendras aux jardins. Tu viendras aux jardins avec moi. Et avec Maman aussi, on sera tous les trois. On parlera en marchant. Je vous raconterai comme j'ai fait pour trouver la fleur. Je vous raconterai comme elle était bien cachée mais que je l'ai quand même trouvée. Je ne sais pas encore comment, mais je vais bientôt le savoir. Bientôt je reviendrai des jardins. Tiens bon Papa. Tiens bon.
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 Le prince petit se dirige vers la sortie. Il s'arrête et sort quelque chose de sa veste. C'est une peluche. Il revient vers son père et lui glisse sous le bras. Puis il part.
 
@@ -482,9 +533,15 @@ Une fois sûr qu'il ne reviendra pas, l'homme masqué sort de sa cachette. Il s'
 
 
 
+<<<<<<< HEAD
 Acte II : Dans les jardins
 
 Scène 1 : Devant le marchand
+=======
+Acte II
+
+Scène 1
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 Les chevaliers Marc et François marchent dans la cour du château, de bon matin.
 
@@ -564,11 +621,15 @@ CHEVALIER MARC : Bon courage dans votre mission, mon prince. Vous êtes brave et
 
 PRINCE PETIT : Merci chevalier.
 
+<<<<<<< HEAD
 Le prince petit s'éloigne vers les jardins.
 
 CHEVALIER FRANÇOIS : Et faites attention à vous, les jardins sont grands, on peut s'y perdre.
 
 Les chevaliers s'éloignent du marchand.
+=======
+Le prince petit s'éloigne vers les jardins. Les chevaliers s'éloignent du marchand.
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 CHEVALIER FRANÇOIS : Ça alors. Tu savais pour la fleur ?
 
@@ -600,7 +661,11 @@ Le chevalier Marc continue sa marche et sort de la scène. Le chevalier Françoi
 
 
 
+<<<<<<< HEAD
 Scène 2 : Les jardins
+=======
+Scène 2
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 Le prince petit entre dans les jardins du château. Il y marche un peu. 
 
@@ -636,11 +701,19 @@ RENART : (pour lui-même) C'est qui ce petit bonhomme qui parle tout seul ?
 
 Et le prince petit change de fleur.
 
+<<<<<<< HEAD
 La lumière baisse en luminosité puis augmente, indiquant que les jours passent, alors que le prince petit est toujours en train de dessiner des fleurs. Après trois jours, le prince petit continue son chemin et sort de scène.
 
 
 
 Scène 3 : Le voyageur
+=======
+La lumière baisse en luminosité puis réaugmente, indiquant que les jours passent, alors que le prince petit est toujours en train de dessiner des fleurs. Après trois jours, le prince petit continue son chemin et sort de scène.
+
+
+
+Scène 3
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 Le voyageur inconnu entre. Il a une carte et semble chercher son chemin.
 
@@ -724,7 +797,11 @@ Le voyageur remercie Renart et prend le chemin que ce dernier lui indique. Il so
 
 
 
+<<<<<<< HEAD
 Scène 4 : Renart
+=======
+Scène 4
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 Le prince petit entre, toujours en train de dessiner des fleurs.
 
@@ -832,6 +909,7 @@ PRINCE PETIT : Parfait merci ! Ça va beaucoup m'aider.
 
 RENART : Avec plaisir.
 
+<<<<<<< HEAD
 PRINCE PETIT : Mais tu sais par où on peut trouver des roses ? 
 
 Renart pointe deux directions opposées. 
@@ -851,6 +929,27 @@ PRINCE PETIT : Partout.
 RENART : Oui, c'est ça. 
 
 PRINCE PETIT : Heureusement que j'ai la palissade alors. 
+=======
+Pp : Mais tu sais par où on peut trouver des roses ? 
+
+Renart pointe deux directions opposées. 
+
+Rt : Par là. 
+
+Renart pointe devant lui.
+
+Rt : Et par là.
+
+Renart point le ciel. 
+
+Rt : Par là aussi. 
+
+Pp : Partout.
+
+Rt : Oui, c'est ça. 
+
+Pp : Heureusement que j'ai la palissade alors. 
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 PRINCE PETIT : Au fait, comment tu t'appelles ? 
 
@@ -884,7 +983,11 @@ Renart s'en va.
 
 
 
+<<<<<<< HEAD
 Scène 5 : La fille des jardins
+=======
+Scène 5
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 Le prince petit regarde les fleurs en tenant le dessin de Renart devant lui. 
 
@@ -934,7 +1037,11 @@ La fille jeune relève son épée.
 
 FILLE JEUNE : Tu es donc bien avec eux. Tu as beau ne pas être armé, tu n'es peut-être pas chevalier, mais tu travailles pour eux. 
 
+<<<<<<< HEAD
 Elle se rapproche de lui, menaçante. 
+=======
+Elle se rapproche du lui, menaçante. 
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 PRINCE PETIT : Mais je ne travaille pour personne. 
 
@@ -966,11 +1073,15 @@ La fille jeune réfléchit à ce qu'il vient de dire.
 
 FILLE JEUNE : N'importe quoi. 
 
+<<<<<<< HEAD
 PRINCE PETIT : Si, tu n'en as jamais entendu parler car son existence n'est pas très connue. 
 
 FILLE JEUNE : Je connais tout de ces jardins, et tu racontes n'importe quoi. 
 
 PRINCE PETIT : Mais pourquoi tu ne crois rien de ce que je dis ?
+=======
+PRINCE PETIT : Mais pourquoi tu ne crois rien à ce que je dis ?
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 FILLE JEUNE : Je n'y peux rien, tu dis des bêtises. 
 
@@ -990,7 +1101,11 @@ FILLE JEUNE : Reviens là !
 
 
 
+<<<<<<< HEAD
 Scène 6 : Les Thales
+=======
+Scène 6
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 GENERAL CHAINE : Mais en quoi une simple jeune fille compromettrait nos plans ?
 
@@ -1036,7 +1151,11 @@ GENERAL CHAINE : Je me fiche bien que ce faible roi soit alerté de notre arriv�
 
 SOLDAT LOYAL : Mais les troupes venant de l'Ouest ?
 
+<<<<<<< HEAD
 GENERAL CHAINE : C'est du bluff. Personne ne viendra les aider. Cela fait bien longtemps que tout le monde les a abandonnés. Personne ne veut retourner neuf ans en arrière. Prendre le château sera un jeu d'enfant, c'est pour ça que je priorise la capture de la fleur. Alors vous devez retrouver cette fille. Elle semble connaître les jardins comme sa poche. Nous avons besoin d'elle pour trouver cette fleur. 
+=======
+GENERAL CHAINE : C'est du bluff. Personne ne viendra les aider. Cela fait bien longtemps que tout le monde les a abandonnés. Personne ne veut retourner neuf ans en arrière. Prendre le château sera un jeu d'enfant, c'est pour ça que je priorise la capture de la fleur. Alors vous devez retrouver cette fille. Elle semble connaître les jardins comme sa poche. Nous avons besoin d'elle pour trouver la fleur. 
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 SOLDAT LOYAL : Mais elle ne nous dira jamais où elle se trouve. 
 
@@ -1056,7 +1175,11 @@ Noir.
 
 
 
+<<<<<<< HEAD
 Scène 7 :  La capture
+=======
+Scène 7
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 Le prince petit et la fille jeune sont capturés par les Thales. Le soldat loyal tient le premier tandis que le général Chaine maîtrise la seconde. La fille jeune ne se débat pas. 
 
@@ -1100,7 +1223,11 @@ Le soldat loyal verrouille la porte de la cage et s'en va avec le général Chai
 
 
 
+<<<<<<< HEAD
 Scène 8 : Les prisonniers
+=======
+Scène 8
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 PRINCE PETIT : C'est de ta faute si on est là.
 
@@ -1134,11 +1261,19 @@ PRINCE PETIT : C'est toi qui t'en occupe ? Mais tu es une enfant, ça ne devrait
 
 Le voyageur inconnu s'approche d'eux. 
 
+<<<<<<< HEAD
 VOYAGEUR INCONNU : Il y avait un jardinier avant. Il s'occupait seul de tous les jardins, il était fabuleux. Mais la guerre l'a emporté il y a neuf ans. Quand j'ai quitté le royaume à cette époque, les jardins étaient détruits. Des incendies avaient ravagé les arbres et les buissons. Je ne m'attendais pas à retrouver de si beaux jardins en revenant ici. Cela a dû nécessiter le travail de beaucoup de jardiniers. 
 
 PRINCE PETIT : Non, personne n'a été envoyé dans les jardins pour les reconstruire. Je n'ai pas beaucoup de souvenirs de la guerre mais je me rappelle très bien voir les jardins se reconstruire alors que l'accès en était interdit. Personne ne comprenait, à la cour. 
 
 VOYAGEUR INCONNU : L'accès était interdit ? Mais ils étaient trop abîmés, les arbres ne repoussent pas comme ça, pas tous seuls.
+=======
+VOYAGEUR INCONNU :Il y avait un jardinier avant. Il s'occupait seul de tous les jardins, il était fabuleux. Mais la guerre l'a emporté il y a neuf ans. Quand j'ai quitté le royaume à cette époque, les jardins étaient détruits. Des incendies avaient ravagé les arbres et les buissons. Je ne m'attendais pas à retrouver de si beaux jardins en revenant ici. Cela a dû nécessiter le travail de beaucoup de jardiniers. 
+
+PRINCE PETIT : Non, personne n'a été envoyé dans les jardins pour les reconstruire. Je n'ai pas beaucoup de souvenirs de la guerre mais je me rappelle très bien voir les jardins se reconstruire alors que l'accès en était interdit. Personne ne comprenait, à la cour. 
+
+VOYAGEUR INCONNU :L'accès était interdit ? Mais ils étaient trop abîmés, les arbres ne repoussent pas comme ça, pas tous seuls.
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 PRINCE PETIT : C'était peut-être des plantes magiques. 
 
@@ -1158,7 +1293,11 @@ Le prince petit se lève et inspecte la cage. Il la secoue pour voir la solidit�
 
 La fille jeune jette une clé sur le sol. 
 
+<<<<<<< HEAD
 VOYAGEUR INCONNU : C'est la clé pour sortir ?
+=======
+VOYAGEUR INCONNU :C'est la clé pour sortir ?
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 FILLE JEUNE : Je ne sais pas, je l'ai prise dans la poche du soldat quand il me tenait. 
 
@@ -1166,11 +1305,19 @@ Le voyageur inconnu vérifie qu'il n'y a personne aux alentours, ramasse la clé
 
 PRINCE PETIT : On peut sortir ! Vite !
 
+<<<<<<< HEAD
 VOYAGEUR INCONNU : Non, attends. Pas maintenant, pas en plein jour.
 
 
 
 Scène 9 : Le plan
+=======
+VOYAGEUR INCONNU :Non, attends. Pas maintenant, pas en plein jour.
+
+
+
+Scène 9
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 La nuit est tombée. 
 
@@ -1224,7 +1371,11 @@ GENERAL CHAINE : À partir de maintenant tu les surveilleras. Tu peux te faire r
 
 
 
+<<<<<<< HEAD
 Scène 10 : Rêver
+=======
+Scène 10
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 Le prince petit et la fille jeune ne parlent pas fort pour ne pas être entendus du soldat qui garde la cage.
 
@@ -1274,7 +1425,11 @@ Fondu noir.
 
 
 
+<<<<<<< HEAD
 Scène 11 : Le mouton
+=======
+Scène 11
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 Le prince petit est seul dans la cage. Le soldat loyal est toujours devant, en train de la garder.
 
@@ -1332,7 +1487,11 @@ Le soldat loyal ne répond pas.
 
 
 
+<<<<<<< HEAD
 Scène 12 : Le retour de Renart
+=======
+Scène 12
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 Renart entre, habillé comme un soldat, mais avec des vêtements qui ne sont pas à sa taille.
 
@@ -1370,7 +1529,11 @@ Renart reprend le poste de garde.
 
 
 
+<<<<<<< HEAD
 Scène 13 : L'évasion
+=======
+Scène 13
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 La fille jeune revient, accompagnée par le soldat loyal. Il la remet dans la cage.
 
@@ -1418,13 +1581,21 @@ Noir.
 
 
 
+<<<<<<< HEAD
 Scène 14 : Le prénom
+=======
+Scène 14
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 PRINCE PETIT : Il faut rentrer au château pour prévenir les soldats de ce qui se passe ici.
 
 FILLE JEUNE : Non, il faut défendre les jardins, il faut empêcher cette armée de les détruire.
 
+<<<<<<< HEAD
 PRINCE PETIT : Je suis d'accord, mais je ne pense pas qu'on arrivera à faire grand chose à trois, surtout sans ton épée.
+=======
+PRINCE PETIT : Je suis d'accord, mais je ne pense pas qu'on n'arrivera à faire grand chose à trois, surtout sans ton épée.
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 FILLE JEUNE : Tiens, tu es devenu réaliste, tout à coup ?
 
@@ -1480,9 +1651,15 @@ Noir.
 
 
 
+<<<<<<< HEAD
 Acte III : La fin
 
 Scène 1 : L'annonce
+=======
+Acte III
+
+Scène 1
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 Le prince petit est avec le chevalier Nathan, dans la cour du château.
 
@@ -1542,7 +1719,11 @@ PRINCE PETIT : Et moi, je vais voir Papa.
 
 
 
+<<<<<<< HEAD
 Scène 2 : Les défauts
+=======
+Scène 2
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 Le prince petit arrive au chevet de son père.
 
@@ -1624,13 +1805,21 @@ Noir.
 
 
 
+<<<<<<< HEAD
 Scène 3 : Le prisonnier
+=======
+Scène 3
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 Le général Chaine a été capturé par les chevaliers du roi. Les chevaliers François et Marc le tiennent. La reine autoritaire et le chevalier Nathan sont devant lui.
 
 CHEVALIER NATHAN : Alors ? On a cru que les royaumes de l'Ouest venaient en renfort ?
 
+<<<<<<< HEAD
 GENERAL CHAINE : Non, je n'ai jamais cru à vos bêtises, je sais bien que tout le monde vous a abandonnés.
+=======
+GENERAL CHAINE : Non, je n'ai jamais cru à vos bêtises, je sais bien que tout le monde vous a abandonné.
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 CHEVALIER FRANCOIS : Alors pourquoi avoir séparé vos troupes ?
 
@@ -1720,7 +1909,11 @@ Le chevalier Nathan salue la reine autoritaire et s'en va.
 
 
 
+<<<<<<< HEAD
 Scène 4 : Les variétés de rose
+=======
+Scène 4
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 Renart est en train de jongler. Le prince petit entre.
 
@@ -1804,7 +1997,11 @@ RENART : Tu sais où me trouver.
 
 
 
+<<<<<<< HEAD
 Scène 5 : La mort du roi
+=======
+Scène 5
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca
 
 Le prince petit est au chevet du roi malade. Il lui tient la main. Le roi malade ne parle plus.
 
@@ -1816,6 +2013,7 @@ PRINCE PETIT : Bonne nuit Papa.
 
 Fondu noir.
 
+<<<<<<< HEAD
 Fin.
 
 
@@ -1937,3 +2135,6 @@ RENART : Il est caché.
 GENERAL CHAINE : Toi, tu ne vas pas t'en tirer comme ça. 
 
 Le général Chaine dégaine son épée et la place contre la gorge de Renart. Ce dernier se fige, terrifié.
+=======
+Fin.
+>>>>>>> 7f17ba8b7a7b470dd1ee0c8100f90dee0cb8ecca

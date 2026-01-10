@@ -102,10 +102,10 @@ def rn(characters: List[type.Character], people_name: str) -> Tuple[str, str]:
     
     list_characters = utils.extract_list_names(characters, "Name")
     
-    print(f"\n  >>>>> Éditeur de renommage de {people_name}s <<<<<")
+    print(f"\n  >>>>> Éditeur de renommage de {people_name} <<<<<")
     
     print_list(list_characters, f"{people_name}s")
-    old_name = get_one(f"{people_name.capitalize()}s à renommer", list_characters)
+    old_name = get_one(f"{people_name.capitalize()} à renommer", list_characters)
     
     print(f"\n  Nouveau nom pour {old_name}")
     new_name = input("   >>> ").strip()
