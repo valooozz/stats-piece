@@ -32,7 +32,7 @@ def change_scene(old_act: str, old_scene: str, line: str) -> Tuple[bool, SceneNa
         new_scene = line[6:]
         change = True
         
-    last_scene_name = f"{old_act}:{old_scene}"
+    last_scene_name = f"{old_act.replace(':', '-')}:{old_scene.replace(':', '-')}"
 
     return (change, new_act, new_scene, last_scene_name)
 
@@ -182,6 +182,8 @@ def read_file(file_name: str) -> Tuple[Dict[str, List[CharacterName]], Dict[Char
                     nb_lines_in_scene = 0
                     nb_words_in_scene = 0
                     nb_didascalies_in_scene = 0
+                
+                if scene_has_changed:
                     continue
                 
                 character, nb_words_in_line = get_stats_line(line)
